@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: #fcfbfa; /* Soft Krem/Fildişi Arka Plan */
-            color: #4a5568;
+            background-color: #f8f9fa; /* Şık Gümüş Beyazı Arka Plan */
+            color: #334155;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -25,7 +25,7 @@
             overflow-x: hidden;
         }
 
-        /* SOFT UÇUŞAN KALPLER SİSTEMİ */
+        /* ASİL UÇUŞAN KALPLER SİSTEMİ */
         #heart-container {
             position: fixed;
             top: 0;
@@ -38,16 +38,16 @@
 
         .heart {
             position: absolute;
-            color: #bfa89e; /* Göze batmayan soft pastel ton */
-            opacity: 0.4;
+            color: #94a3b8; /* Göze batmayan modern gümüş-mavi kalpler */
+            opacity: 0.5;
             animation: floatUp 7s linear infinite;
             bottom: -50px;
         }
 
         @keyframes floatUp {
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.5; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
             100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
@@ -55,10 +55,10 @@
             max-width: 800px;
             width: 100%;
             background: #ffffff;
-            border: 1px solid #e2e8f0;
+            border: 2px solid #e2e8f0;
             border-radius: 24px;
             padding: 35px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 10px 30px rgba(30, 41, 59, 0.04);
             margin-top: 20px;
             position: relative;
             z-index: 2;
@@ -71,13 +71,13 @@
 
         .header h1 {
             font-size: 2.2rem;
-            color: #718096; /* Modern Nötr Gri-Mavi */
+            color: #0f172a; /* Derin Gece Mavisi Siyahı */
         }
 
         .header p {
             font-size: 1.05rem;
             margin-top: 12px;
-            color: #a0aec0;
+            color: #64748b;
             font-style: italic;
         }
 
@@ -93,7 +93,7 @@
             border: 1px solid #e2e8f0;
             display: inline-block;
             transform: rotate(-1.5deg);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.03);
             border-radius: 6px;
         }
 
@@ -108,29 +108,29 @@
             margin-top: 15px;
             font-weight: bold;
             font-size: 1.05rem;
-            color: #87a99c; /* Soft Adaçayı Yeşili */
+            color: #3b82f6; /* Canlı Erkeksi Mavi */
         }
 
         /* Zaman Sayacı */
         .timer-box {
-            background: #8ca1b3; /* Soft Kot Mavisi */
+            background: #0f172a; /* Şık Gece Mavisi */
             color: white;
             padding: 18px;
             border-radius: 16px;
             text-align: center;
             margin-bottom: 25px;
-            box-shadow: 0 4px 12px rgba(140, 161, 179, 0.15);
+            box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
         }
 
         /* Konya - Mersin Mesafe Sayacı */
         .distance-box {
-            background: #d9b48f; /* Soft Pastel Karamel/Turuncu */
+            background: #1e293b; /* Derin Mat Lacivert */
             color: white;
             padding: 18px;
             border-radius: 16px;
             text-align: center;
             margin-bottom: 35px;
-            box-shadow: 0 4px 12px rgba(217, 180, 143, 0.15);
+            box-shadow: 0 4px 15px rgba(30, 41, 59, 0.2);
         }
 
         /* Cem Adrian Şarkı Kutusu */
@@ -138,7 +138,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            background: #f7f9fa;
+            background: #f8fafc;
             padding: 15px;
             border: 1px solid #e2e8f0;
             border-radius: 16px;
@@ -148,7 +148,7 @@
         .cover-art {
             width: 75px;
             height: 75px;
-            background: #8ca1b3;
+            background: #3b82f6;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -159,12 +159,12 @@
 
         .song-details h4 {
             font-size: 1.1rem;
-            color: #4a5568;
+            color: #1e293b;
         }
 
         .song-details p {
             font-size: 0.9rem;
-            color: #87a99c;
+            color: #64748b;
             font-weight: bold;
         }
 
@@ -184,7 +184,7 @@
 
         .confession-card h4 {
             font-size: 1.05rem;
-            color: #4a5568;
+            color: #1e293b;
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
@@ -192,7 +192,7 @@
         }
 
         .reveal-btn {
-            background: #87a99c; /* Soft Adaçayı Yeşili Buton */
+            background: #3b82f6; /* Modern Mavi Buton */
             color: white;
             border: none;
             padding: 8px 18px;
@@ -207,7 +207,7 @@
         }
 
         .reveal-btn:hover {
-            background: #76978a;
+            background: #2563eb;
             transform: translateY(-1px);
         }
 
@@ -225,17 +225,17 @@
 
         .answer-panel p {
             font-size: 1rem;
-            color: #4a5568;
+            color: #0f172a;
             font-weight: bold;
-            background: #f7f9fa;
+            background: #f8fafc;
             padding: 12px 15px;
             border-radius: 10px;
-            border-left: 4px solid #87a99c;
+            border-left: 4px solid #3b82f6;
         }
 
         /* Mesafe Yok Etme Simülatörü */
         .simulator-section {
-            background: #f7f9fa;
+            background: #f8fafc;
             border: 1px solid #e2e8f0;
             padding: 25px;
             border-radius: 16px;
@@ -253,16 +253,16 @@
 
         .sim-btn {
             background: #ffffff;
-            color: #718096;
+            color: #475569;
             padding: 10px 18px;
-            border: 1px solid #cbd5e0;
+            border: 1px solid #cbd5e1;
             border-radius: 20px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.2s;
         }
 
-        .sim-btn:hover { background: #8ca1b3; color: white; border-color: #8ca1b3; }
+        .sim-btn:hover { background: #1e293b; color: white; border-color: #1e293b; }
 
         /* Spotify Bölümü */
         .spotify-section {
@@ -295,11 +295,10 @@
             overflow: hidden;
             cursor: pointer;
             background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
         }
 
         .movie-cat-header {
-            background: #8ca1b3; /* Soft Mavi Başlık */
+            background: #1e293b; /* Çok Şık Lacivert Film Başlıkları */
             color: white;
             padding: 15px;
             font-weight: bold;
@@ -315,15 +314,15 @@
         }
 
         .movie-cat.open .movie-cat-content { max-height: 1000px; }
-        .movie-item { padding: 15px; border-bottom: 1px dashed #edf2f7; }
+        .movie-item { padding: 15px; border-bottom: 1px solid #f1f5f9; }
         .movie-item:last-child { border-bottom: none; }
-        .movie-item h4 { color: #4a5568; font-size: 1.05rem; margin-bottom: 5px; font-weight: bold; }
-        .movie-item p { font-size: 0.9rem; color: #718096; line-height: 1.4; }
+        .movie-item h4 { color: #3b82f6; font-size: 1.05rem; margin-bottom: 5px; font-weight: bold; }
+        .movie-item p { font-size: 0.9rem; color: #475569; line-height: 1.4; }
 
         /* Affetme Butonu */
         .action-btn {
             width: 100%;
-            background: #87a99c; /* Soft Yeşil Onay Butonu */
+            background: #10b981; /* Premium Zümrüt Yeşili Onay Butonu */
             color: white;
             padding: 16px;
             border: none;
@@ -331,11 +330,11 @@
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(135, 169, 156, 0.2);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
             transition: all 0.2s;
         }
 
-        .action-btn:hover { background: #76978a; transform: translateY(-1px); }
+        .action-btn:hover { background: #059669; transform: translateY(-1px); }
 
     </style>
 </head>
@@ -365,7 +364,7 @@
         <div class="distance-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">📍 Özlem Mesafe Sayacı 📍</p>
             <div style="font-size: 1.4rem; font-weight: bold; margin-top: 5px;">Konya ↔️ Mersin: 348 KM</div>
-            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #fffdf5;">*Otobüsle 5 saat, seni চিন্তা করতে গিয়ে পলক ফেলার আগেই সবচেয়ে কাছে চলে আসি sevgilim.*</p>
+            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #cbd5e1;">*Otobüsle 5 saat, seni düşünürken saliseler kadar yakın sevgilim.*</p>
         </div>
 
         <div class="music-reminder">
@@ -376,14 +375,14 @@
             </div>
         </div>
 
-        <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #718096;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
+        <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #1e293b;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
         <div class="confession-section">
             
             <div class="confession-card">
                 <h4><i class="fas fa-question-circle"></i> Yan yana geldiğimizde ilk yapmak istediğim, sabırsızlıkla beklediğim şey ne?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
                 <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #87a99c; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <span style="font-size: 0.8rem; color: #3b82f6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
                     <p>Sana sımsıkı sarılmak .</p>
                 </div>
             </div>
@@ -392,7 +391,7 @@
                 <h4><i class="fas fa-question-circle"></i> Hayatımda olduğun için en çok hangi anlarda "İyi ki varsın" diyorum?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
                 <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #87a99c; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <span style="font-size: 0.8rem; color: #3b82f6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
                     <p>Beni koruyup kollandığın, merak ettiğin anlarda diyorum.</p>
                 </div>
             </div>
@@ -401,7 +400,7 @@
                 <h4><i class="fas fa-question-circle"></i> Beni en çok mutlu eden, yüzümü en çok güldüren özelliğin veya cümlen hangisi?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
                 <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #87a99c; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <span style="font-size: 0.8rem; color: #3b82f6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
                     <p>Güzelim diyorsun ya bazen ona çok mutlu oluyorum.</p>
                 </div>
             </div>
@@ -410,7 +409,7 @@
                 <h4><i class="fas fa-question-circle"></i> Bu siteyi senin için hazırlarken içimden tam olarak ne geçiyordu?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
                 <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #87a99c; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <span style="font-size: 0.8rem; color: #3b82f6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
                     <p>mutlu olursun belki yüzünde hafif bir gülümseme olur diye bu siteyi hazırladım. Hem de bize küçük bir anı kalır.</p>
                 </div>
             </div>
@@ -418,8 +417,8 @@
         </div>
 
         <div class="simulator-section">
-            <h3 style="font-size: 1.2rem; color: #718096;">🚀 348 KM'yi Yok Etme Simülatörü</h3>
-            <p style="font-size: 0.85rem; margin-top: 5px; color: #718096;">Aradaki mesafeyi sıfırlamak için bir buton seç yakışıklım:</p>
+            <h3 style="font-size: 1.2rem; color: #1e293b;">🚀 348 KM'yi Yok Etme Simülatörü</h3>
+            <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Aradaki mesafeyi sıfırlamak için bir buton seç yakışıklım:</p>
             <div class="sim-buttons">
                 <button class="sim-btn" onclick="simuleEt(1)">Konya Metrosunu Uzat 🚇</button>
                 <button class="sim-btn" onclick="simuleEt(2)">Işınlanma Cihazını Çalıştır ⚡</button>
@@ -436,7 +435,7 @@
             </div>
         </div>
 
-        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #718096;"><i class="fas fa-popcorn"></i> Beraber İzleyeceğimiz Filmler</h3>
+        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #1e293b;"><i class="fas fa-popcorn"></i> Beraber İzleyeceğimiz Filmler</h3>
 
         <div class="movie-cat" onclick="toggle(this)">
             <div class="movie-cat-header"><span>💥 Aksiyon & Soygun (Adrenalin Tavan)</span> <i class="fas fa-chevron-down"></i></div>
@@ -457,7 +456,7 @@
         </div>
 
         <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header" style="background:#90a4ae;"><span>🔍 Gerilim & Gizem (Nefes Kesenler)</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-header" style="background:#334155;"><span>🔍 Gerilim & Gizem (Nefes Kesenler)</span> <i class="fas fa-chevron-down"></i></div>
             <div class="movie-cat-content">
                 <div class="movie-item">
                     <h4>Ölümcül Labirent (Escape Room)</h4>
@@ -475,7 +474,7 @@
         </div>
 
         <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header" style="background:#bfa89e;"><span>🎭 Komedi & Planlar (Gülme Garantili)</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-header" style="background:#475569;"><span>🎭 Komedi & Planlar (Gülme Garantili)</span> <i class="fas fa-chevron-down"></i></div>
             <div class="movie-cat-content">
                 <div class="movie-item">
                     <h4>Çılgın Aptal Aşk (Crazy, Stupid, Love)</h4>
@@ -498,7 +497,7 @@
 
         <button class="action-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
 
-        <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #cbd5e0;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
+        <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #94a3b8;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
 
     </div>
 
@@ -510,10 +509,10 @@
             panel.classList.toggle('open');
             if (panel.classList.contains('open')) {
                 btn.innerHTML = '<i class="fas fa-eye-slash"></i> Cevabı Kapat';
-                btn.style.background = '#8ca1b3';
+                btn.style.background = '#475569';
             } else {
                 btn.innerHTML = '<i class="fas fa-eye"></i> Cevabı Gör';
-                btn.style.background = '#87a99c';
+                btn.style.background = '#3b82f6';
             }
         }
 
