@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚠️ Muhammet İçin Acil Durum Paneli ⚠️</title>
+    <title>Büşra ❤️ Muhammet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,133 +14,160 @@
         }
 
         body {
-            background-color: #ffefd5; /* Sıcak şeftali/krem tonu */
-            color: #2f3542;
+            background-color: #fdf6e2;
+            color: #333;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        .notebook-container {
+        .main-card {
             max-width: 800px;
             width: 100%;
             background: #ffffff;
-            border: 4px solid #2f3542;
-            border-radius: 20px;
+            border: 4px solid #333;
+            border-radius: 25px;
             padding: 30px;
-            box-shadow: 10px 10px 0px #7bed9f; /* Barışma yeşili gölge */
+            box-shadow: 10px 10px 0px #ff7f50;
             margin-top: 20px;
         }
 
-        .title-box {
+        .header {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .title-box h1 {
-            background: #ff6b81;
-            color: white;
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 50px;
-            border: 3px solid #2f3542;
-            font-size: 1.8rem;
+        .header h1 {
+            font-size: 2.2rem;
+            color: #ff4757;
         }
 
-        .title-box p {
-            margin-top: 10px;
-            font-size: 1rem;
-            font-style: italic;
-            color: #57606f;
-        }
-
-        /* Fotoğraf Alanı - Polaroid Tarzı */
-        .photo-section {
+        /* Fotoğraf Alanı */
+        .photo-area {
             text-align: center;
             margin-bottom: 35px;
         }
 
-        .polaroid-frame {
+        .polaroid {
             background: #fff;
-            padding: 15px 15px 50px 15px;
-            border: 3px solid #2f3542;
+            padding: 15px 15px 60px 15px;
+            border: 3px solid #333;
             display: inline-block;
-            transform: rotate(2deg);
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.08);
-            position: relative;
-            max-width: 100%;
+            transform: rotate(-2deg);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
         }
 
-        .polaroid-frame img {
+        .polaroid img {
+            width: 350px;
             max-width: 100%;
-            width: 380px;
             display: block;
-            border: 2px solid #eee;
+            border: 1px solid #ddd;
         }
 
-        .polaroid-frame .caption {
-            position: absolute;
-            bottom: 12px;
-            left: 0;
-            width: 100%;
-            font-size: 1.1rem;
-            color: #2f3542;
+        .polaroid-text {
+            margin-top: 15px;
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
-        /* İlişki Sayacı */
+        /* İlişki Zaman Sayacı */
         .timer-box {
             background: #70a1ff;
             color: white;
-            border: 3px solid #2f3542;
+            border: 3px solid #333;
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            box-shadow: 5px 5px 0px #333;
+        }
+
+        /* Konya - Mersin Mesafe Sayacı */
+        .distance-box {
+            background: #ffa502;
+            color: white;
+            border: 3px solid #333;
+            padding: 15px;
+            border-radius: 15px;
             text-align: center;
             margin-bottom: 35px;
-            box-shadow: 4px 4px 0px #2f3542;
+            box-shadow: 5px 5px 0px #333;
         }
 
-        .timer-box h2 {
-            font-size: 1rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
+        /* Cem Adrian Şarkı Hatırlatıcı */
+        .music-reminder {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #f1f2f6;
+            padding: 15px;
+            border: 3px solid #333;
+            border-radius: 15px;
+            margin-bottom: 35px;
         }
 
-        .timer-display {
-            font-size: 1.4rem;
+        .cover-art {
+            width: 80px;
+            height: 80px;
+            background: #333;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        .song-details h4 {
+            font-size: 1.1rem;
+            color: #2f3542;
+        }
+
+        .song-details p {
+            font-size: 0.9rem;
+            color: #ff4757;
             font-weight: bold;
         }
 
-        /* Cem Adrian Köşesi */
-        .cem-adrian {
-            background: #f1f2f6;
+        /* Desibel Ölçer */
+        .funny-meter-section {
+            background: #fff7e6;
+            border: 3px solid #333;
             padding: 20px;
-            border-radius: 10px;
-            border-left: 8px solid #ff6b81;
-            border-top: 2px solid #2f3542;
-            border-right: 2px solid #2f3542;
-            border-bottom: 2px solid #2f3542;
+            border-radius: 15px;
             margin-bottom: 35px;
-            font-style: italic;
         }
 
+        .meter-container {
+            margin-top: 15px;
+        }
+
+        .meter-bar {
+            width: 100%;
+            height: 20px;
+            background: #dfe4ea;
+            border: 2px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .fill-busra { width: 95%; height: 100%; background: #ff4757; }
+        .fill-muhammet { width: 20%; height: 100%; background: #2ed573; }
+
         /* Spotify Bölümü */
-        .spotify-area {
+        .spotify-section {
             background: #1DB954;
             color: white;
-            border: 3px solid #2f3542;
+            border: 3px solid #333;
             padding: 20px;
-            border-radius: 12px;
+            border-radius: 15px;
             display: flex;
             align-items: center;
             gap: 20px;
             margin-bottom: 35px;
-            box-shadow: 4px 4px 0px #2f3542;
-        }
-
-        .spotify-area i {
-            font-size: 3rem;
+            box-shadow: 5px 5px 0px #333;
         }
 
         .spotify-btn {
@@ -150,37 +177,25 @@
             border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.9rem;
-            border: 2px solid #2f3542;
-            display: inline-block;
-            margin-top: 5px;
+            border: 2px solid #333;
         }
 
-        /* Film Akordeon Yapısı */
-        .section-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
+        /* Film Kategorileri */
         .movie-cat {
-            border: 3px solid #2f3542;
+            border: 3px solid #333;
             border-radius: 12px;
             margin-bottom: 15px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 4px 4px 0px #2f3542;
         }
 
         .movie-cat-header {
             background: #ff4757;
             color: white;
-            padding: 15px;
+            padding: 12px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 1.05rem;
         }
 
         .movie-cat-content {
@@ -190,192 +205,151 @@
             transition: max-height 0.3s ease-out;
         }
 
-        .movie-cat.open .movie-cat-content {
-            max-height: 1000px;
-        }
+        .movie-cat.open .movie-cat-content { max-height: 1000px; }
 
-        .movie-item {
-            padding: 15px;
-            border-bottom: 2px dashed #eee;
-        }
+        .movie-item { padding: 12px; border-bottom: 1px dashed #eee; }
+        .movie-item h4 { color: #ff4757; font-size: 1rem; }
+        .movie-item p { font-size: 0.85rem; color: #666; }
 
-        .movie-item:last-child {
-            border-bottom: none;
-        }
-
-        .movie-item h4 {
-            color: #ff6b81;
-            margin-bottom: 5px;
-            font-size: 1.1rem;
-        }
-
-        .movie-item p {
-            font-size: 0.9rem;
-            color: #57606f;
-        }
-
-        /* Affet Butonu */
-        .bribe-zone {
-            text-align: center;
-            margin-top: 35px;
-        }
-
-        .bribe-btn {
+        /* Affetme Butonu */
+        .action-btn {
+            width: 100%;
             background: #2ed573;
             color: white;
-            padding: 12px 30px;
-            border: 3px solid #2f3542;
-            border-radius: 10px;
-            font-size: 1.1rem;
+            padding: 15px;
+            border: 3px solid #333;
+            border-radius: 12px;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 4px 4px 0px #2f3542;
-            transition: all 0.2s;
+            box-shadow: 5px 5px 0px #333;
         }
 
-        .bribe-btn:active {
-            transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px #2f3542;
-        }
+        .action-btn:active { transform: translate(3px, 3px); box-shadow: 2px 2px 0px #333; }
+
     </style>
 </head>
 <body>
 
-    <div class="notebook-container">
+    <div class="main-card">
         
-        <div class="title-box">
-            <h1>Uzak Mesafe Hayatta Kalma Paneli</h1>
-            <p>Sistem Durumu: Ayrılık Kilometreleri Algılandı. Yumuşatma Modu Aktif...</p>
+        <div class="header">
+            <h1>Büşra ❤️ Muhammet</h1>
+            <p>Yollar Biter, Bu İnat Bitmez Diye Korktum Ama Siteni Yaptım Geldin!</p>
         </div>
 
-        <div class="photo-section">
-            <div class="polaroid-frame">
-                <img src="BURAYA_HIZLI_RESIM_DIREKT_LINKINI_YAPISTIR" alt="Büşra & Muhammet">
-                <div class="caption">Shop Seviyesi: %100 | Özlem: ∞</div>
+        <div class="photo-area">
+            <div class="polaroid">
+                <img src="Gemini_Generated_Image_.png" alt="Yan Yana İlk Fotoğrafımız (Shop Sağolsun)">
+                <div class="polaroid-text">Shop Seviyesi: %100 | Aşk: ∞</div>
             </div>
-            <p style="margin-top: 15px; font-size: 0.85rem; color: #747d8c;">*Mesafeleri shop programıyla sıfırladığımız o an sevgilim...*</p>
         </div>
 
+        <!-- Zaman Sayacı -->
         <div class="timer-box">
-            <h2>Bu İnatçı Çocukla Geçen Macera Süresi</h2>
-            <div class="timer-display" id="main-timer">Yükleniyor...</div>
+            <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Aşkımızın Kronometresi</p>
+            <div id="counter" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px;">Hesaplanıyor...</div>
         </div>
 
-        <div class="cem-adrian">
-            <p>"Ben seni çok sevdim... Belki de bu yüzden bu kadar çok üzüldüm."</p>
-            <strong style="display:block; text-align:right; margin-top:8px; color:#ff6b81;">— Cem Adrian (Muhammet'in En Sevdiği Sitem Şarkısı)</strong>
+        <!-- Konya - Mersin Mesafe Sayacı -->
+        <div class="distance-box">
+            <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">📍 Özlem Mesafe Sayacı 📍</p>
+            <div style="font-size: 1.4rem; font-weight: bold; margin-top: 5px;">Konya ↔️ Mersin: 348 KM</div>
+            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #fffdf5;">*Otobüsle 5 saat, seni düşünürken saliseler kadar yakın sevgilim.*</p>
         </div>
 
-        <div class="spotify-area">
-            <i class="fab fa-spotify"></i>
-            <div style="flex: 1;">
-                <h4 style="font-size: 1.1rem;">Sinir Yatıştırıcı Çalma Listesi</h4>
-                <p style="font-size: 0.85rem; color: #f1f2f6;">Kavga ederken dinleyip tripleri bırakman için içine en tatlı şarkıları yükledim sevgilim.</p>
-                <a href="https://open.spotify.com/playlist/2TOubZj0XDh3kSHOl0434A?si=tOVdwJTTR3unVbKmMiNEwg&pi=MiAcXNNQQFSo9" target="_blank" class="spotify-btn">Müzikle Barış 🎧</a>
+        <div class="music-reminder">
+            <div class="cover-art"><i class="fas fa-compact-disc fa-spin"></i></div>
+            <div class="song-details">
+                <h4>Ben Seni Çok Sevdim</h4>
+                <p>Cem Adrian • Muhammet'in Hediyesi</p>
             </div>
         </div>
 
-        <h3 class="section-title"><i class="fas fa-popcorn"></i> Barışınca İzlenecek Filmler (İtiraz Yok)</h3>
+        <!-- Görüntülü Konuşma Desibel Analizleri -->
+        <div class="funny-meter-section">
+            <h3 style="font-size: 1.2rem; text-align: center; color: #d35400;">🔊 Görüntülü Konuşma Desibel Analizleri</h3>
+            <div class="meter-container">
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: bold; margin-bottom: 5px;">
+                    <span>Büşra heyecanla bir şeyler anlatırken:</span>
+                    <span style="color:#ff4757;">120 dB (Hoparlör Patladı)</span>
+                </div>
+                <div class="meter-bar"><div class="fill-busra"></div></div>
 
-        <div class="movie-cat" onclick="toggleCat(this)">
-            <div class="movie-cat-header">
-                <span>❤️ Romantikler (Sarılma Garantili)</span>
-                <i class="fas fa-chevron-down"></i>
+                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: bold; margin-bottom: 5px;">
+                    <span>Muhammet haksız olduğunu anlayıp trip atarken:</span>
+                    <span style="color:#2ed573;">10 dB (Ses Gelmiyor)</span>
+                </div>
+                <div class="meter-bar"><div class="fill-muhammet"></div></div>
             </div>
+        </div>
+
+        <div class="spotify-section">
+            <i class="fab fa-spotify" style="font-size: 3rem;"></i>
+            <div>
+                <h4>Playlist'imiz Hazır!</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 10px;">Aç ve içindeki şarkıları dinleyerek beni affet sevgilim.</p>
+                <a href="https://open.spotify.com/playlist/2TOubZj0XDh3kSHOl0434A?si=tOVdwJTTR3unVbKmMiNEwg&pi=MiAcXNNQQFSo9" target="_blank" class="spotify-btn">Dinle 🎧</a>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 15px; font-size: 1.2rem;"><i class="fas fa-popcorn"></i> Barışınca İzleyeceğimiz Filmler</h3>
+
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header"><span>❤️ Romantikler</span> <i class="fas fa-chevron-down"></i></div>
             <div class="movie-cat-content">
-                <div class="movie-item">
-                    <h4>Zamanda Aşk (About Time)</h4>
-                    <p>Zamanda geri gitme yeteneğim olsa, kavga ettiğimiz o saniyeye geri döner ve ağzımı sıkıca kapatırdım sevgilim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>The Notebook</h4>
-                    <p>Yıllar ve mesafeler bu iki deliyi ayıramadıysa, bizimki sadece ufak bir reklam arası sevgilim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Senden Önce Ben</h4>
-                    <p>Birbirimizin hayatını tamamen değiştirdiğimizi hatırlatacak, izlerken beni ne kadar çok sevdiğini anlayacağın o film.</p>
-                </div>
+                <div class="movie-item"><h4>Zamanda Aşk</h4><p>Zaman yolculuğu yapıp kavga ettiğimiz saniyeye dönmek istiyorum.</p></div>
+                <div class="movie-item"><h4>The Notebook</h4><p>Mesafeler bu iki deliyi ayıramadıysa, bizi hiç ayıramaz.</p></div>
+                <div class="movie-item"><h4>Senden Önce Ben</h4><p>Hayatımı nasıl güzelleştirdiğini hatırlatacak o film.</p></div>
             </div>
         </div>
 
-        <div class="movie-cat" onclick="toggleCat(this)" style="border-color: #48dbfb;">
-            <div class="movie-cat-header" style="background: #48dbfb;">
-                <span>💥 Aksiyonlar (Trip Unutturan)</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header" style="background:#4bc0c0;"><span>💥 Aksiyonlar</span> <i class="fas fa-chevron-down"></i></div>
             <div class="movie-cat-content">
-                <div class="movie-item">
-                    <h4>Red Notice</h4>
-                    <p>Eğlenceli ve bol aksiyonlu! İzlerken bana olan sinirini tamamen unutup kahkahalar atacaksın eminim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Extraction</h4>
-                    <p>Aksiyonun hiç durmadığı sahnelerle aramızdaki tüm gerginliği tek seferde patlatıp gideriz sevgilim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>The Gray Man</h4>
-                    <p>Temposu hiç düşmüyor, tıpkı bizim bitmek bilmeyen o gece yarıları konuşmalarımız gibi.</p>
-                </div>
+                <div class="movie-item"><h4>Red Notice</h4><p>Eğlenip gülmekten bana kızmayı unutacağın film budur sevgilim.</p></div>
+                <div class="movie-item"><h4>Extraction</h4><p>Aksiyonun içinde tüm tripler eriyip gider.</p></div>
+                <div class="movie-item"><h4>The Gray Man</h4><p>Nefes kesen bir macera bizi bekliyor.</p></div>
             </div>
         </div>
 
-        <div class="movie-cat" onclick="toggleCat(this)" style="border-color: #ff9f43;">
-            <div class="movie-cat-header" style="background: #ff9f43;">
-                <span>🎭 Dramlar (Duygusallık Zirve)</span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header" style="background:#ff9f43;"><span>🎭 Dramlar</span> <i class="fas fa-chevron-down"></i></div>
             <div class="movie-cat-content">
-                <div class="movie-item">
-                    <h4>Umudunu Kaybetme</h4>
-                    <p>Asla vazgeçmemekle ilgili harika bir başyapıt. Ben de senden ve bizden asla vazgeçmeyeceğim Muhammet.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Marriage Story</h4>
-                    <p>Bak millet neler yaşıyor, bizimki ufacık bir inatlaşma meselesi. Gel dramı filmde bırakıp barışalım sevgilim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Gizli Dünya (Room)</h4>
-                    <p>Sevginin gücüyle küçücük bir yerin bile kocaman bir dünyaya dönüşebileceğinin kanıtı. Benim dünyam da senin kalbin.</p>
-                </div>
+                <div class="movie-item"><h4>Umudunu Kaybetme</h4><p>Asla vazgeçmemekle ilgili... Ben de senden asla vazgeçmeyeceğim.</p></div>
+                <div class="movie-item"><h4>Marriage Story</h4><p>Bak millet neler yaşıyor, bizimki ufacık bir inatlaşma!</p></div>
+                <div class="movie-item"><h4>Gizli Dünya</h4><p>Sevgiyle her yerin bir dünya olabileceğinin kanıtı.</p></div>
             </div>
         </div>
 
-        <div class="bribe-zone">
-            <button class="bribe-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
-        </div>
+        <button class="action-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
 
-        <p style="text-align: center; margin-top: 35px; color: #a4b0be; font-size: 0.8rem;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
+        <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #aaa;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
 
     </div>
 
     <script>
-        // Kategorileri açıp kapatan fonksiyon
-        function toggleCat(el) {
-            el.classList.toggle('open');
-        }
+        function toggle(el) { el.classList.toggle('open'); }
 
-        // Tıklayınca çıkan komik mesaj uyarısı
         function affet() {
-            alert("🎉 Harika seçim! Muhammet şu an resmi olarak 'Dünyanın En Anlayışlı Sevgilisi' seçildi. Şimdi hemen telefonunu eline al ve Büşra'ya 'Hadi filmi açalım' diye mesaj at sevgilim! 😍");
+            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍");
         }
 
-        // İlişki Sayacı (17 Ocak 2026)
-        function updateTimer() {
+        function updateCounter() {
             const start = new Date('2026-01-17T00:00:00');
             const now = new Date();
             const diff = now - start;
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('main-timer').innerText = 
-                `${days} Gün, ${hours} Saat, ${minutes} Dakika, ${seconds} Saniye`;
+            document.getElementById('counter').innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
         }
 
-        setInterval(updateTimer, 1000);
-        updateTimer();
+        setInterval(updateCounter, 1000);
+        updateCounter();
     </script>
 </body>
 </html>
