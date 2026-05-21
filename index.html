@@ -338,4 +338,227 @@
         .action-btn:hover { background: #26af5f; transform: translateY(-1px); }
 
     </style>
-</
+</head>
+<body>
+
+    <div id="heart-container"></div>
+
+    <div class="main-card">
+        
+        <div class="header">
+            <h1>Büşra ❤️ Muhammet</h1>
+            <p>Canım sevgilim, sana küçük bir süpriz yapmak istedim umarım mutlu olursun</p>
+        </div>
+
+        <div class="photo-area">
+            <div class="polaroid">
+                <img src="Gemini_Generated_Image_.png" alt="Yan Yana İlk Fotoğrafımız">
+                <div class="polaroid-text">yan yana böyle görünüyormuşuz yakışıklım</div>
+            </div>
+        </div>
+
+        <div class="timer-box">
+            <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">Aşkımızın Kronometresi</p>
+            <div id="counter" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px;">Hesaplanıyor...</div>
+        </div>
+
+        <div class="distance-box">
+            <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">📍 Özlem Mesafe Sayacı 📍</p>
+            <div style="font-size: 1.4rem; font-weight: bold; margin-top: 5px;">Konya ↔️ Mersin: 348 KM</div>
+            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #fffdf5;">*Otobüsle 5 saat, seni düşünürken saliseler kadar yakın sevgilim.*</p>
+        </div>
+
+        <div class="music-reminder">
+            <div class="cover-art"><i class="fas fa-compact-disc fa-spin"></i></div>
+            <div class="song-details">
+                <h4>Ben Seni Çok Sevdim</h4>
+                <p>Cem Adrian • Muhammet'in Hediyesi</p>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #ff4757;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
+        <div class="confession-section">
+            
+            <div class="confession-card">
+                <h4><i class="fas fa-question-circle"></i> Yan yana geldiğimizde ilk yapmak istediğim, sabırsızlıkla beklediğim şey ne?</h4>
+                <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
+                <div class="answer-panel">
+                    <span style="font-size: 0.8rem; color: #ff4757; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <p>Sana sımsıkı sarılmak .</p>
+                </div>
+            </div>
+
+            <div class="confession-card">
+                <h4><i class="fas fa-question-circle"></i> Hayatımda olduğun için en çok hangi anlarda "İyi ki varsın" diyorum?</h4>
+                <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
+                <div class="answer-panel">
+                    <span style="font-size: 0.8rem; color: #ff4757; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <p>Beni koruyup kollandığın, merak ettiğin anlarda diyorum.</p>
+                </div>
+            </div>
+
+            <div class="confession-card">
+                <h4><i class="fas fa-question-circle"></i> Beni en çok mutlu eden, yüzümü en çok güldüren özelliğin veya cümlen hangisi?</h4>
+                <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
+                <div class="answer-panel">
+                    <span style="font-size: 0.8rem; color: #ff4757; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <p>Güzelim diyorsun ya bazen ona çok mutlu oluyorum.</p>
+                </div>
+            </div>
+
+            <div class="confession-card">
+                <h4><i class="fas fa-question-circle"></i> Bu siteyi senin için hazırlarken içimden tam olarak ne geçiyordu?</h4>
+                <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
+                <div class="answer-panel">
+                    <span style="font-size: 0.8rem; color: #ff4757; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
+                    <p>mutlu olursun belki yüzünde hafif bir gülümseme olur diye bu siteyi hazırladım. Hem de bize küçük bir anı kalır.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="simulator-section">
+            <h3 style="font-size: 1.2rem; color: #ff4757;">🚀 348 KM'yi Yok Etme Simülatörü</h3>
+            <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Aradaki mesafeyi sıfırlamak için bir buton seç yakışıklım:</p>
+            <div class="sim-buttons">
+                <button class="sim-btn" onclick="simuleEt(1)">Konya Metrosunu Uzat 🚇</button>
+                <button class="sim-btn" onclick="simuleEt(2)">Işınlanma Cihazını Çalıştır ⚡</button>
+                <button class="sim-btn" onclick="simuleEt(3)">Kanat Çırp 🕊️</button>
+            </div>
+        </div>
+
+        <div class="spotify-section">
+            <i class="fab fa-spotify" style="font-size: 3rem;"></i>
+            <div>
+                <h4>Sinir Yatıştırıcı Çalma Listesi 🎧</h4>
+                <p style="font-size: 0.85rem; margin-bottom: 10px;">Tripleri bırakıp kulaklığı takman için Büşra tarafından onaylandı. Kavga ederken dinleyip sinirini yatıştır diye içine dünyanın en tatlı şarkılarını yükledim sevgilim.</p>
+                <a href="https://open.spotify.com/playlist/2TOubZj0XDh3kSHOl0434A?si=tOVdwJTTR3unVbKmMiNEwg&pi=MiAcXNNQQFSo9" target="_blank" class="spotify-btn">Dinle 🎧</a>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #ff4757;"><i class="fas fa-popcorn"></i> Beraber İzleyeceğimiz Filmler</h3>
+
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header"><span>❤️ Romantikler (Sarılma Garantili)</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-content">
+                <div class="movie-item">
+                    <h4>Zamanda Aşk (About Time)</h4>
+                    <p>Zamanda geri gitme yeteneği olan bir çocuğun hikayesi. Seninle kavga ettiğimiz o saniyelere geri gidip kendi ağzımı sıkıca kapatmak ve bu tartışmayı hiç başlatmamak için tam olarak bu yeteneğe ihtiyacım var sevgilim.</p>
+                </div>
+                <div class="movie-item">
+                    <h4>The Notebook</h4>
+                    <p>Yıllar ve mesafeler bu iki deliyi ayıramadıysa, bizim yaşadığımız Konya-Mersin arası ufacık bir inatlaşma bizi hiç ayıramaz Muhammet. Biz de aynen böyle inatçı bir çift olacağız, kaçışın yok yani.</p>
+                </div>
+                <div class="movie-item">
+                    <h4>Senden Önce Ben</h4>
+                    <p>Birbirinin hayatını kökten değiştiren iki insanın duygusal hikayesi. Tıpkı senin benim hayatıma girip her şeyi güzelleştirdiğin gibi... İzlerken bana ne kadar çok aşık olduğunu yeniden hatırlayacaksın.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header" style="background:#4bc0c0;"><span>💥 Aksiyonlar (Trip Unutturan)</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-content">
+                <div class="movie-item">
+                    <h4>Red Notice</h4>
+                    <p>Eğlenceli, bol koşturmalı ve aşırı akıcı bir hırsızlık filmi. İzlerken o kadar çok eğleneceğiz ki, bana olan sinirini ve kafandaki tüm tripleri tamamen unutup kahkahalar atacaksın, buna eminim sevgilim!</p>
+                </div>
+                <div class="movie-item">
+                    <h4>Extraction</h4>
+                    <p>Aksiyonun ve dövüş sahnelerinin bir an bile durmadığı harika bir yapım. Aramızda biriken tüm o gerginliği ve mesafelerin getirdiği stresi bu patlamalı sahnelerle tek seferde patlatıp yok ederiz.</p>
+                </div>
+                <div class="movie-item">
+                    <h4>The Gray Man</h4>
+                    <p>CIA ajanlarının nefes kesen kapışması. Temposu o kadar yüksek ki, bizim o saatler süren ve bitmek bilmeyen gece yarısı görüntülü konuşmalarımızın temposuna yaklaştığı tek yer bu film olabilir!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header" style="background:#ff9f43;"><span>🎭 Dramlar (Duygusallık Zirve)</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-content">
+                <div class="movie-item">
+                    <h4>Umudunu Kaybetme</h4>
+                    <p>Hayatta ne olursa olsun asla vazgeçmemekle ilgili muazzam bir film. Ben de aramıza giren kilometreler ne kadar zor olursa olsun senden ve bizim geleceğimizden asla vazgeçmeyeceğim Muhammet, bunu sakın unutma.</p>
+                </div>
+                <div class="movie-item">
+                    <h4>Marriage Story</h4>
+                    <p>İlişkilerin en derin iniş çıkışlarını anlatıyor. Sırf filmdeki çiftin kavgalarını görüp 'Bak millet neler yaşıyor, bizimki meğer ufacık bir reklam arasıymış' deyip hemen bana sarılman (yani mesaj atman) için bu listeye ekledim sevgilim.</p>
+                </div>
+                <div class="movie-item">
+                    <h4>Gizli Dünya (Room)</h4>
+                    <p>Küçücük bir odada sadece sevginin gücüyle kurulan koca bir dünya. Benim koskoca dünyam da senin o güzel kalbin işte. Gel dramı filmlere bırakalım da biz kendi dünyamıza geri dönelim.</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="action-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
+
+        <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #bbb;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
+
+    </div>
+
+    <script {Gemini_Generated_Image_.png}>
+        function toggle(el) { el.classList.toggle('open'); }
+
+        function toggleCevap(btn) {
+            const panel = btn.nextElementSibling;
+            panel.classList.toggle('open');
+            if (panel.classList.contains('open')) {
+                btn.innerHTML = '<i class="fas fa-eye-slash"></i> Cevabı Kapat';
+                btn.style.background = '#74b9ff';
+            } else {
+                btn.innerHTML = '<i class="fas fa-eye"></i> Cevabı Gör';
+                btn.style.background = '#ff6b81';
+            }
+        }
+
+        function affet() {
+            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍");
+        }
+
+        function simuleEt(yontem) {
+            if(yontem === 1) {
+                alert("🚇 KONYA METROSU MERSİN'E UZATILDI!\n\nBelediye ekiplerimiz aşkımız için seferber oldu sevgilim. Konya-Mersin arası hat döşendi, ilk durak doğrudan senin kalbin! Seferler kesintisiz ve ücretsiz! 🤭");
+            } else if(yontem === 2) {
+                alert("⚡ IŞINLANMA CİHAZI AŞIRI YÜKLENDİ!\n\nŞorlooopp! Cihaz başarıyla çalıştırıldı yakışıklım. Şimdilik ekrandan ışınlanıyorum ama kalbimin çoktan Mersin'e ulaştığına yemin edebilirim ama kanıtlayamam!");
+            } else if(yontem === 3) {
+                alert("🕊️ KANATLAR TAKILDI, UÇUŞ BAŞLADI!\n\nKonya semalarından Mersin'e doğru saniyede 348 km hızla kanat çırpıyorum sevgilim! Mesafeler bizim aşkımızın hızına yetişemez, pencereni açık tut geliyorum! 😍");
+            }
+        }
+
+        function startHearts() {
+            const container = document.getElementById('heart-container');
+            setInterval(() => {
+                const heart = document.createElement('i');
+                heart.className = 'fa-solid fa-heart heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 16 + 12) + 'px'; 
+                container.appendChild(heart);
+
+                setTimeout(() => { heart.remove(); }, 7000);
+            }, 350);
+        }
+
+        function updateCounter() {
+            const start = new Date('2026-01-17T00:00:00');
+            const now = new Date();
+            const diff = now - start;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('counter').innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
+        }
+
+        window.onload = function() {
+            startHearts();
+            setInterval(updateCounter, 1000);
+            updateCounter();
+        };
+    </script>
+</body>
+</html>
