@@ -20,6 +20,24 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Arka Planda Uçuşan Kalpler Kuralları */
+        .heart {
+            position: absolute;
+            color: #ff4757;
+            opacity: 0.7;
+            animation: floatUp 6s linear infinite;
+            font-size: 20px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
         }
 
         .main-card {
@@ -31,6 +49,8 @@
             padding: 30px;
             box-shadow: 10px 10px 0px #ff7f50;
             margin-top: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .header {
@@ -41,6 +61,13 @@
         .header h1 {
             font-size: 2.2rem;
             color: #ff4757;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: #555;
+            font-style: italic;
         }
 
         /* Fotoğraf Alanı */
@@ -69,6 +96,7 @@
             margin-top: 15px;
             font-weight: bold;
             font-size: 1.1rem;
+            color: #2f3542;
         }
 
         /* İlişki Zaman Sayacı */
@@ -130,27 +158,66 @@
             font-weight: bold;
         }
 
-        /* YENİ KOMİK BÖLÜM: Mesafe Yok Etme Simülatörü */
-        .simulator-section {
+        /* İtiraf Kutuları Bölümü */
+        .confession-section {
+            margin-bottom: 35px;
+        }
+
+        .confession-card {
             background: #fff7e6;
+            border: 3px dashed #ff4757;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .confession-card h4 {
+            font-size: 1.1rem;
+            color: #ff4757;
+            margin-bottom: 8px;
+        }
+
+        .confession-card .label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #2f3542;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .confession-card p {
+            font-size: 1rem;
+            color: #2f3542;
+            font-weight: bold;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ffcfcf;
+            margin-top: 5px;
+        }
+
+        /* Mesafe Yok Etme Simülatörü */
+        .simulator-section {
+            background: #eccc68;
             border: 3px solid #333;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 35px;
             text-align: center;
+            box-shadow: 5px 5px 0px #333;
         }
 
         .sim-buttons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             justify-content: center;
             margin-top: 15px;
             flex-wrap: wrap;
         }
 
         .sim-btn {
-            background: #4bc0c0;
-            color: white;
+            background: #ffffff;
+            color: #333;
             padding: 10px 15px;
             border: 2px solid #333;
             border-radius: 8px;
@@ -236,6 +303,8 @@
 </head>
 <body>
 
+    <div id="heart-container"></div>
+
     <div class="main-card">
         
         <div class="header">
@@ -269,9 +338,42 @@
             </div>
         </div>
 
+        <h3 style="margin-bottom: 15px; font-size: 1.2rem; text-align: center;"><i class="fas fa-heart"></i> Bizim Odalamız</h3>
+        <div class="confession-section">
+            
+            <div class="confession-card">
+                <span class="label">Soru:</span>
+                <h4>Yan yana geldiğimizde ilk yapmak istediğim, sabırsızlıkla beklediğim şey ne?</h4>
+                <span class="label" style="color: #ff4757; margin-top: 5px;">Benim cevabım (Cevabı gör):</span>
+                <p>Sana sımsıkı sarılmak .</p>
+            </div>
+
+            <div class="confession-card">
+                <span class="label">Soru:</span>
+                <h4>Hayatımda olduğun için en çok hangi anlarda "İyi ki varsın" diyorum?</h4>
+                <span class="label" style="color: #ff4757; margin-top: 5px;">Benim cevabım (Cevabı gör):</span>
+                <p>Beni koruyup kollandığın, merak ettiğin anlarda diyorum.</p>
+            </div>
+
+            <div class="confession-card">
+                <span class="label">Soru:</span>
+                <h4>Beni en çok mutlu eden, yüzümü en çok güldüren özelliğin veya cümlen hangisi?</h4>
+                <span class="label" style="color: #ff4757; margin-top: 5px;">Benim cevabım (Cevabı gör):</span>
+                <p>Güzelim diyorsun ya bayen ona çok mutlu oluyorum.</p>
+            </div>
+
+            <div class="confession-card">
+                <span class="label">Soru:</span>
+                <h4>Bu siteyi senin için hazırlarken içimden tam olarak ne geçiyordu?</h4>
+                <span class="label" style="color: #ff4757; margin-top: 5px;">Benim cevabım (Cevabı gör):</span>
+                <p>mutlu olursun belki yüzünde hafif bir gülümseme olur diye bu siteyi hazırladım. Hem de bize küçük bir anı kalır.</p>
+            </div>
+
+        </div>
+
         <div class="simulator-section">
-            <h3 style="font-size: 1.2rem; color: #d35400;">🚀 348 KM'yi Yok Etme Simülatörü</h3>
-            <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Lütfen mesafeyi sıfırlamak için bir yöntem seçin:</p>
+            <h3 style="font-size: 1.2rem; color: #2f3542;">🚀 348 KM'yi Yok Etme Simülatörü</h3>
+            <p style="font-size: 0.85rem; margin-top: 5px; color: #333;">Aradaki mesafeyi sıfırlamak için bir buton seç yakışıklım:</p>
             <div class="sim-buttons">
                 <button class="sim-btn" onclick="simuleEt(1)">Konya Metrosunu Uzat 🚇</button>
                 <button class="sim-btn" onclick="simuleEt(2)">Işınlanma Cihazını Çalıştır ⚡</button>
@@ -292,3 +394,92 @@
 
         <div class="movie-cat" onclick="toggle(this)">
             <div class="movie-cat-header"><span>❤️ Romantikler</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-content">
+                <div class="movie-item"><h4>Zamanda Aşk</h4><p>Zaman yolculuğu yapıp kavga ettiğimiz saniyeye dönmek istiyorum.</p></div>
+                <div class="movie-item"><h4>The Notebook</h4><p>Mesafeler bu iki deliyi ayıramadıysa, bizi hiç ayıramaz.</p></div>
+                <div class="movie-item"><h4>Senden Önce Ben</h4><p>Hayatımı nasıl güzelleştirdiğini hatırlatacak o film.</p></div>
+            </div>
+        </div>
+
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header" style="background:#4bc0c0;"><span>💥 Aksiyonlar</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-content">
+                <div class="movie-item"><h4>Red Notice</h4><p>Eğlenip gülmekten bana kızmayı unutacağın film budur sevgilim.</p></div>
+                <div class="movie-item"><h4>Extraction</h4><p>Aksiyonun içinde tüm tripler eriyip gider.</p></div>
+                <div class="movie-item"><h4>The Gray Man</h4><p>Nefes kesen bir macera bizi bekliyor.</p></div>
+            </div>
+        </div>
+
+        <div class="movie-cat" onclick="toggle(this)">
+            <div class="movie-cat-header" style="background:#ff9f43;"><span>🎭 Dramlar</span> <i class="fas fa-chevron-down"></i></div>
+            <div class="movie-cat-content">
+                <div class="movie-item"><h4>Umudunu Kaybetme</h4><p>Asla vazgeçmemekle ilgili... Ben de senden asla vazgeçmeyeceğim.</p></div>
+                <div class="movie-item"><h4>Marriage Story</h4><p>Bak millet neler yaşıyor, bizimki ufacık bir inatlaşma!</p></div>
+                <div class="movie-item"><h4>Gizli Dünya</h4><p>Sevgiyle her yerin bir dünya olabileceğinin kanıtı.</p></div>
+            </div>
+        </div>
+
+        <button class="action-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
+
+        <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #aaa;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
+
+    </div>
+
+    <script>
+        function toggle(el) { el.classList.toggle('open'); }
+
+        // En alttaki büyük buton
+        function affet() {
+            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍");
+        }
+
+        // TIKLANDIĞINDA AÇILAN KOMİK UYARI MESAJLARI
+        function simuleEt(yontem) {
+            if(yontem === 1) {
+                alert("🚇 KONYA METROSU MERSİN'E UZATILDI!\n\nBelediye ekiplerimiz aşkımız için seferber oldu sevgilim. Konya-Mersin arası hat döşendi, ilk durak doğrudan senin kalbin! Seferler kesintisiz ve ücretsiz! 🤭");
+            } else if(yontem === 2) {
+                alert("⚡ IŞINLANMA CİHAZI AŞIRI YÜKLENDİ!\n\nŞorlooopp! Cihaz başarıyla çalıştırıldı yakışıklım. Şimdilik ekrandan ışınlanıyorum ama kalbimin çoktan Mersin'e ulaştığına yemin edebilirim ama kanıtlayamam!");
+            } else if(yontem === 3) {
+                alert("🕊️ KANATLAR TAKILDI, UÇUŞ BAŞLADI!\n\nKonya semalarından Mersin'e doğru saniyede 348 km hızla kanat çırpıyorum sevgilim! Mesafeler bizim aşkımızın hızına yetişemez, pencereni açık tut geliyorum! 😍");
+            }
+        }
+
+        // KALPLERİN EKRANDA UÇUŞMA FONKSİYONU
+        function startHearts() {
+            const container = document.getElementById('heart-container');
+            setInterval(() => {
+                const heart = document.createElement('i');
+                heart.className = 'fa-solid fa-heart heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 3 + 4) + 's'; // 4-7 saniye arası
+                heart.style.fontSize = (Math.random() * 15 + 12) + 'px'; // 12-27px arası boyut
+                container.appendChild(heart);
+
+                // Ekranı yormasın diye uçan kalpleri silelim
+                setTimeout(() => { heart.remove(); }, 6000);
+            }, 400); // Her 0.4 saniyede bir yeni kalp
+        }
+
+        // İlişki Sayacı (17 Ocak 2026)
+        function updateCounter() {
+            const start = new Date('2026-01-17T00:00:00');
+            const now = new Date();
+            const diff = now - start;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('counter').innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
+        }
+
+        // Sayfa yüklenince her şeyi başlat
+        window.onload = function() {
+            startHearts();
+            setInterval(updateCounter, 1000);
+            updateCounter();
+        };
+    </script>
+</body>
+</html>
