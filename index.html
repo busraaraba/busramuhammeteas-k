@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Büşra & Muhammet | NetLove</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #141414;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            color: #E50914;
+            font-size: 2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #fff;
+            font-size: 1rem;
+            margin-left: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            background: linear-gradient(to rgba(0, 0, 0, 0.1), #141414), url('https://images.unsplash.com/photo-1518173946687-a4c8a3b1f98e?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 50px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin-top: 100px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            color: #cccccc;
+        }
+
+        /* Sayaç */
+        .counter-container {
+            background: rgba(20, 20, 20, 0.8);
+            padding: 15px 25px;
+            border-radius: 4px;
+            border-left: 4px solid #E50914;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .counter-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .counter-days {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Şarkı Köşesi (Müzik Kutusu) */
+        .music-box {
+            position: absolute;
+            bottom: 30px;
+            right: 50px;
+            background: rgba(0, 0, 0, 0.75);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            max-width: 300px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .music-icon {
+            color: #E50914;
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .music-info h4 {
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+
+        .music-info p {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        /* Listeler / Kategoriler */
+        .category-section {
+            padding: 0 50px 50px 50px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-row {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #e5e5e5;
+            transition: color 0.3s;
+        }
+
+        .category-title:hover {
+            color: #fff;
+        }
+
+        .movies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background: #181818;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid #222;
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0,0,0,0.5);
+            border-color: #444;
+        }
+
+        .movie-img {
+            height: 160px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .movie-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #E50914;
+            color: white;
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        .movie-details {
+            padding: 15px;
+        }
+
+        .movie-details h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .movie-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: #46d369; /* Netflix yeşili match oranı için */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .movie-meta .year {
+            color: #a3a3a3;
+        }
+
+        .movie-desc {
+            font-size: 0.85rem;
+            color: #999;
+            line-out: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #555;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+        }
+
+        /* Mobil Uyum */
+        @media(max-width: 768px) {
+            .navbar { padding: 20px; }
+            .hero { padding-left: 20px; justify-content: flex-start; pt: 150px;}
+            .hero h1 { font-size: 2.2rem; }
+            .music-box { position: relative; right: auto; bottom: auto; margin-top: 20px; max-width: 100%; }
+            .category-section { padding: 20px; margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">NETLOVE<span>BÜŞRA & MUHAMMET</span></div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Seni Çok Seviyorum</h1>
+            <p>Her günümüzü ayrı bir filme, her anımızı unutulmaz bir sahneye dönüştürdüğün için teşekkür ederim sevgilim. Kavgalarımız bir filmin sadece heyecanlı reklam arası olabilir, asıl hikayemiz her zaman devam ediyor...</p>
+            
+            <!-- İlişki Sayacı -->
+            <div class="counter-container">
+                <div class="counter-title">Aşkımızın Başlangıcından Beri</div>
+                <div class="counter-days" id="love-counter">Yükleniyor...</div>
+            </div>
+        </div>
+
+        <!-- Cem Adrian Şarkı Köşesi -->
+        <div class="music-box">
+            <div class="music-icon">
+                <i class="fas fa-heart-beat"></i>
+            </div>
+            <div class="music-info">
+                <h4>Ben Seni Çok Sevdim</h4>
+                <p>Cem Adrian • Muhammet'in Hediyesi</p>
+                <!-- Youtube linkini buraya ekleyebilirsin -->
+                <a href="https://www.youtube.com/watch?v=F07I6t08Lrs" target="_blank" style="color: #E50914; font-size: 0.8rem; text-decoration: none; font-weight: bold;">
+                    <i class="fas fa-play"></i> Şarkıyı Dinle
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kategoriler ve Filmler -->
+    <div class="category-section">
+
+        <!-- Kategori 1: En Çok İzlediklerimiz -->
+        <div class="category-row">
+            <div class="category-title">Birlikte En Çok İzlediğimiz Türler</div>
+            <div class="movies-container">
+                
+                <!-- Film 1 -->
+                <div class="movie-card">
+                    <div class="movie-img" style="background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop');">
+                        <span class="movie-badge">%99 Eşleşme</span>
+                    </div>
+                    <div class="movie-details">
+                        <h3>Favori Bilim Kurgumuz</h3>
+                        <div class="movie-meta">
+                            <span>%99 Uyumlu</span>
+                            <span class="year">2026</span>
+                        </div>
+                        <p class="movie-desc">Hani seninle izlerken teoriler ürettiğimiz, her sahnesinde birbirimize bakıp "yok artık" dediğimiz o harika yapımlar...</p>
+                    </div>
+                </div>
+
+                <!-- Film 2 -->
+                <div class="movie-card">
+                    <div class="movie-img" style="background-image: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop');">
+                        <span class="movie-badge">%98 Eşleşme</span>
+                    </div>
+                    <div class="movie-details">
+                        <h3>Birlikte Güldüğümüz Komediler</h3>
+                        <div class="movie-meta">
+                            <span>%98 Uyumlu</span>
+                            <span class="year">2026</span>
+                        </div>
+                        <p class="movie-desc">Tartışmaları unutup, mısırımızı paylaşırken sadece bizim anladığımız o esprilere attığımız kahkahaların başrolü.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Kategori 2: İzlenecekler Listesi -->
+        <div class="category-row">
+            <div class="category-title">Sırada Bekleyen Maceralarımız (Barışınca İzlenecekler)</div>
+            <div class="movies-container">
+                
+                <!-- Film 3 -->
+                <div class="movie-card">
+                    <div class="movie-img" style="background-image: url('https://images.unsplash.com/photo-1478720143033-6a972678436e?q=80&w=2070&auto=format&fit=crop');">
+                        <span class="movie-badge">Yeni Bölüm</span>
+                    </div>
+                    <div class="movie-details">
+                        <h3>Sıradaki Romantik Akşam</h3>
+                        <div class="movie-meta">
+                            <span>%100 Uyumlu</span>
+                            <span class="year">Çok Yakında</span>
+                        </div>
+                        <p class="movie-desc">Bu akşam veya en yakın zamanda küslüğü bitirip, battaniyenin altına girerek izleyeceğimiz o yeni film.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Büşra ❤️ Muhammet | Bu platform iki kişilik bir aşk hikayesi için özel olarak tasarlanmıştır.</p>
+    </footer>
+
+    <!-- Sayaç Scripti -->
+    <script>
+        function updateCounter() {
+            // Başlangıç tarihi: 17 Ocak 2026
+            const startDate = new Date('2026-01-17T00:00:00');
+            const now = new Date();
+            
+            const difference = now - startDate;
+            
+            // Zaman hesaplamaları
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('love-counter').innerHTML = 
+                `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;
+        }
+
+        // Sayacı her saniye güncelle
+        setInterval(updateCounter, 1000);
+        updateCounter(); // İlk açılışta çalışması için
+    </script>
+</body>
+</html>
