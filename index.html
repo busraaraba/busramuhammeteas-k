@@ -68,7 +68,7 @@
         .polaroid-text {
             margin-top: 15px;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* İlişki Zaman Sayacı */
@@ -130,31 +130,36 @@
             font-weight: bold;
         }
 
-        /* Desibel Ölçer */
-        .funny-meter-section {
+        /* YENİ KOMİK BÖLÜM: Mesafe Yok Etme Simülatörü */
+        .simulator-section {
             background: #fff7e6;
             border: 3px solid #333;
             padding: 20px;
             border-radius: 15px;
             margin-bottom: 35px;
+            text-align: center;
         }
 
-        .meter-container {
+        .sim-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
-        .meter-bar {
-            width: 100%;
-            height: 20px;
-            background: #dfe4ea;
+        .sim-btn {
+            background: #4bc0c0;
+            color: white;
+            padding: 10px 15px;
             border: 2px solid #333;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 3px 3px 0px #333;
         }
 
-        .fill-busra { width: 95%; height: 100%; background: #ff4757; }
-        .fill-muhammet { width: 20%; height: 100%; background: #2ed573; }
+        .sim-btn:active { transform: translate(1px, 1px); box-shadow: 2px 2px 0px #333; }
 
         /* Spotify Bölümü */
         .spotify-section {
@@ -235,23 +240,21 @@
         
         <div class="header">
             <h1>Büşra ❤️ Muhammet</h1>
-            <p>Yollar Biter, Bu İnat Bitmez Diye Korktum Ama Siteni Yaptım Geldin!</p>
+            <p>Canım sevgilim, sana küçük bir süpriz yapmak istedim umarım mutlu olursun</p>
         </div>
 
         <div class="photo-area">
             <div class="polaroid">
-                <img src="Gemini_Generated_Image_.png" alt="Yan Yana İlk Fotoğrafımız (Shop Sağolsun)">
-                <div class="polaroid-text">Shop Seviyesi: %100 | Aşk: ∞</div>
+                <img src="Gemini_Generated_Image_.png" alt="Yan Yana İlk Fotoğrafımız">
+                <div class="polaroid-text">yan yana böyle görünüyormuşuz yakışıklım</div>
             </div>
         </div>
 
-        <!-- Zaman Sayacı -->
         <div class="timer-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Aşkımızın Kronometresi</p>
             <div id="counter" style="font-size: 1.3rem; font-weight: bold; margin-top: 5px;">Hesaplanıyor...</div>
         </div>
 
-        <!-- Konya - Mersin Mesafe Sayacı -->
         <div class="distance-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">📍 Özlem Mesafe Sayacı 📍</p>
             <div style="font-size: 1.4rem; font-weight: bold; margin-top: 5px;">Konya ↔️ Mersin: 348 KM</div>
@@ -266,21 +269,13 @@
             </div>
         </div>
 
-        <!-- Görüntülü Konuşma Desibel Analizleri -->
-        <div class="funny-meter-section">
-            <h3 style="font-size: 1.2rem; text-align: center; color: #d35400;">🔊 Görüntülü Konuşma Desibel Analizleri</h3>
-            <div class="meter-container">
-                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: bold; margin-bottom: 5px;">
-                    <span>Büşra heyecanla bir şeyler anlatırken:</span>
-                    <span style="color:#ff4757;">120 dB (Hoparlör Patladı)</span>
-                </div>
-                <div class="meter-bar"><div class="fill-busra"></div></div>
-
-                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: bold; margin-bottom: 5px;">
-                    <span>Muhammet haksız olduğunu anlayıp trip atarken:</span>
-                    <span style="color:#2ed573;">10 dB (Ses Gelmiyor)</span>
-                </div>
-                <div class="meter-bar"><div class="fill-muhammet"></div></div>
+        <div class="simulator-section">
+            <h3 style="font-size: 1.2rem; color: #d35400;">🚀 348 KM'yi Yok Etme Simülatörü</h3>
+            <p style="font-size: 0.85rem; margin-top: 5px; color: #666;">Lütfen mesafeyi sıfırlamak için bir yöntem seçin:</p>
+            <div class="sim-buttons">
+                <button class="sim-btn" onclick="simuleEt(1)">Konya Metrosunu Uzat 🚇</button>
+                <button class="sim-btn" onclick="simuleEt(2)">Işınlanma Cihazını Çalıştır ⚡</button>
+                <button class="sim-btn" onclick="simuleEt(3)">Kanat Çırp 🕊️</button>
             </div>
         </div>
 
@@ -293,63 +288,7 @@
             </div>
         </div>
 
-        <h3 style="margin-bottom: 15px; font-size: 1.2rem;"><i class="fas fa-popcorn"></i> Barışınca İzleyeceğimiz Filmler</h3>
+        <h3 style="margin-bottom: 15px; font-size: 1.2rem;"><i class="fas fa-popcorn"></i> Beraber İzleyeceğimiz Filmler</h3>
 
         <div class="movie-cat" onclick="toggle(this)">
             <div class="movie-cat-header"><span>❤️ Romantikler</span> <i class="fas fa-chevron-down"></i></div>
-            <div class="movie-cat-content">
-                <div class="movie-item"><h4>Zamanda Aşk</h4><p>Zaman yolculuğu yapıp kavga ettiğimiz saniyeye dönmek istiyorum.</p></div>
-                <div class="movie-item"><h4>The Notebook</h4><p>Mesafeler bu iki deliyi ayıramadıysa, bizi hiç ayıramaz.</p></div>
-                <div class="movie-item"><h4>Senden Önce Ben</h4><p>Hayatımı nasıl güzelleştirdiğini hatırlatacak o film.</p></div>
-            </div>
-        </div>
-
-        <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header" style="background:#4bc0c0;"><span>💥 Aksiyonlar</span> <i class="fas fa-chevron-down"></i></div>
-            <div class="movie-cat-content">
-                <div class="movie-item"><h4>Red Notice</h4><p>Eğlenip gülmekten bana kızmayı unutacağın film budur sevgilim.</p></div>
-                <div class="movie-item"><h4>Extraction</h4><p>Aksiyonun içinde tüm tripler eriyip gider.</p></div>
-                <div class="movie-item"><h4>The Gray Man</h4><p>Nefes kesen bir macera bizi bekliyor.</p></div>
-            </div>
-        </div>
-
-        <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header" style="background:#ff9f43;"><span>🎭 Dramlar</span> <i class="fas fa-chevron-down"></i></div>
-            <div class="movie-cat-content">
-                <div class="movie-item"><h4>Umudunu Kaybetme</h4><p>Asla vazgeçmemekle ilgili... Ben de senden asla vazgeçmeyeceğim.</p></div>
-                <div class="movie-item"><h4>Marriage Story</h4><p>Bak millet neler yaşıyor, bizimki ufacık bir inatlaşma!</p></div>
-                <div class="movie-item"><h4>Gizli Dünya</h4><p>Sevgiyle her yerin bir dünya olabileceğinin kanıtı.</p></div>
-            </div>
-        </div>
-
-        <button class="action-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
-
-        <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #aaa;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
-
-    </div>
-
-    <script>
-        function toggle(el) { el.classList.toggle('open'); }
-
-        function affet() {
-            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍");
-        }
-
-        function updateCounter() {
-            const start = new Date('2026-01-17T00:00:00');
-            const now = new Date();
-            const diff = now - start;
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('counter').innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
-        }
-
-        setInterval(updateCounter, 1000);
-        updateCounter();
-    </script>
-</body>
-</html>
