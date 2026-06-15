@@ -31,7 +31,7 @@
         .song-details h4 { font-size: 1.1rem; color: #e4e6eb; }
         .song-details p { font-size: 0.9rem; color: #9aa0a6; font-weight: bold; }
 
-        /* YENİ: GECE YARISI KAPSÜLÜ */
+        /* GECE YARISI KAPSÜLÜ */
         .night-capsule { background: #121417; border: 1px solid #2d323b; padding: 25px; border-radius: 16px; margin-bottom: 35px; text-align: center; position: relative; overflow: hidden; }
         .night-capsule-icon { font-size: 2rem; color: #c1a073; margin-bottom: 10px; }
         #capsuleLock { color: #9aa0a6; font-size: 0.95rem; line-height: 1.5; }
@@ -51,11 +51,11 @@
         .mood-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
         .mood-text { font-size: 0.95rem; color: #9aa0a6; line-height: 1.5; text-align: left; }
 
-        /* AKORDEON YAPISI (OYUNLAR, MAĞAZA, GÖREV, LAB) */
+        /* AKORDEON YAPISI */
         .game-cat { border: 1px solid #2d323b; border-radius: 16px; margin-bottom: 15px; overflow: hidden; background: #1b1e23; }
         .game-cat-header { background: #252930; color: #e4e6eb; padding: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1.1rem; }
         .game-cat-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: #121417; color: #e4e6eb; }
-        .game-cat.open .game-cat-content { max-height: 2000px; }
+        .game-cat.open .game-cat-content { max-height: 2500px; }
 
         /* GİZLİ OPERASYON STİLLERİ */
         .cyber-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -74,26 +74,40 @@
         .marathon-canvas-container { position: relative; width: 340px; height: 420px; background: #16181d; border: 2px solid #2d323b; border-radius: 14px; overflow: hidden; margin-top: 15px; box-shadow: inset 0 0 20px rgba(0,0,0,0.8); }
         #marathonCanvas { width: 100%; height: 100%; display: block; touch-action: none; }
         .marathon-dashboard { background: #1f2329; border: 1px solid #2d323b; width: 100%; padding: 15px; border-radius: 12px; margin-bottom: 10px; text-align: left; }
-        .marathon-meta { display: flex; justify-content: space-between; font-size: 0.9rem; margin-top: 8px; color: #9aa0a6; border-top: 1px solid #2d323b; padding-top: 8px; }
+        
+        /* CÜZDAN SİSTEMİ */
+        .wallet-ui { display: flex; justify-content: space-between; font-size: 0.95rem; margin-top: 10px; padding: 10px; background: #121417; border-radius: 8px; border: 1px solid #2d323b; }
+        .wallet-item { font-weight: bold; }
+        .w-b { color: #7b9c7a; }
+        .w-m { color: #c1a073; }
 
-        /* YENİ: PUAN MAĞAZASI */
+        /* PUAN MAĞAZASI */
         .store-panel { padding: 20px; }
         .store-item { background: #1f2329; border: 1px solid #2d323b; border-radius: 12px; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
         .store-info h4 { color: #e4e6eb; font-size: 1rem; margin-bottom: 4px; }
-        .store-info p { color: #9aa0a6; font-size: 0.8rem; line-height: 1.4; max-width: 200px; }
-        .store-price { background: #252930; color: #c1a073; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; border: 1px solid #3a3f47; cursor: pointer; transition: 0.2s; }
+        .store-info p { color: #9aa0a6; font-size: 0.8rem; line-height: 1.4; max-width: 180px; }
+        .store-price { background: #252930; color: #c1a073; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; border: 1px solid #3a3f47; cursor: pointer; transition: 0.2s; text-align: center; }
         .store-price:hover { background: #c1a073; color: #121417; }
 
-        /* YENİ: GÖREV PANOSU */
+        /* GÖREV PANOSU */
         .quest-board { padding: 20px; }
-        .quest-item { background: rgba(193, 160, 115, 0.05); border-left: 3px solid #c1a073; padding: 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+        .quest-item { background: rgba(193, 160, 115, 0.05); border-left: 3px solid #c1a073; padding: 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0; position: relative; }
         .quest-item h4 { font-size: 0.95rem; color: #c1a073; margin-bottom: 5px; }
-        .quest-item p { font-size: 0.85rem; color: #9aa0a6; }
+        .quest-item p { font-size: 0.85rem; color: #9aa0a6; margin-bottom: 10px; }
+        .complete-btn { background: #252930; border: 1px solid #3a3f47; color: #e4e6eb; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; }
 
-        /* YENİ: KİMYA LABORATUVARI */
+        /* KİMYA LABORATUVARI */
         .lab-panel { padding: 20px; text-align: center; }
         .lab-select { background: #252930; color: #e4e6eb; border: 1px solid #3a3f47; padding: 10px; border-radius: 8px; width: 100%; margin-bottom: 15px; outline: none; font-size: 0.95rem; }
         .lab-result { display: none; margin-top: 15px; padding: 15px; background: #1f2329; border-radius: 10px; border-left: 4px solid #c1a073; font-size: 0.9rem; text-align: left; line-height: 1.5; }
+
+        /* MUHBÜŞ AI SİNEMA */
+        .muhbus-panel { padding: 20px; text-align: center; }
+        .ai-header { display: flex; align-items: center; justify-content: center; gap: 10px; color: #c1a073; font-weight: bold; margin-bottom: 15px; font-size: 1.1rem; }
+        .cat-btn { background: #252930; border: 1px solid #3a3f47; color: #e4e6eb; padding: 10px 15px; border-radius: 8px; margin: 5px; cursor: pointer; font-size: 0.9rem; transition: 0.2s; }
+        .cat-btn:hover { background: #c1a073; color: #121417; }
+        .ai-output { display: none; background: #121417; border: 1px solid #2d323b; border-radius: 10px; padding: 15px; margin-top: 15px; text-align: left; font-size: 0.9rem; line-height: 1.6; color: #9aa0a6; }
+        .ai-output b { color: #c1a073; }
 
         /* İTİRAFLARIM Bölümü */
         .confession-section { margin-bottom: 35px; }
@@ -113,19 +127,6 @@
         /* Spotify Bölümü */
         .spotify-section { background: #1a2e1d; color: #e4e6eb; padding: 20px; border-radius: 16px; display: flex; align-items: center; gap: 20px; margin-bottom: 35px; border: 1px solid #2d4a31; }
         .spotify-btn { background: #1DB954; color: white; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: bold; display: inline-block; }
-
-        /* Film Kategorileri */
-        .movie-cat { border: 1px solid #2d323b; border-radius: 16px; margin-bottom: 15px; overflow: hidden; cursor: pointer; background: #1f2329; }
-        .movie-cat-header { background: #252930; color: #e4e6eb; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; }
-        .movie-cat-content { background: #1b1e23; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .movie-cat.open .movie-cat-content { max-height: 1000px; }
-        .movie-item { padding: 15px; border-bottom: 1px solid #2d323b; }
-        .movie-item:last-child { border-bottom: none; }
-        .movie-item h4 { color: #c1a073; font-size: 1.05rem; margin-bottom: 5px; font-weight: bold; }
-        .movie-item p { font-size: 0.9rem; color: #9aa0a6; line-height: 1.4; }
-
-        /* Affetme Butonu */
-        .action-btn { width: 100%; background: #4b6b53; color: #e4e6eb; padding: 16px; border: 1px solid #5a8264; border-radius: 20px; font-size: 1.2rem; font-weight: bold; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -242,7 +243,7 @@
 
         <!-- OYUN 2: 72 SAATLİK HARDCORE REFLEKS MARATONU -->
         <div class="game-cat">
-            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open'); initMarathon();">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open'); initWallet();">
                 <span>🏆 72 Saatlik Büyük İddia Maratonu</span> 
                 <i class="fas fa-chevron-down"></i>
             </div>
@@ -251,22 +252,22 @@
                     <div class="marathon-dashboard">
                         <b style="color: #c1a073; font-size: 1rem;"><i class="fas fa-gavel"></i> Mutlak İtaat İddiası Kuralları:</b>
                         <p style="font-size: 0.85rem; color: #e4e6eb; margin-top: 5px; line-height: 1.4;">
-                            Hedef tam <b>50.000 Kariyer Puanı</b>! Parmağını basılı tutup kaydırarak yıldızı kontrol et, düşen engellerden kaç. Topladığın puanları aşağıdaki "Puan Mağazası"nda harcayabilirsin. Çarptığın an elenirsin!
+                            Parmağını basılı tutup kaydırarak yıldızı kontrol et, engellerden kaç. Burada ve görevlerden topladığın puanlar <b>Ortak Cüzdanına</b> eklenir. Mağazadaki ürünleri bu cüzdanla alabilirsin!
                         </p>
-                        <div class="marathon-meta">
-                            <div>Mersin Kariyer Skoru: <span id="mBest" style="color: #c1a073; font-weight:bold;">0</span></div>
-                            <div>Konya Kariyer Skoru: <span id="bBest" style="color: #7b9c7a; font-weight:bold;">0</span></div>
+                        <div class="wallet-ui">
+                            <div class="wallet-item w-m">Mersin Bakiye: <span class="val-m">0</span> Puan</div>
+                            <div class="wallet-item w-b">Konya Bakiye: <span class="val-b">0</span> Puan</div>
                         </div>
                     </div>
 
                     <div class="player-select-box" id="marathonLobby">
-                        <button class="mood-btn" style="background:#252930; border-color:#7b9c7a;" onclick="selectMarathonPlayer('Büşra')">🙋‍♀️ BÜŞRA</button>
-                        <button class="mood-btn" style="background:#252930; border-color:#c1a073;" onclick="selectMarathonPlayer('Muhammet')">🙋‍♂️ MUHAMMET</button>
+                        <button class="mood-btn" style="background:#252930; border-color:#7b9c7a;" onclick="selectMarathonPlayer('Büşra')">🙋‍♀️ BÜŞRA OYNA</button>
+                        <button class="mood-btn" style="background:#252930; border-color:#c1a073;" onclick="selectMarathonPlayer('Muhammet')">🙋‍♂️ MUHAMMET OYNA</button>
                     </div>
 
                     <div id="marathonGameArea" style="display:none; text-align:center; width:100%;">
                         <div style="font-size:1rem; font-weight:bold; margin-bottom:5px;">
-                            Oyuncu: <span id="curActivePlayer" style="color:#c1a073;">-</span> | Kariyer Puanı: <span id="marathonTotalScore" style="color:#7b9c7a;">0</span>
+                            Oyuncu: <span id="curActivePlayer" style="color:#c1a073;">-</span>
                         </div>
                         <div style="font-size:1.1rem; font-weight:bold; color:#e4e6eb; background:#121417; padding:4px 15px; border-radius:20px; display:inline-block;">
                             Bu Tur Toplanan: <span id="marathonCurrentScore" style="color:#c1a073;">0</span>
@@ -274,44 +275,49 @@
                         <div class="marathon-canvas-container">
                             <canvas id="marathonCanvas" width="340" height="420"></canvas>
                         </div>
-                        <button class="mood-btn" style="margin-top:10px; background:#b05b5b; font-size:0.85rem;" onclick="exitMarathonGame()">Kaydet ve Lobiye Dön</button>
+                        <button class="mood-btn" style="margin-top:10px; background:#b05b5b; font-size:0.85rem;" onclick="exitMarathonGame()">Cüzdana Kaydet ve Çık</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- YENİ: PUAN MAĞAZASI (GRIND MARKET) -->
+        <!-- MAĞAZA (ORTAK CÜZDANLI) -->
         <div class="game-cat">
-            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
-                <span>🛍️ Puan Mağazası (Grind Market)</span> 
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open'); initWallet();">
+                <span>🛍️ Puan Mağazası (Ortak Cüzdan)</span> 
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="game-cat-content">
                 <div class="store-panel">
-                    <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 15px;">Maraton oyununda kastığın Kariyer Puanlarıyla benden bu ödülleri talep edebilirsin yakışıklım.</p>
+                    <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 10px;">Oyunlardan ve görevlerden kazandığınız puanlarla aşağıdaki ödülleri alabilirsiniz.</p>
+                    
+                    <div class="wallet-ui" style="margin-bottom: 20px;">
+                        <div class="wallet-item w-m">Mersin: <span class="val-m">0</span> 💰</div>
+                        <div class="wallet-item w-b">Konya: <span class="val-b">0</span> 💰</div>
+                    </div>
                     
                     <div class="store-item">
                         <div class="store-info">
                             <h4>Bronz Kapsül</h4>
                             <p>Sorgusuz Sualsiz Trip Affetme Hakkı.</p>
                         </div>
-                        <div class="store-price" onclick="checkStore(5000, 'Bronz Kapsül')">5.000 Puan</div>
+                        <div class="store-price" onclick="buyItem(5000, 'Bronz Kapsül')">5.000 Puan</div>
                     </div>
 
                     <div class="store-item">
                         <div class="store-info">
                             <h4>Gümüş Kapsül</h4>
-                            <p>1 Akşamlık Kesintisiz Oyun İzni. Seninle beraber veya sana karışmadan istediğin oyunu oynama sözü.</p>
+                            <p>1 Akşamlık Kesintisiz Oyun İzni.</p>
                         </div>
-                        <div class="store-price" onclick="checkStore(10000, 'Gümüş Kapsül')">10.000 Puan</div>
+                        <div class="store-price" onclick="buyItem(10000, 'Gümüş Kapsül')">10.000 Puan</div>
                     </div>
 
                     <div class="store-item">
                         <div class="store-info">
                             <h4>Altın Kapsül</h4>
-                            <p>Büşra Şefin Menüsü: Yan yana geldiğimizde senin seçeceğin/canının çektiği herhangi bir yemeği ellerimle hazırlama sözü.</p>
+                            <p>Büşra Şefin Menüsü: Yan yana geldiğimizde senin canının çektiği herhangi bir yemeği hazırlama sözü.</p>
                         </div>
-                        <div class="store-price" onclick="checkStore(25000, 'Altın Kapsül')">25.000 Puan</div>
+                        <div class="store-price" onclick="buyItem(25000, 'Altın Kapsül')">25.000 Puan</div>
                     </div>
 
                     <div class="store-item">
@@ -319,37 +325,41 @@
                             <h4 style="color:#c1a073;">Elmas Kapsül</h4>
                             <p>1 Günlük Mutlak İtaat! Tüm kontrol sende.</p>
                         </div>
-                        <div class="store-price" onclick="checkStore(50000, 'Elmas Kapsül')" style="background:#c1a073; color:#121417;">50.000 Puan</div>
+                        <div class="store-price" onclick="buyItem(50000, 'Elmas Kapsül')" style="background:#c1a073; color:#121417;">50.000 Puan</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- YENİ: GÖREV PANOSU -->
+        <!-- GÖREV PANOSU -->
         <div class="game-cat">
-            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open'); initWallet();">
                 <span>📋 Rutin Kırıcı Görev Panosu</span> 
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="game-cat-content">
                 <div class="quest-board">
+                    <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 15px;">Aşağıdaki görevleri tamamlayarak cüzdanınıza anında puan ekleyebilirsiniz!</p>
                     <div class="quest-item">
                         <h4>📌 Günlük Görev (+500 Puan)</h4>
-                        <p>Bugün Büşra masanın başında KPSS testleriyle boğuşurken, onu aniden arayıp veya tatlı bir ses kaydı atıp motive et.</p>
+                        <p>Bugün Büşra KPSS testleriyle boğuşurken, onu aniden arayıp veya tatlı bir ses kaydı atıp motive et.</p>
+                        <button class="complete-btn" onclick="completeQuest(500)">Görevi Tamamla</button>
                     </div>
                     <div class="quest-item">
                         <h4>📌 Haftalık Görev (+1500 Puan)</h4>
                         <p>Birlikte hiç kavga etmeden, triplenmeden art arda 3 gün geçir.</p>
+                        <button class="complete-btn" onclick="completeQuest(1500)">Görevi Tamamla</button>
                     </div>
                     <div class="quest-item">
                         <h4>🔥 Destansı Görev (+5000 Puan)</h4>
                         <p>Mersin-Konya hattı için bir sonraki buluşmanın planını netleştir ve o bileti al.</p>
+                        <button class="complete-btn" onclick="completeQuest(5000)">Görevi Tamamla</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- YENİ: AŞKIN KİMYA LABORATUVARI -->
+        <!-- KİMYA LABORATUVARI -->
         <div class="game-cat">
             <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
                 <span>🧪 Büşra Hoca'nın Kimya Laboratuvarı</span> 
@@ -358,67 +368,68 @@
             <div class="game-cat-content">
                 <div class="lab-panel">
                     <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 15px;">Fen Bilimleri Öğretmeni sevgilinden sana özel bir deney masası. İki durumu birleştir, sonuçlarını gör!</p>
-                    
                     <select id="chem1" class="lab-select">
                         <option value="bunalmis">Büşra KPSS'den Bunalmış</option>
                         <option value="ozlemis">Büşra Çok Özlemiş</option>
                         <option value="mesafe">Mesafe (348 KM)</option>
                     </select>
-
                     <i class="fas fa-plus" style="color: #c1a073; font-size: 1.5rem; margin-bottom: 15px;"></i>
-
                     <select id="chem2" class="lab-select">
                         <option value="oyun">Muhammet Telefonda Maça Dalmış</option>
                         <option value="guzelim">Muhammet 'Güzelim' Demiş</option>
                         <option value="sarki">Birlikte Cem Adrian Dinleniyor</option>
                     </select>
-
                     <button class="mood-btn mood-btn-happy" style="width: 100%; margin-top: 10px;" onclick="mixChemicals()">TEPKİMEYİ BAŞLAT</button>
-                    
                     <div id="labResult" class="lab-result"></div>
                 </div>
             </div>
         </div>
 
-        <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #e4e6eb;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
+        <!-- YENİ: MUHBÜŞ AI FİLM ASİSTANI -->
+        <div class="game-cat">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>🍿 MuhBüş - Yapay Zeka Film Asistanı</span> 
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="game-cat-content">
+                <div class="muhbus-panel">
+                    <div class="ai-header"><i class="fas fa-robot"></i> Sistem Aktif</div>
+                    <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 15px;">Merhabalar! Ben MuhBüş. Sizin için güncel Netflix verilerini tarayıp ilişkinize en uygun filmleri seçiyorum. Bir kategori belirleyin:</p>
+                    
+                    <div>
+                        <button class="cat-btn" onclick="askMuhBus('aksiyon')">💥 Aksiyon & Adrenalin</button>
+                        <button class="cat-btn" onclick="askMuhBus('romantik')">💕 Aşk & Komedi</button>
+                        <button class="cat-btn" onclick="askMuhBus('gizem')">🕵️ Gizem & Gerilim</button>
+                        <button class="cat-btn" onclick="askMuhBus('bilim')">👽 Bilim Kurgu & Fantastik</button>
+                    </div>
+
+                    <div id="muhbus-output" class="ai-output"></div>
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #e4e6eb; margin-top:20px;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
         <div class="confession-section">
-            
             <div class="confession-card">
                 <h4><i class="fas fa-question-circle" style="color: #c1a073;"></i> Yan yana geldiğimizde ilk yapmak istediğim, sabırsızlıkla beklediğim şey ne?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
-                <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
-                    <p>Sana sımsıkı sarılmak .</p>
-                </div>
+                <div class="answer-panel"><span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span><p>Sana sımsıkı sarılmak .</p></div>
             </div>
-
             <div class="confession-card">
                 <h4><i class="fas fa-question-circle" style="color: #c1a073;"></i> Hayatımda olduğun için en çok hangi anlarda "İyi ki varsın" diyorum?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
-                <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
-                    <p>Beni koruyup kollandığın, merak ettiğin anlarda diyorum.</p>
-                </div>
+                <div class="answer-panel"><span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span><p>Beni koruyup kollandığın, merak ettiğin anlarda diyorum.</p></div>
             </div>
-
             <div class="confession-card">
                 <h4><i class="fas fa-question-circle" style="color: #c1a073;"></i> Beni en çok mutlu eden, yüzümü en çok güldüren özelliğin veya cümlen hangisi?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
-                <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
-                    <p>Güzelim diyorsun ya bazen ona çok mutlu oluyorum.</p>
-                </div>
+                <div class="answer-panel"><span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span><p>Güzelim diyorsun ya bazen ona çok mutlu oluyorum.</p></div>
             </div>
-
             <div class="confession-card">
                 <h4><i class="fas fa-question-circle" style="color: #c1a073;"></i> Bu siteyi senin için hazırlarken içimden tam olarak ne geçiyordu?</h4>
                 <button class="reveal-btn" onclick="toggleCevap(this)"><i class="fas fa-eye"></i> Cevabı Gör</button>
-                <div class="answer-panel">
-                    <span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span>
-                    <p>mutlu olursun belki yüzünde hafif bir gülümseme olur diye bu siteyi hazırladım. Hem de bize küçük bir anı kalır.</p>
-                </div>
+                <div class="answer-panel"><span style="font-size: 0.8rem; color: #9aa0a6; font-weight: bold; display: block; margin-bottom: 2px;">Benim Cevabım:</span><p>mutlu olursun belki yüzünde hafif bir gülümseme olur diye bu siteyi hazırladım. Hem de bize küçük bir anı kalır.</p></div>
             </div>
-
         </div>
 
         <div class="simulator-section">
@@ -435,304 +446,162 @@
             <i class="fab fa-spotify" style="font-size: 3rem;"></i>
             <div>
                 <h4 style="color: white;">Sinir Yatıştırıcı Çalma Listesi 🎧</h4>
-                <p style="font-size: 0.85rem; margin-bottom: 10px; color: #d1e8d5;">Tripleri bırakıp kulaklığı takman için Büşra tarafından onaylandı. Kavga ederken dinleyip sinirini yatıştır diye içine dünyanın en tatlı şarkılarını yükledim sevgilim.</p>
+                <p style="font-size: 0.85rem; margin-bottom: 10px; color: #d1e8d5;">Kavga ederken dinleyip sinirini yatıştır diye içine dünyanın en tatlı şarkılarını yükledim sevgilim.</p>
                 <a href="https://open.spotify.com/playlist/2TOubZj0XDh3kSHOl0434A?si=tOVdwJTTR3unVbKmMiNEwg&pi=MiAcXNNQQFSo9" target="_blank" class="spotify-btn">Dinle 🎧</a>
             </div>
         </div>
-
-        <h3 style="margin-bottom: 15px; font-size: 1.2rem; color: #e4e6eb;"><i class="fas fa-popcorn" style="color: #c1a073;"></i> Beraber İzleyeceğimiz Filmler</h3>
-
-        <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header"><span>💥 Aksiyon & Soygun (Adrenalin Tavan)</span> <i class="fas fa-chevron-down"></i></div>
-            <div class="movie-cat-content">
-                <div class="movie-item">
-                    <h4>Hırsızlar Ordusu (Army of Thieves)</h4>
-                    <p>Çok havalı bir kasa hırsızının imkansız bir soygun için Interpol'ün en çok aranan suçlularını bir araya getirme hikayesi. Bizim Konya-Mersin arası kavgaları çözme çabamız da tam bir imkansız soygun operasyonu sevgilim. İzlerken kilitleri açtığımız gibi kalbini de bana tamamen açacaksın.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Red Notice</h4>
-                    <p>Dünyanın en çok aranan sanat eseri hırsızı, bir FBI ajanı ve azılı bir rakip karşı karşıya! Eğlencesi ve temposu o kadar high ki, izlerken bana olan inatçılığını unutup o muhteşem kahkahalarından atacaksın yakışıklım.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Xtremo</h4>
-                    <p>Kanlı bir intikam almak için kılıç kuşanıp kurşun yağdıran eski bir tetikçinin hikayesi. Aksiyonu izlerken aramızdaki tüm mesafelerin getirdiği stresi ve tüm tripleri tek bir sahnede patlatıp yok edeceğiz.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header"><span>🔍 Gerilim & Gizem (Nefes Kesenler)</span> <i class="fas fa-chevron-down"></i></div>
-            <div class="movie-cat-content">
-                <div class="movie-item">
-                    <h4>Ölümcül Labirent (Escape Room)</h4>
-                    <p>Esrarengiz bir kaçış odası oyununa katılan altı yabancının zekalarını kullanarak odalardan çıkma mücadelesi. Biz de bu uzak mesafe labirentinden birbirimize olan sevgimiz ve sabrımız sayesinde tıkır tıkır çıkacağız sevgilim, kurtuluşumuz bu labirentte saklı!</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Görünmez Adam (The Invisible Man)</h4>
-                    <p>Baskıcı bir ilişkiden kaçan ve görünmez bir varlık tarafından rahatsız edilmeye başlanan bir kadının gerilim dolu mücadelesi. Merak etme sevgilim, ben görünmez bir varlık gibi değil, her an yanındaymışım gibi sevgimle seni koruyup kollamaya devam edeceğim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Rehine (iRehine)</h4>
-                    <p>Amsterdam'ın merkezindeki Apple Store'da yaşanan silahlı bir rehine krizi ve polisin bu açmazı çözmek için harcadığı nefes kesen çaba. Gerçek olaylardan esinlenmiş! Bizim aramızdaki kilitlenen durumları çözmek de tam bir kriz yönetimi ama bizim sonumuz mutlu bitecek.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="movie-cat" onclick="toggle(this)">
-            <div class="movie-cat-header"><span>🎭 Komedi & Planlar (Gülme Garantili)</span> <i class="fas fa-chevron-down"></i></div>
-            <div class="movie-cat-content">
-                <div class="movie-item">
-                    <h4>Çılgın Aptal Aşk (Crazy, Stupid, Love)</h4>
-                    <p>Boşandıktan sonra perişan olan Cal'in, kadınları etkilemeyi çok iyi bilen çapkın bir adamdan yardım alma hikayesi. Tabii bu çapkın adam hayatının aşkıyla karşılaşmak üzeredir. Ben de hayatımın aşkıyla, yani seninle çoktan karşılaştım yakışıklım, bu çılgın aşkı beraber izleyelim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Felekten Bir Gece (The Hangover)</h4>
-                    <p>Vegas'taki o meşhur bekarlığa veda partisi ve ertesi gün damadın kaybolmasıyla hiçbir şey hatırlamayan arkadaşların efsane komedisi. İzlerken gözümüzden yaş gelene kadar güleceğiz ve kavga ettiğimiz o anları biz de tamamen unutacağız sevgilim.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>Sürprizli Gece (The Sleepover)</h4>
-                    <p>Anne babaları hırsızlar tarafından kaçırılan çocukların ajan aletleriyle bir gecelik çılgın macerası. Bizim ilişkimiz de tam bir macera; mesafeler bizi kaçırmaya çalışsa da biz sevgimizle her engeli aşarız.</p>
-                </div>
-                <div class="movie-item">
-                    <h4>I Care a Lot</h4>
-                    <p>Yaşlı insanları dolandıran profesyonel bir kadının, sert kayaya çarpıp sürpriz bağlantıları olan bir hedef seçmesiyle başlayan kara komedi. Sen de benim kalbimi çalarak çok sürprizli ve inatçı bir kayaya çarptın sevgilim, gel birlikte gülelim.</p>
-                </div>
-            </div>
-        </div>
-
-        <button class="action-btn" onclick="affet()">BÜŞRA'YI AFFET VE MESAJ AT ❤️</button>
 
         <p style="text-align: center; margin-top: 30px; font-size: 0.8rem; color: #5c6b73;">Büşra & Muhammet | Mesafe Tanımayan Aşk © 2026</p>
 
     </div>
 
     <script>
-        // --- 🌙 GECE KAPSÜLÜ KONTROLÜ ---
+        // --- 🌙 GECE KAPSÜLÜ ---
         function checkNightCapsule() {
             const hour = new Date().getHours();
-            const capsuleContent = document.getElementById("capsuleContent");
-            const capsuleLock = document.getElementById("capsuleLock");
-            // Gece 23:00 ile sabah 05:00 arası açılır
-            if(hour >= 23 || hour < 5) {
-                capsuleLock.style.display = "none";
-                capsuleContent.style.display = "block";
+            const cContent = document.getElementById("capsuleContent");
+            const cLock = document.getElementById("capsuleLock");
+            if(hour >= 23 || hour < 5) { cLock.style.display = "none"; cContent.style.display = "block"; } 
+            else { cLock.style.display = "block"; cContent.style.display = "none"; }
+        }
+
+        // --- CÜZDAN / EKONOMİ SİSTEMİ ---
+        function initWallet() {
+            let bScore = parseInt(localStorage.getItem('score_Büşra') || "0");
+            let mScore = parseInt(localStorage.getItem('score_Muhammet') || "0");
+            document.querySelectorAll('.val-b').forEach(el => el.innerText = bScore.toLocaleString());
+            document.querySelectorAll('.val-m').forEach(el => el.innerText = mScore.toLocaleString());
+        }
+
+        function addScore(player, amount) {
+            let current = parseInt(localStorage.getItem('score_' + player) || "0");
+            localStorage.setItem('score_' + player, current + amount);
+            initWallet();
+        }
+
+        function buyItem(cost, itemName) {
+            let player = prompt("Kim satın almak istiyor? (Büşra / Muhammet)").trim();
+            if(!player || (player.toLowerCase() !== "büşra" && player.toLowerCase() !== "büşra" && player.toLowerCase() !== "muhammet")) {
+                alert("Lütfen geçerli bir isim girin."); return;
+            }
+            let realPlayerName = (player.toLowerCase() === "muhammet") ? "Muhammet" : "Büşra";
+            let s = parseInt(localStorage.getItem('score_' + realPlayerName) || "0");
+            
+            if(s >= cost) {
+                localStorage.setItem('score_' + realPlayerName, s - cost);
+                initWallet();
+                alert(`Tebrikler ${realPlayerName}! "${itemName}" başarıyla satın alındı!\n\nHemen ekran görüntüsünü al ve hakkını talep et! 😍`);
             } else {
-                capsuleLock.style.display = "block";
-                capsuleContent.style.display = "none";
+                alert(`Yetersiz bakiye yakışıklım/güzelim! ${cost - s} puana daha ihtiyacın var. Biraz daha oyun oynamalısın veya görev yapmalısın.`);
             }
         }
 
-        // --- 🛍️ MAĞAZA VE 🧪 KİMYA LAB FONKSİYONLARI ---
-        function checkStore(cost, itemName) {
-            alert(`"${itemName}" ödülünü benden talep etmek için oyunda en az ${cost.toLocaleString()} Kariyer Puanına sahip olman gerekiyor.\n\nEğer bu puana ulaştıysan hemen ekran görüntüsünü at ve hakkını iste yakışıklım!`);
+        function completeQuest(points) {
+            let player = prompt("Bu görevi kim tamamladı? (Büşra / Muhammet)").trim();
+            if(!player || (player.toLowerCase() !== "büşra" && player.toLowerCase() !== "büşra" && player.toLowerCase() !== "muhammet")) {
+                alert("İşlem iptal edildi."); return;
+            }
+            let realPlayerName = (player.toLowerCase() === "muhammet") ? "Muhammet" : "Büşra";
+            addScore(realPlayerName, points);
+            alert(`Harika! ${points} Puan ${realPlayerName} cüzdanına eklendi!`);
         }
 
+        // --- 🤖 MUHBÜŞ AI SİNEMA BOTU ---
+        const aiMovies = {
+            aksiyon: "<b>1. Hırsızlar Ordusu (Army of Thieves)</b><br>İmkansız bir kasa soygunu.<br><br><b>2. Red Notice</b><br>Eğlencesi ve temposu yüksek, kafa dağıtmalık.<br><br><b>3. Xtremo 2</b><br>Kanlı ve hızlı bir intikam hikayesi.<br><br><i>MuhBüş Yorumu: Algoritmalarıma göre aranızdaki rekabeti ekrana taşımanın tam vakti! Büşra bu sahnelerde gözünü kapatabilir, Muhammet sıkıca sarılmaya hazırlıklı ol. Patlamış mısır eşleşmesi: %94!</i>",
+            romantik: "<b>1. Crazy, Stupid, Love</b><br>Çılgın ve aptal bir aşk hikayesi.<br><br><b>2. Office Romance</b><br>İşkolik bir CEO'nun kuralları yıkıp aşka düşmesi.<br><br><b>3. Sürprizli Gece (The Sleepover)</b><br>Ajan çocukların efsane komedisi.<br><br><i>MuhBüş Yorumu: Tam size göre bir kaos ve aşk. İkinizin o tatlı inatlaşmalarına çok benziyor. Beraber gülme garantili. Mükemmel eşleşme: %99!</i>",
+            gizem: "<b>1. Ölümcül Labirent (Escape Room)</b><br>Zekaları test eden dev bir kaçış odası.<br><br><b>2. Rehine (iRehine)</b><br>Amsterdam Apple Store'da yaşanan açmaz.<br><br><b>3. Bıçaklar Çekildi: Glass Onion</b><br>Dedektif Benoit Blanc ile yeni bir gizem.<br><br><i>MuhBüş Yorumu: İkinizin de zekasını test etme vakti geldi. Bakalım 'Katil bence bu!' diye kim daha önce tahminde bulunacak? İddiaları görelim!</i>",
+            bilim: "<b>1. Rebel Moon</b><br>Zack Snyder'den destansı bir uzay macerası.<br><br><b>2. Dune: Part Two</b><br>Arrakis gezegeninin efsanevi savaşı.<br><br><b>3. Cyberpunk: Edgerunners</b><br>Siber şehirde neon ışıklı bir distopya.<br><br><i>MuhBüş Yorumu: Dünyadan tamamen uzaklaşıp başka bir evrene ışınlanma vakti. Tıpkı birbirinizin sesini duyduğunuzda o 348 KM'yi tamamen unuttuğunuz gibi... Eşleşme: %100!</i>"
+        };
+
+        function askMuhBus(cat) {
+            let out = document.getElementById("muhbus-output");
+            out.style.display = "block";
+            out.innerHTML = "<i class='fas fa-circle-notch fa-spin'></i> <i>Veritabanı taranıyor... Büşra ve Muhammet'in zevk algoritması eşleştiriliyor...</i>";
+            setTimeout(() => { out.innerHTML = aiMovies[cat]; }, 1500);
+        }
+
+        // --- KİMYA LAB ---
         function mixChemicals() {
-            const val1 = document.getElementById("chem1").value;
-            const val2 = document.getElementById("chem2").value;
-            const res = document.getElementById("labResult");
-            res.style.display = "block";
-
-            if (val1 === "bunalmis" && val2 === "oyun") {
-                res.innerHTML = "<b>KIRMIZI ALARM! 💥</b> Tepkime çok tehlikeli! Acilen o telefonu elinden bırakıp, oyunu kapatıp Konya'ya bir moral telefonu açmalısın.";
-                res.style.borderLeftColor = "#b05b5b";
-            } else if (val1 === "bunalmis" && val2 === "guzelim") {
-                res.innerHTML = "<b>İYİLEŞME BAŞLADI! 🌸</b> Stres seviyesi düştü, kalpler yumuşadı. Büşra hocanın yüzünde tatlı bir tebessüm oluştu.";
-                res.style.borderLeftColor = "#7b9c7a";
-            } else if (val1 === "ozlemis" && val2 === "guzelim") {
-                res.innerHTML = "<b>KUSURSUZ TEPKİME! ✨</b> Formül mükemmel çalıştı. Tam bir serotonin patlaması, aradaki mesafeler buharlaştı!";
-                res.style.borderLeftColor = "#c1a073";
-            } else if (val1 === "ozlemis" && val2 === "oyun") {
-                res.innerHTML = "<b>RİSKLİ BÖLGE! ⚠️</b> Durum tehlikeli yerlere gidiyor. Çabuk oyunu bitirip tüm odak noktanı ona çevirmelisin.";
-                res.style.borderLeftColor = "#b05b5b";
-            } else if (val1 === "mesafe" && val2 === "sarki") {
-                res.innerHTML = "<b>AĞIR MELANKOLİ ÇÖKELTİSİ. 🌧️</b> Kalpteki sızı oranı arttı. Çözüm: En yakın zamanda yan yana gelip sımsıkı sarılmak.";
-                res.style.borderLeftColor = "#c1a073";
-            } else {
-                res.innerHTML = "<b>DENGELİ TEPKİME. 🔋</b> Her şey yolunda, aşk seviyesi stabil ilerliyor.";
-                res.style.borderLeftColor = "#e4e6eb";
-            }
+            const v1 = document.getElementById("chem1").value; const v2 = document.getElementById("chem2").value;
+            const res = document.getElementById("labResult"); res.style.display = "block";
+            if (v1 === "bunalmis" && v2 === "oyun") { res.innerHTML = "<b>KIRMIZI ALARM! 💥</b> Tepkime tehlikeli! O telefonu hemen bırakıp Konya'ya bir moral telefonu açmalısın."; res.style.borderLeftColor = "#b05b5b"; } 
+            else if (v1 === "ozlemis" && v2 === "guzelim") { res.innerHTML = "<b>KUSURSUZ TEPKİME! ✨</b> Formül mükemmel çalıştı. Tam bir serotonin patlaması, mesafeler buharlaştı!"; res.style.borderLeftColor = "#c1a073"; } 
+            else if (v1 === "mesafe" && v2 === "sarki") { res.innerHTML = "<b>AĞIR MELANKOLİ ÇÖKELTİSİ. 🌧️</b> Çözüm: En yakın zamanda yan yana gelip sımsıkı sarılmak."; res.style.borderLeftColor = "#c1a073"; } 
+            else { res.innerHTML = "<b>DENGELİ TEPKİME. 🔋</b> Her şey yolunda, aşk seviyesi stabil ilerliyor."; res.style.borderLeftColor = "#e4e6eb"; }
         }
 
         // --- İKİ NOKTALI (..jpeg) MOD VERİ TABANI ---
         const sadData = [
-            { img: "uzgun1..jpeg", title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔", text: "Uzakta olmak bazen sadece elini tutamadığın için zor gelir ama kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al ve her ne olduysa geçeceğini bil. Kafanı topladığında ben dinlemek için hep buradayım, ne zaman istersen. 🖤" },
-            { img: "uzgun2..jpeg", title: "Yüzün düşmesin, uzaktan da olsa yükünü hafifletmek isterim... 💔", text: "Konya ve Mersin arasındaki yollar şu an bizi fiziksel olarak ayırsa da, zihnimi tamamen sana odakladım. Günün yorgunluğunu veya seni sıkan her ne varsa bir kenara bırakalım. Bu akşam mutfağa girip senin bana verdiğin o ilk yemek tarifini (14.06.2026) yapıp kafanı dağıtmak ister misin?" },
-            { img: "uzgun3..jpeg", title: "Bazen sadece durup dinlenmek gerekir sevgilim...", text: "Hayat bazen üst üste gelir, çok normal. Bilgisayarı, işi, gücü birkaç saatliğine kapat yakışıklım. Kendine güzel bir kahve yap. Eğer istersen, bu sefer ben senin yanında olurum, kafanı dağıtacak sakin bir şeyler izleriz. Sen yeter ki iyi ol." },
-            { img: "uzgun4..jpeg", title: "Bana huzur verdiğin o geceyi düşün...", text: "Hani 12.05.2026 gecesi bana o güzel sesinle masal okuyup beni uzaklardan uyutmuştun ya... İşte o gecenin huzuru hâlâ içimde. Şimdi rolleri değişme sırası bende." }
+            { img: "uzgun1..jpeg", title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔", text: "Kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al..." },
+            { img: "uzgun2..jpeg", title: "Yüzün düşmesin, uzaktan da olsa yükünü hafifletmek isterim... 💔", text: "Bu akşam mutfağa girip senin bana verdiğin o ilk yemek tarifini (14.06.2026) yapıp kafanı dağıtmak ister misin?" },
+            { img: "uzgun3..jpeg", title: "Bazen sadece durup dinlenmek gerekir sevgilim...", text: "Bilgisayarı, işi, gücü birkaç saatliğine kapat yakışıklım. Kendine güzel bir kahve yap." },
+            { img: "uzgun4..jpeg", title: "Bana huzur verdiğin o geceyi düşün...", text: "Hani 12.05.2026 gecesi bana o güzel sesinle masal okuyup beni uzaklardan uyutmuştun ya... Huzuru hâlâ içimde." }
         ];
-
         const happyData = [
-            { img: "mutlu1..jpeg", title: "Senin keyfinin yerinde olması burayı da aydınlatıyor! 🚀", text: "Gününün güzel geçmesine çok sevindim sevgilim. Bu güzel enerjiyi daha da yukarı taşımak için akşam güzel bir film seçelim mi, yoksa kulaklıkları takıp bizim o her zaman dinlediğimiz playliste mi gömülelim?" },
-            { img: "mutlu2..jpeg", title: "Gülüşün tüm mesafeleri anlamsız kılıyor sevgilim. 😁", text: "Mersin'den buraya kadar enerjinin ulaştığını hissedebiliyorum. Madem bugün modumuz yüksek, belki de bir sonraki buluşma biletimizin tarihini netleştirme vaktimiz gelmiştir? 😉" },
-            { img: "mutlu3..jpeg", title: "İyi ki hayatımdasın be sevgilim... 🖤", text: "17.01.2026'da resmi olarak yan yana ilk kez uyuduğumuz o günden beri, hayatıma kattığın her güzel an için teşekkür ederim. Keyfinin yerinde olması benim için en büyük mutluluk." },
-            { img: "mutlu4..jpeg", title: "Bu güzel modu bir filmle taçlandıralım mı? 🎯", text: "Enerjin harika! Akşam bilgisayar veya telefon başına geçtiğimizde aşağıdan şık bir film kategorisi seç de hemen mısırları hazırlayayım." }
+            { img: "mutlu1..jpeg", title: "Senin keyfinin yerinde olması burayı da aydınlatıyor! 🚀", text: "Bu güzel enerjiyi daha da yukarı taşımak için akşam kulaklıkları takıp playliste mi gömülelim?" },
+            { img: "mutlu2..jpeg", title: "Gülüşün tüm mesafeleri anlamsız kılıyor sevgilim. 😁", text: "Madem bugün modumuz yüksek, belki de bir sonraki buluşma biletimizin tarihini netleştirme vaktimiz gelmiştir? 😉" },
+            { img: "mutlu3..jpeg", title: "İyi ki hayatımdasın be sevgilim... 🖤", text: "17.01.2026'da resmi olarak yan yana ilk kez uyuduğumuz o günden beri, hayatıma kattığın her güzel an için teşekkür ederim." },
+            { img: "mutlu4..jpeg", title: "Bu güzel modu bir filmle taçlandıralım mı? 🎯", text: "MuhBüş asistanımızı çalıştır da hemen mısırları hazırlayayım." }
         ];
 
         function gosterMod(mode) {
-            const panel = document.getElementById("moodResult");
-            const img = document.getElementById("moodImage");
-            const title = document.getElementById("moodTitle");
-            const text = document.getElementById("moodText");
-            const randomIndex = Math.floor(Math.random() * 4);
-            panel.style.display = "block";
-
-            if (mode === 'sad') {
-                const veri = sadData[randomIndex];
-                img.src = veri.img;
-                img.className = "mood-img mood-img-sad";
-                title.innerText = veri.title; title.style.color = "#b05b5b";
-                text.innerText = veri.text;
-            } else {
-                const veri = happyData[randomIndex];
-                img.src = veri.img;
-                img.className = "mood-img mood-img-happy";
-                title.innerText = veri.title; title.style.color = "#c1a073";
-                text.innerText = veri.text;
-            }
+            const p = document.getElementById("moodResult"), i = document.getElementById("moodImage"), t = document.getElementById("moodTitle"), tx = document.getElementById("moodText");
+            const r = Math.floor(Math.random() * 4); p.style.display = "block";
+            if (mode === 'sad') { i.src = sadData[r].img; i.className = "mood-img mood-img-sad"; t.innerText = sadData[r].title; t.style.color = "#b05b5b"; tx.innerText = sadData[r].text; } 
+            else { i.src = happyData[r].img; i.className = "mood-img mood-img-happy"; t.innerText = happyData[r].title; t.style.color = "#c1a073"; tx.innerText = happyData[r].text; }
         }
 
-        // --- 1. OYUN: YEREL PARMAK İZİ SİMÜLASYONU ---
-        let curStg = 1;
-        const syncPad = document.getElementById("syncPad");
-        const cfb1 = document.getElementById("cfb1");
-        let holdTimer;
-
+        // --- 1. OYUN: YEREL PARMAK İZİ ---
+        let curStg = 1; const syncPad = document.getElementById("syncPad"); const cfb1 = document.getElementById("cfb1"); let holdTimer;
         if(syncPad) {
-            syncPad.addEventListener("mousedown", baslaTaramaya);
-            syncPad.addEventListener("touchstart", baslaTaramaya, {passive: false});
-            syncPad.addEventListener("mouseup", durdurTaramayi);
-            syncPad.addEventListener("touchend", durdurTaramayi, {passive: false});
-            syncPad.addEventListener("mouseleave", durdurTaramayi);
+            syncPad.addEventListener("mousedown", baslaTaramaya); syncPad.addEventListener("touchstart", baslaTaramaya, {passive: false});
+            syncPad.addEventListener("mouseup", durdurTaramayi); syncPad.addEventListener("touchend", durdurTaramayi, {passive: false}); syncPad.addEventListener("mouseleave", durdurTaramayi);
         }
-
-        function baslaTaramaya(e) {
-            e.preventDefault();
-            cfb1.className = "cyber-fb error"; cfb1.innerText = "Taranıyor... Lütfen parmağını çekme...";
-            syncPad.style.background = "rgba(193, 160, 115, 0.4)";
-            holdTimer = setTimeout(() => {
-                cfb1.className = "cyber-fb success"; cfb1.innerText = "Bağlantı kuruldu! Kilit açılıyor...";
-                setTimeout(() => { nxtStg(2); }, 1200);
-            }, 3000);
-        }
-        function durdurTaramayi(e) { e.preventDefault(); clearTimeout(holdTimer); syncPad.style.background = "rgba(193, 160, 115, 0.05)"; if(cfb1.innerText.includes("Taranıyor")) cfb1.innerText = "İşlem iptal edildi, parmağını erken çektin."; }
+        function baslaTaramaya(e) { e.preventDefault(); cfb1.className = "cyber-fb error"; cfb1.innerText = "Taranıyor... Lütfen parmağını çekme..."; syncPad.style.background = "rgba(193, 160, 115, 0.4)"; holdTimer = setTimeout(() => { cfb1.className = "cyber-fb success"; cfb1.innerText = "Bağlantı kuruldu! Kilit açılıyor..."; setTimeout(() => { nxtStg(2); }, 1200); }, 3000); }
+        function durdurTaramayi(e) { e.preventDefault(); clearTimeout(holdTimer); syncPad.style.background = "rgba(193, 160, 115, 0.05)"; if(cfb1.innerText.includes("Taranıyor")) cfb1.innerText = "İşlem iptal edildi, erken çektin."; }
         function nxtStg(n) { document.getElementById(`stg${curStg}`).classList.remove("active"); document.getElementById(`stg${n}`).classList.add("active"); curStg = n; }
+        function chkStg2() { if(document.getElementById("cInp2").value.trim() === "17.01.2026") { document.getElementById("cfb2").className="cyber-fb success"; document.getElementById("cfb2").innerText="Kilit Açıldı."; setTimeout(()=>{nxtStg(3);}, 1000); } else { document.getElementById("cfb2").className="cyber-fb error"; document.getElementById("cfb2").innerText="Şifre Yanlış!"; } }
+        function chkStg3() { if(document.getElementById("cInp3").value.trim() === "09.08.2001") { document.getElementById("cfb3").className="cyber-fb success"; document.getElementById("cfb3").innerText="Kimlik Onaylandı."; setTimeout(()=>{nxtStg(4);}, 1000); } else { document.getElementById("cfb3").className="cyber-fb error"; document.getElementById("cfb3").innerText="Hatalı!"; } }
+        function chkStg4() { if(document.getElementById("cInp4").value.trim() === "12.05.2026") { document.getElementById("cfb4").className="cyber-fb success"; document.getElementById("cfb4").innerText="Hafıza Eşleşti."; setTimeout(()=>{nxtStg(5);}, 1000); } else { document.getElementById("cfb4").className="cyber-fb error"; document.getElementById("cfb4").innerText="Hatalı!"; } }
+        function chkStg5() { if(document.getElementById("cInp5").value.trim() === "14.06.2026") { document.getElementById("cfb5").className="cyber-fb success"; document.getElementById("cfb5").innerText="Sistem Çözüldü!"; setTimeout(()=>{nxtStg("Final");}, 1200); } else { document.getElementById("cfb5").className="cyber-fb error"; document.getElementById("cfb5").innerText="Hatalı!"; } }
 
-        function chkStg2() { const v = document.getElementById("cInp2").value.trim(); const fb = document.getElementById("cfb2"); if(v === "17.01.2026") { fb.className="cyber-fb success"; fb.innerText="Kilit Açıldı."; setTimeout(()=>{nxtStg(3);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Şifre Yanlış! (İpucu: Ocak ayının ortalarıydı sevgilim...)"; } }
-        function chkStg3() { const v = document.getElementById("cInp3").value.trim(); const fb = document.getElementById("cfb3"); if(v === "09.08.2001") { fb.className="cyber-fb success"; fb.innerText="Kimlik Onaylandı."; setTimeout(()=>{nxtStg(4);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Hatalı! (İpucu: Ağustos ayında doğdum ben...)"; } }
-        function chkStg4() { const v = document.getElementById("cInp4").value.trim(); const fb = document.getElementById("cfb4"); if(v === "12.05.2026") { fb.className="cyber-fb success"; fb.innerText="Hafıza Eşleşti."; setTimeout(()=>{nxtStg(5);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Hatalı! (İpucu: Mayıs'ın 12'siydi o güzel masal...)"; } }
-        function chkStg5() { const v = document.getElementById("cInp5").value.trim(); const fb = document.getElementById("cfb5"); if(v === "14.06.2026") { fb.className="cyber-fb success"; fb.innerText="Sistem Çözüldü!"; setTimeout(()=>{nxtStg("Final");}, 1200); } else { fb.className="cyber-fb error"; fb.innerText="İlk yemek tarifimi hatırla sevgilim."; } }
-
-        // --- 2. OYUN: ARCADE RUNNER DODGER MOTORU (HARDCORE GRIND) ---
-        let marathonPlayer = "";
-        let careerScore = 0;
-        let currentRunScore = 0;
-        let marathonActive = false;
-        let gameLoopId = null;
-
-        const mCanvas = document.getElementById("marathonCanvas");
-        const mCtx = mCanvas ? mCanvas.getContext("2d") : null;
-
-        let playerObj = { x: 170, y: 350, r: 8 };
-        let obstacles = [];
-        let scoreHearts = [];
-        let obstacleSpawnTimer = 0;
-        let heartSpawnTimer = 0;
-        let survivalTickTimer = 0;
-
-        function initMarathon() {
-            document.getElementById("bBest").innerText = parseInt(localStorage.getItem("marathon_career_Büşra") || "0").toLocaleString();
-            document.getElementById("mBest").innerText = parseInt(localStorage.getItem("marathon_career_Muhammet") || "0").toLocaleString();
-        }
+        // --- 2. OYUN: ARCADE RUNNER DODGER MOTORU (ORTAK CÜZDANLI) ---
+        let marathonPlayer = ""; let currentRunScore = 0; let marathonActive = false; let gameLoopId = null;
+        const mCanvas = document.getElementById("marathonCanvas"); const mCtx = mCanvas ? mCanvas.getContext("2d") : null;
+        let playerObj = { x: 170, y: 350, r: 8 }; let obstacles = []; let scoreHearts = []; let obstacleSpawnTimer = 0; let heartSpawnTimer = 0; let survivalTickTimer = 0;
 
         function selectMarathonPlayer(player) {
             marathonPlayer = player;
-            careerScore = parseInt(localStorage.getItem("marathon_career_" + player) || "0");
-            
-            if(careerScore >= 50000) {
-                alert("🏆 KAZANAN İLAN EDİLDİ!\n\n" + player + " zaten 50.000 Kariyer Puanına ulaşarak bu maratonu tam anlamıyla bitirdi! İddianın mutlak galibidir!");
-                return;
-            }
-
             document.getElementById("marathonLobby").style.display = "none";
             document.getElementById("marathonGameArea").style.display = "block";
             document.getElementById("curActivePlayer").innerText = player;
-            document.getElementById("marathonTotalScore").innerText = careerScore.toLocaleString();
-            
-            resetRun();
-            marathonActive = true;
-            gameLoopId = requestAnimationFrame(marathonGameLoop);
+            resetRun(); marathonActive = true; gameLoopId = requestAnimationFrame(marathonGameLoop);
         }
 
-        function resetRun() {
-            currentRunScore = 0;
-            document.getElementById("marathonCurrentScore").innerText = currentRunScore;
-            playerObj.x = mCanvas.width / 2;
-            playerObj.y = 350;
-            obstacles = [];
-            scoreHearts = [];
-            obstacleSpawnTimer = 0;
-            heartSpawnTimer = 0;
-            survivalTickTimer = 0;
-        }
+        function resetRun() { currentRunScore = 0; document.getElementById("marathonCurrentScore").innerText = currentRunScore; playerObj.x = mCanvas.width / 2; playerObj.y = 350; obstacles = []; scoreHearts = []; obstacleSpawnTimer = 0; heartSpawnTimer = 0; survivalTickTimer = 0; }
 
-        if(mCanvas) {
-            mCanvas.addEventListener("touchmove", handleControl, {passive: false});
-            mCanvas.addEventListener("touchstart", handleControl, {passive: false});
-            mCanvas.addEventListener("mousemove", handleControl);
-        }
+        if(mCanvas) { mCanvas.addEventListener("touchmove", handleControl, {passive: false}); mCanvas.addEventListener("touchstart", handleControl, {passive: false}); mCanvas.addEventListener("mousemove", handleControl); }
+        function handleControl(e) { if(!marathonActive) return; e.preventDefault(); const rect = mCanvas.getBoundingClientRect(); const cx = e.touches ? e.touches[0].clientX : e.clientX; const cy = e.touches ? e.touches[0].clientY : e.clientY; let tx = (cx - rect.left) * (mCanvas.width / rect.width); let ty = (cy - rect.top) * (mCanvas.height / rect.height); if(tx >= 0 && tx <= mCanvas.width) playerObj.x = tx; if(ty >= 0 && ty <= mCanvas.height) playerObj.y = ty; }
 
-        function handleControl(e) {
-            if(!marathonActive) return;
-            e.preventDefault();
-            const rect = mCanvas.getBoundingClientRect();
-            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            let targetX = (clientX - rect.left) * (mCanvas.width / rect.width);
-            let targetY = (clientY - rect.top) * (mCanvas.height / rect.height);
-            if(targetX >= 0 && targetX <= mCanvas.width) playerObj.x = targetX;
-            if(targetY >= 0 && targetY <= mCanvas.height) playerObj.y = targetY;
-        }
-
-        function drawHeartShape(x, y, r, color) {
-            mCtx.save();
-            mCtx.beginPath();
-            let tc = r * 0.3;
-            mCtx.moveTo(x, y + tc);
-            mCtx.bezierCurveTo(x, y, x - r/2, y, x - r/2, y + tc);
-            mCtx.bezierCurveTo(x - r/2, y + (r+tc)/2, x, y + r, x, y + r);
-            mCtx.bezierCurveTo(x, y + (r+tc)/2, x + r/2, y + (r+tc)/2, x + r/2, y + tc);
-            mCtx.bezierCurveTo(x + r/2, y, x, y, x, y + tc);
-            mCtx.closePath();
-            mCtx.fillStyle = color;
-            mCtx.fill();
-            mCtx.restore();
-        }
+        function drawHeartShape(x, y, r, color) { mCtx.save(); mCtx.beginPath(); let tc = r * 0.3; mCtx.moveTo(x, y + tc); mCtx.bezierCurveTo(x, y, x - r/2, y, x - r/2, y + tc); mCtx.bezierCurveTo(x - r/2, y + (r+tc)/2, x, y + r, x, y + r); mCtx.bezierCurveTo(x, y + (r+tc)/2, x + r/2, y + (r+tc)/2, x + r/2, y + tc); mCtx.bezierCurveTo(x + r/2, y, x, y, x, y + tc); mCtx.closePath(); mCtx.fillStyle = color; mCtx.fill(); mCtx.restore(); }
 
         function marathonGameLoop() {
             if(!marathonActive) return;
-
             mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height);
             mCtx.strokeStyle = "#1a1d24"; mCtx.lineWidth = 1;
             for(let i=0; i<mCanvas.width; i+=25) { mCtx.beginPath(); mCtx.moveTo(i, 0); mCtx.lineTo(i, mCanvas.height); mCtx.stroke(); }
             for(let j=0; j<mCanvas.height; j+=25) { mCtx.beginPath(); mCtx.moveTo(0, j); mCtx.lineTo(mCanvas.width, j); mCtx.stroke(); }
 
             survivalTickTimer++;
-            if(survivalTickTimer % 10 === 0) {
-                currentRunScore += 5;
-                document.getElementById("marathonCurrentScore").innerText = currentRunScore;
-            }
+            if(survivalTickTimer % 10 === 0) { currentRunScore += 5; document.getElementById("marathonCurrentScore").innerText = currentRunScore; }
 
             obstacleSpawnTimer++;
             let spawnRate = Math.max(12, 35 - Math.floor(currentRunScore / 250));
-            if(obstacleSpawnTimer >= spawnRate) {
-                obstacleSpawnTimer = 0;
-                obstacles.push({ x: Math.random() * mCanvas.width, y: -20, r: Math.random() * (16 - 6) + 6, speed: (Math.random() * (4 - 2) + 2) + (currentRunScore / 600), vx: (Math.random() - 0.5) * (currentRunScore / 500) });
-            }
+            if(obstacleSpawnTimer >= spawnRate) { obstacleSpawnTimer = 0; obstacles.push({ x: Math.random() * mCanvas.width, y: -20, r: Math.random() * (16 - 6) + 6, speed: (Math.random() * (4 - 2) + 2) + (currentRunScore / 600), vx: (Math.random() - 0.5) * (currentRunScore / 500) }); }
 
             for(let i = obstacles.length - 1; i >= 0; i--) {
-                let obs = obstacles[i];
-                obs.y += obs.speed; obs.x += obs.vx;
+                let obs = obstacles[i]; obs.y += obs.speed; obs.x += obs.vx;
                 if(obs.y > mCanvas.height + 20) { obstacles.splice(i, 1); continue; }
                 mCtx.fillStyle = "#b05b5b"; mCtx.beginPath(); mCtx.arc(obs.x, obs.y, obs.r, 0, Math.PI * 2); mCtx.fill();
                 let dist = Math.hypot(playerObj.x - obs.x, playerObj.y - obs.y);
@@ -740,113 +609,40 @@
             }
 
             heartSpawnTimer++;
-            if(heartSpawnTimer >= 80) {
-                heartSpawnTimer = 0;
-                scoreHearts.push({ x: Math.random() * (mCanvas.width - 20) + 10, y: -10, r: 12, speed: 2 + (currentRunScore / 1000) });
-            }
+            if(heartSpawnTimer >= 80) { heartSpawnTimer = 0; scoreHearts.push({ x: Math.random() * (mCanvas.width - 20) + 10, y: -10, r: 12, speed: 2 + (currentRunScore / 1000) }); }
 
             for(let j = scoreHearts.length - 1; j >= 0; j--) {
-                let hrt = scoreHearts[j];
-                hrt.y += hrt.speed;
+                let hrt = scoreHearts[j]; hrt.y += hrt.speed;
                 if(hrt.y > mCanvas.height + 10) { scoreHearts.splice(j, 1); continue; }
                 drawHeartShape(hrt.x, hrt.y, hrt.r, "#c1a073");
                 let distToHeart = Math.hypot(playerObj.x - hrt.x, playerObj.y - hrt.y);
                 if(distToHeart < playerObj.r + hrt.r + 5) { currentRunScore += 150; document.getElementById("marathonCurrentScore").innerText = currentRunScore; scoreHearts.splice(j, 1); }
             }
 
-            mCtx.save();
-            mCtx.shadowBlur = 15; mCtx.shadowColor = "#c1a073";
-            mCtx.fillStyle = "#e4e6eb";
+            mCtx.save(); mCtx.shadowBlur = 15; mCtx.shadowColor = "#c1a073"; mCtx.fillStyle = "#e4e6eb";
             mCtx.beginPath(); mCtx.arc(playerObj.x, playerObj.y, playerObj.r, 0, Math.PI * 2); mCtx.fill();
-            mCtx.fillStyle = "#c1a073";
-            mCtx.beginPath(); mCtx.arc(playerObj.x, playerObj.y, playerObj.r / 2, 0, Math.PI * 2); mCtx.fill();
-            mCtx.restore();
+            mCtx.fillStyle = "#c1a073"; mCtx.beginPath(); mCtx.arc(playerObj.x, playerObj.y, playerObj.r / 2, 0, Math.PI * 2); mCtx.fill(); mCtx.restore();
 
             gameLoopId = requestAnimationFrame(marathonGameLoop);
         }
 
         function handleGameOver() {
-            marathonActive = false;
-            cancelAnimationFrame(gameLoopId);
-            careerScore += currentRunScore;
-            localStorage.setItem("marathon_career_" + marathonPlayer, careerScore);
-            document.getElementById("marathonTotalScore").innerText = careerScore.toLocaleString();
-
-            alert("💥 ENGELE ÇARPTIN! ELENDİN! 💥\n\nBu tur topladığın puan: " + currentRunScore + "\nToplam Kariyer Puanına eklendi.");
-
-            if(careerScore >= 50000) {
-                alert("🏆 MARATONUN MUTLAK GALİBİ: " + marathonPlayer.toUpperCase() + "! 🏆\n\nTebrikler! 50.000 Kariyer Puanı barajını ilk sen yıktın! Kaybeden taraf söz verdiği gibi 1 GÜN boyunca kazananın her istediğini koşulsuz şartsız yapacaktır! Ekran görüntüsünü hemen sevgiline at! 😍");
-            }
-
-            resetRun();
+            marathonActive = false; cancelAnimationFrame(gameLoopId);
+            addScore(marathonPlayer, currentRunScore); // Cüzdana aktar
+            alert("💥 ENGELE ÇARPTIN! 💥\n\nBu tur topladığın " + currentRunScore + " Puan cüzdanına eklendi.");
             exitMarathonGame();
         }
 
-        function exitMarathonGame() {
-            marathonActive = false;
-            cancelAnimationFrame(gameLoopId);
-            document.getElementById("marathonGameArea").style.display = "none";
-            document.getElementById("marathonLobby").style.display = "flex";
-            initMarathon();
-        }
+        function exitMarathonGame() { marathonActive = false; cancelAnimationFrame(gameLoopId); document.getElementById("marathonGameArea").style.display = "none"; document.getElementById("marathonLobby").style.display = "flex"; initWallet(); }
 
-        // --- SENİN ORİJİNAL FONKSİYONLARIN (DOKUNULMADI) ---
+        // --- DİĞER ORİJİNAL FONKSİYONLAR ---
         function toggle(el) { el.classList.toggle('open'); }
-        function toggleCevap(btn) {
-            const panel = btn.nextElementSibling;
-            panel.classList.toggle('open');
-            if (panel.classList.contains('open')) {
-                btn.innerHTML = '<i class="fas fa-eye-slash"></i> Cevabı Kapat';
-                btn.style.background = '#252930'; btn.style.color = '#c1a073';
-            } else {
-                btn.innerHTML = '<i class="fas fa-eye"></i> Cevabı Gör';
-                btn.style.background = '#c1a073'; btn.style.color = '#121417';
-            }
-        }
-
-        function affet() { alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍"); }
-
-        function simuleEt(yontem) {
-            if(yontem === 1) alert("🚇 KONYA METROSU MERSİN'E UZATILDI!\n\nBelediye ekiplerimiz aşkımız için seferber oldu sevgilim. Konya-Mersin arası hat döşendi, ilk durak doğrudan senin kalbin! Seferler kesintisiz ve ücretsiz! 🤭");
-            else if(yontem === 2) alert("⚡ IŞINLANMA CİHAZI AŞIRI YÜKLENDİ!\n\nŞorlooopp! Cihaz başarıyla çalıştırıldı yakışıklım. Şimdilik ekrandan ışınlanıyorum ama kalbimin çoktan Mersin'e ulaştığına yemin edebilirim ama kanıtlayamam!");
-            else if(yontem === 3) alert("🕊️ KANATLAR TAKILDI, UÇUŞ BAŞLADI!\n\nKonya semalarından Mersin'e doğru saniyede 348 km hızla kanat çırpıyorum sevgilim! Mesafeler bizim aşkımızın hızına yetişemez, pencereni açık tut geliyorum! 😍");
-        }
-
-        function startHearts() {
-            const container = document.getElementById('heart-container');
-            if(!container) return;
-            setInterval(() => {
-                const heart = document.createElement('i');
-                heart.className = 'fa-solid fa-heart heart';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
-                heart.style.fontSize = (Math.random() * 16 + 12) + 'px'; 
-                container.appendChild(heart);
-                setTimeout(() => { heart.remove(); }, 7000);
-            }, 350);
-        }
-
-        function updateCounter() {
-            const start = new Date('2026-01-17T00:00:00');
-            const now = new Date();
-            const diff = now - start;
-            if(diff > 0) {
-                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((diff % (1000 * 60)) / 1000);
-                const counterEl = document.getElementById('counter');
-                if(counterEl) counterEl.innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
-            }
-        }
-
-        window.onload = function() {
-            startHearts();
-            setInterval(updateCounter, 1000);
-            updateCounter();
-            initMarathon();
-            checkNightCapsule(); // Gece Kapsülü Kontrolü
-        };
+        function toggleCevap(btn) { const panel = btn.nextElementSibling; panel.classList.toggle('open'); if (panel.classList.contains('open')) { btn.innerHTML = '<i class="fas fa-eye-slash"></i> Cevabı Kapat'; btn.style.background = '#252930'; btn.style.color = '#c1a073'; } else { btn.innerHTML = '<i class="fas fa-eye"></i> Cevabı Gör'; btn.style.background = '#c1a073'; btn.style.color = '#121417'; } }
+        function simuleEt(yontem) { if(yontem === 1) alert("🚇 KONYA METROSU MERSİN'E UZATILDI!"); else if(yontem === 2) alert("⚡ IŞINLANMA CİHAZI ÇALIŞTIRILDI!"); else if(yontem === 3) alert("🕊️ KANATLAR TAKILDI, UÇUŞ BAŞLADI!"); }
+        function startHearts() { const container = document.getElementById('heart-container'); if(!container) return; setInterval(() => { const heart = document.createElement('i'); heart.className = 'fa-solid fa-heart heart'; heart.style.left = Math.random() * 100 + 'vw'; heart.style.animationDuration = (Math.random() * 3 + 5) + 's'; heart.style.fontSize = (Math.random() * 16 + 12) + 'px'; container.appendChild(heart); setTimeout(() => { heart.remove(); }, 7000); }, 350); }
+        function updateCounter() { const start = new Date('2026-01-17T00:00:00'); const now = new Date(); const diff = now - start; if(diff > 0) { const d = Math.floor(diff / (1000 * 60 * 60 * 24)); const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)); const s = Math.floor((diff % (1000 * 60)) / 1000); const counterEl = document.getElementById('counter'); if(counterEl) counterEl.innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`; } }
+        
+        window.onload = function() { startHearts(); setInterval(updateCounter, 1000); updateCounter(); initWallet(); checkNightCapsule(); };
     </script>
 </body>
 </html>
