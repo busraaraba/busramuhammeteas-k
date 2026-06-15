@@ -48,7 +48,7 @@
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
             10% { opacity: 0.6; }
             90% { opacity: 0.6; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+            10% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
         .main-card {
@@ -167,6 +167,68 @@
             color: #64748b;
             font-weight: bold;
         }
+
+        /* --- YENİ EKLENEN: MOD BAZLI DİNAMİK ALAN --- */
+        .mood-section {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+        .mood-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .mood-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+        .mood-btn-sad {
+            background: linear-gradient(135deg, #475569, #1e293b);
+            box-shadow: 0 4px 10px rgba(30, 41, 59, 0.2);
+        }
+        .mood-btn-happy {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.2);
+        }
+        .mood-btn:hover { transform: translateY(-1px); opacity: 0.95; }
+        
+        .mood-result-panel {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            animation: fadeInMood 0.5s ease-out forwards;
+        }
+        .mood-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+        .mood-img-sad { border: 3px solid #475569; }
+        .mood-img-happy { border: 3px solid #3b82f6; }
+        .mood-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
+        .mood-text { font-size: 0.95rem; color: #475569; line-height: 1.5; text-align: left; }
+        
+        @keyframes fadeInMood {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* ------------------------------------------- */
 
         /* İTİRAFLARIM Bölümü */
         .confession-section {
@@ -346,7 +408,7 @@
         
         <div class="header">
             <h1>Büşra ❤️ Muhammet</h1>
-            <p>Canım sevgilim, sana küçük bir süpriz yapmak istedim umarım mutlu olursun</p>
+            <p>Canım sevgilim, sana küçük bir sürpriz yapmak istedim umarım mutlu olursun</p>
         </div>
 
         <div class="photo-area">
@@ -374,6 +436,23 @@
                 <p>Cem Adrian • Muhammet'in Hediyesi</p>
             </div>
         </div>
+
+        <!-- --- YENİ EKLENEN: MOD BAZLI DİNAMİK ODAMIZ --- -->
+        <div class="mood-section">
+            <h3 style="font-size: 1.2rem; color: #1e293b;"><i class="fas fa-heartbeat"></i> Ruh Haline Özel Odamız</h3>
+            <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Şu an nasıl hissediyorsun sevgilim? Seç, odamız ona göre şekillensin:</p>
+            <div class="mood-buttons">
+                <button class="mood-btn mood-btn-sad" onclick="gosterMod('sad')">Moralim Bozuk 💔</button>
+                <button class="mood-btn mood-btn-happy" onclick="gosterMod('happy')">Moralim İyi ✨</button>
+            </div>
+            
+            <div class="mood-result-panel" id="moodResult">
+                <img src="" id="moodImage" alt="Büşra" class="mood-img">
+                <div class="mood-title" id="moodTitle"></div>
+                <div class="mood-text" id="moodText"></div>
+            </div>
+        </div>
+        <!-- -------------------------------------------- -->
 
         <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #1e293b;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
         <div class="confession-section">
@@ -446,7 +525,7 @@
                 </div>
                 <div class="movie-item">
                     <h4>Red Notice</h4>
-                    <p>Dünyanın en çok aranan sanat eseri hırsızı, bir FBI ajanı ve azılı bir rakip karşı karşıya! Eğlencesi ve temposu o kadar yüksek ki, izlerken bana olan inatçılığını unutup o muhteşem kahkahalarından atacaksın yakışıklım.</p>
+                    <p>Dünyanın en çok aranan sanat eseri hırsızı, bir FBI ajanı ve azılı bir rakip karşı karşıya! Eğlencesi ve temposu o kadar high ki, izlerken bana olan inatçılığını unutup o muhteşem kahkahalarından atacaksın yakışıklım.</p>
                 </div>
                 <div class="movie-item">
                     <h4>Xtremo</h4>
@@ -502,6 +581,81 @@
     </div>
 
     <script>
+        // --- YENİ EKLENEN: DİNAMİK VERİ TABANI ---
+        const sadData = [
+            {
+                img: "uzgun1.jpg", 
+                title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔",
+                text: "Uzakta olmak bazen sadece elini tutamadığın için zor gelir ama kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al ve her ne olduysa geçeceğini bil. Kafanı topladığında ben dinlemek için hep buradayım, ne zaman istersen. 🖤"
+            },
+            {
+                img: "uzgun2.jpg",
+                title: "Yüzün düşmesin, uzaktan da olsa yükünü hafifletmek isterim... 💔",
+                text: "Konya ve Mersin arasındaki yollar şu an bizi fiziksel olarak ayırsa da, zihnimi tamamen sana odakladım. Günün yorgunluğunu veya seni sıkan her ne varsa bir kenara bırakalım. Bu akşam mutfağa girip senin bana verdiğin o ilk yemek tarifini (14.06.2026) yapıp kafanı dağıtmak ister misin, yoksa sadece sessizce telefonda kalmamı mı istersen?"
+            },
+            {
+                img: "uzgun3.jpg",
+                title: "Bazen sadece durup dinlenmek gerekir sevgilim...",
+                text: "Hayat bazen üst üste gelir, çok normal. Bilgisayarı, işi, gücü birkaç saatliğine kapat yakışıklım. Kendine güzel bir kahve yap. Eğer istersen, bu sefer ben senin yanında olurum, kafanı dağıtacak sakin bir şeyler izleriz. Sen yeter ki iyi ol."
+            },
+            {
+                img: "uzgun4.jpg",
+                title: "Bana huzur verdiğin o geceyi düşün...",
+                text: "Hani 12.05.2026 gecesi bana o güzel sesinle masal okuyup beni uzaklardan uyutmuştun ya... İşte o gecenin huzuru hâlâ içimde. Şimdi rolleri değişme sırası bende. Eğer moralini düzeltecekse, bu gece ben senin zihnini sakinleştirecek şeyler anlatırım sana. Yalnız değilsin, buradayım."
+            }
+        ];
+
+        const happyData = [
+            {
+                img: "mutlu1.jpg",
+                title: "Senin keyfinin yerinde olması burayı da aydınlatıyor! 🚀",
+                text: "Gününün güzel geçmesine çok sevindim sevgilim. Bu güzel enerjiyi daha da yukarı taşımak için akşam güzel bir film seçelim mi, yoksa kulaklıkları takıp bizim o her zaman dinlediğimiz playliste mi gömülelim?"
+            },
+            {
+                img: "mutlu2.jpg",
+                title: "Gülüşün tüm mesafeleri anlamsız kılıyor sevgilim. 😁",
+                text: "Mersin'den buraya kadar enerjinin ulaştığını hissedebiliyorum. Madem bugün modumuz yüksek, belki de bir sonraki buluşma biletimizin tarihini netleştirme vaktimiz gelmiştir? 😉"
+            },
+            {
+                img: "mutlu3.jpg",
+                title: "İyi ki hayatımdasın be sevgilim... 🖤",
+                text: "17.01.2026'da resmi olarak yan yana ilk kez uyuduğumuz o günden beri, hayatıma kattığın her güzel an için teşekkür ederim. Keyfinin yerinde olması benim için en büyük mutluluk. Bugünün tadını çıkar."
+            },
+            {
+                img: "mutlu4.jpg",
+                title: "Bu güzel modu bir filmle taçlandıralım mı? 🎯",
+                text: "Enerjin harika! Akşam bilgisayar veya telefon başına geçtiğimizde aşağıdan şık bir film kategorisi seç de hemen mısırları hazırlayayım. Hazır mısın yakışıklım?"
+            }
+        ];
+
+        function gosterMod(mode) {
+            const panel = document.getElementById("moodResult");
+            const img = document.getElementById("moodImage");
+            const title = document.getElementById("moodTitle");
+            const text = document.getElementById("moodText");
+            
+            // 0 ile 3 arası rastgele seçim
+            const randomIndex = Math.floor(Math.random() * 4);
+            panel.style.display = "block";
+
+            if (mode === 'sad') {
+                const veri = sadData[randomIndex];
+                img.src = veri.img;
+                img.className = "mood-img mood-img-sad";
+                title.innerText = veri.title;
+                title.style.color = "#475569";
+                text.innerText = veri.text;
+            } else {
+                const veri = happyData[randomIndex];
+                img.src = veri.img;
+                img.className = "mood-img mood-img-happy";
+                title.innerText = veri.title;
+                title.style.color = "#3b82f6";
+                text.innerText = veri.text;
+            }
+        }
+        // --------------------------------------------
+
         function toggle(el) { el.classList.toggle('open'); }
 
         function toggleCevap(btn) {
