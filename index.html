@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Büşra ❤️ Muhammet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -168,7 +168,6 @@
             font-weight: bold;
         }
 
-        /* --- SADECE SENİN DEDİKLERİNİN EKLENDİĞİ YENİ ALANLAR --- */
         /* RUH HALİNE ÖZEL ODAMIZ */
         .mood-section {
             background: #f8fafc;
@@ -269,7 +268,6 @@
         .pong-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; }
         #scoreBoard { display: flex; justify-content: space-between; width: 100%; font-size: 1rem; font-weight: bold; margin-bottom: 10px; }
         canvas { background-color: #1e1e1e; border: 2px solid #333; border-radius: 8px; max-width: 100%; touch-action: none; }
-        /* ------------------------------------------------------------- */
 
         /* İTİRAFLARIM Bölümü */
         .confession-section {
@@ -468,7 +466,7 @@
         <div class="distance-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">📍 Özlem Mesafe Sayacı 📍</p>
             <div style="font-size: 1.4rem; font-weight: bold; margin-top: 5px;">Konya ↔️ Mersin: 348 KM</div>
-            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #cbd5e1;">*Otobüsle 5 saat, seni চিন্তা করার সময় saliseler kadar yakın sevgilim.*</p>
+            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #cbd5e1;">*Otobüsle 5 saat, seni düşünürken saliseler kadar yakın sevgilim.*</p>
         </div>
 
         <div class="music-reminder">
@@ -479,7 +477,6 @@
             </div>
         </div>
 
-        <!-- RUH HALİNE ÖZEL ODAMIZ -->
         <div class="mood-section">
             <h3 style="font-size: 1.2rem; color: #1e293b;"><i class="fas fa-heartbeat"></i> Ruh Haline Özel Odamız</h3>
             <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Şu an nasıl hissediyorsun sevgilim? Seç, odamız ona göre şekillensin:</p>
@@ -489,13 +486,12 @@
             </div>
             
             <div class="mood-result-panel" id="moodResult">
-                <img src="" id="moodImage" alt="Büşra" class="mood-img">
+                <img src="" id="moodImage" alt="Büşra" class="mood-img" onerror="resimHatasiniCoz(this)">
                 <div class="mood-title" id="moodTitle"></div>
                 <div class="mood-text" id="moodText"></div>
             </div>
         </div>
 
-        <!-- OYUNLAR VE LOBİ MENÜLERİ -->
         <div class="game-cat" id="gameAccord">
             <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
                 <span>🎮 Beraber Oynayacağımız Oyunlar (Canlı Lobi)</span> 
@@ -503,7 +499,6 @@
             </div>
             <div class="game-cat-content">
                 
-                <!-- GİZLİ OPERASYON TURNUVASI -->
                 <div class="cyber-panel">
                     <h3 style="color:#00f2fe; font-size:1.1rem; margin-bottom:15px; border-bottom:1px dashed #333; width:100%; padding-bottom:5px;">
                         🎯 Siber Görev: Lobi Operasyonu
@@ -551,7 +546,6 @@
                     </div>
                 </div>
 
-                <!-- CANLI MOBIL PONG KAPIŞMASI -->
                 <div class="pong-panel">
                     <h3 style="color:#1dd1a1; font-size:1.1rem; margin-bottom:10px; border-bottom:1px dashed #333; width:100%; padding-bottom:5px;">
                         🎮 Mesafe Bükücü // Canlı Mobil Arena
@@ -719,6 +713,10 @@
             const randomIndex = Math.floor(Math.random() * 4);
             panel.style.display = "block";
 
+            // Hata çözücü için orijinal ismi sakla
+            img.dataset.rawname = mode === 'sad' ? `uzgun${randomIndex + 1}` : `mutlu${randomIndex + 1}`;
+            img.dataset.trystep = "0";
+
             if (mode === 'sad') {
                 const veri = sadData[randomIndex];
                 img.src = veri.img;
@@ -734,6 +732,20 @@
             }
         }
 
+        // --- GELİŞMİŞ FOTOĞRAF HATA ÇÖZÜCÜ ---
+        function resimHatasiniCoz(imgElement) {
+            const raw = imgElement.dataset.rawname;
+            let step = parseInt(imgElement.dataset.trystep || "0");
+            
+            // Sırayla tüm olası uzantıları dene (büyük/küçük harf kombinasyonları)
+            const ihtimaller = [".jpeg", ".JPEG", ".jpg", ".JPG", ".png", ".PNG"];
+            
+            if (step < ihtimaller.length) {
+                imgElement.dataset.trystep = (step + 1).toString();
+                imgElement.src = raw + ihtimaller[step];
+            }
+        }
+
         // --- CANLI BAĞLANTI & OYUN MOTORLARI ---
         const pieSocket = new PieSocket({ clusterId: "demo", apiKey: "oZ76Z9asb6vYTIeY77vBwfcgnd60gB0eTYbT7is9" });
         const gameChannel = pieSocket.subscribe("ortak-lobi-salonu-2026");
@@ -743,8 +755,10 @@
         const cfb1 = document.getElementById("cfb1");
         let mTouch = false, pTouch = false;
 
-        syncPad.addEventListener("touchstart", (e) => { e.preventDefault(); mTouch = true; gameChannel.publish("touch", { t: true }); checkSync(); });
-        syncPad.addEventListener("touchend", () => { mTouch = false; gameChannel.publish("touch", { t: false }); cfb1.innerText = ""; });
+        if(syncPad) {
+            syncPad.addEventListener("touchstart", (e) => { e.preventDefault(); mTouch = true; gameChannel.publish("touch", { t: true }); checkSync(); });
+            syncPad.addEventListener("touchend", () => { mTouch = false; gameChannel.publish("touch", { t: false }); cfb1.innerText = ""; });
+        }
         gameChannel.on("touch", (data) => { pTouch = data.t; checkSync(); });
 
         function checkSync() {
@@ -763,14 +777,16 @@
 
         // PONG AYARLARI
         const canvas = document.getElementById("gameCanvas"); const ctx = canvas.getContext("2d"); const pW = 70, pH = 10; let p1X = 135, p2X = 135; let p1S = 0, p2S = 0; let bX = 170, bY = 210, bVX = 2.5, bVY = 2.5;
-        canvas.addEventListener("touchmove", (e) => { e.preventDefault(); const r = canvas.getBoundingClientRect(); const tX = e.touches[0].clientX - r.left; const actX = tX * (canvas.width / r.width) - pW / 2; const tY = (e.touches[0].clientY - r.top) * (canvas.height / r.height); if (actX >= 0 && actX <= canvas.width - pW) { if (tY > canvas.height / 2) p1X = actX; else p2X = actX; gameChannel.publish("mve", { p1: p1X, p2: p2X }); } });
-        gameChannel.on("mve", (d) => { p1X = d.p1; p2X = d.mve ? d.p2 : d.p2; }); gameChannel.on("ball", (d) => { bX = d.x; bY = d.y; p1S = d.s1; p2S = d.s2; document.getElementById("p1Score").innerText = p1S; document.getElementById("p2Score").innerText = p2S; });
+        if(canvas) {
+            canvas.addEventListener("touchmove", (e) => { e.preventDefault(); const r = canvas.getBoundingClientRect(); const tX = e.touches[0].clientX - r.left; const actX = tX * (canvas.width / r.width) - pW / 2; const tY = (e.touches[0].clientY - r.top) * (canvas.height / r.height); if (actX >= 0 && actX <= canvas.width - pW) { if (tY > canvas.height / 2) p1X = actX; else p2X = actX; gameChannel.publish("mve", { p1: p1X, p2: p2X }); } });
+        }
+        gameChannel.on("mve", (d) => { p1X = d.p1; p2X = d.p2; }); gameChannel.on("ball", (d) => { bX = d.x; bY = d.y; p1S = d.s1; p2S = d.s2; document.getElementById("p1Score").innerText = p1S; document.getElementById("p2Score").innerText = p2S; });
 
         function drawHeart(x, y, w, h) { ctx.save(); ctx.beginPath(); let tc = h * 0.3; ctx.moveTo(x, y + tc); ctx.bezierCurveTo(x, y, x - w/2, y, x - w/2, y + tc); ctx.bezierCurveTo(x - w/2, y + (h+tc)/2, x, y + h, x, y + h); ctx.bezierCurveTo(x, y + (h+tc)/2, x + w/2, y + (h+tc)/2, x + w/2, y + tc); ctx.bezierCurveTo(x + w/2, y, x, y, x, y + tc); ctx.closePath(); ctx.fillStyle = "#ff4757"; ctx.fill(); ctx.restore(); }
-        function playPong() { bX += bVX; bY += bVY; if (bX <= 0 || bX >= canvas.width - 10) bVX = -bVX; if (bY <= pH + 8 && bX >= p2X && bX <= p2X + pW) { bVY = -bVY; bY = pH + 9; } if (bY >= canvas.height - pH - 18 && bX >= p1X && bX <= p1X + pW) { bVY = -bVY; bY = canvas.height - pH - 19; } if (bY < 0) { bX = 170; bY = 210; bVY = -bVY; p1S++; sndB(); } if (bY > canvas.height) { bX = 170; bY = 210; bVY = -bVY; p2S++; sndB(); } ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.strokeStyle = "#333"; ctx.lineWidth = 1; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(0, canvas.height/2); ctx.lineTo(canvas.width, canvas.height/2); ctx.stroke(); ctx.fillStyle = "#1dd1a1"; ctx.fillRect(p2X, 6, pW, pH); ctx.fillStyle = "#3b82f6"; ctx.fillRect(p1X, canvas.height - pH - 6, pW, pH); drawHeart(bX, bY, 14, 14); if(Math.random() < 0.03) { sndB(); } requestAnimationFrame(playPong); }
+        function playPong() { if(!canvas) return; bX += bVX; bY += bVY; if (bX <= 0 || bX >= canvas.width - 10) bVX = -bVX; if (bY <= pH + 8 && bX >= p2X && bX <= p2X + pW) { bVY = -bVY; bY = pH + 9; } if (bY >= canvas.height - pH - 18 && bX >= p1X && bX <= p1X + pW) { bVY = -bVY; bY = canvas.height - pH - 19; } if (bY < 0) { bX = 170; bY = 210; bVY = -bVY; p1S++; sndB(); } if (bY > canvas.height) { bX = 170; bY = 210; bVY = -bVY; p2S++; sndB(); } ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.strokeStyle = "#333"; ctx.lineWidth = 1; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(0, canvas.height/2); ctx.lineTo(canvas.width, canvas.height/2); ctx.stroke(); ctx.fillStyle = "#1dd1a1"; ctx.fillRect(p2X, 6, pW, pH); ctx.fillStyle = "#3b82f6"; ctx.fillRect(p1X, canvas.height - pH - 6, pW, pH); drawHeart(bX, bY, 14, 14); if(Math.random() < 0.03) { sndB(); } requestAnimationFrame(playPong); }
         function sndB() { gameChannel.publish("ball", { x: bX, y: bY, s1: p1S, s2: p2S }); }
 
-        // SENİN ORİJİNAL FONKSİYONLARIN (DOKUNULMADI)
+        // SENİN ORİJİNAL FONKSİYONLARIN
         function toggle(el) { el.classList.toggle('open'); }
 
         function toggleCevap(btn) {
@@ -791,7 +807,7 @@
 
         function simuleEt(yontem) {
             if(yontem === 1) {
-                alert("🚇 KONYA METROSU MERSİN'E UZATILDI!\n\nBelediye ekiplerimiz aşkımız için seferber oldu sevgilim. Konya-Mersin arası hat döşendi, ilk durak doğrudan senin kalbin! Seferler kesintisiz ve ücretsiz! 🤭");
+                alert("🚇 KONYA METROSU MERSİN'E UZATILDI!\n\nBelediye ekiplerimiz aşkımız için seferber oldu sevgilim. Konya-Mersin arası hat döşendi, ilk durak doğrudan senin kalbin! Seferler kesintisiz and ücretsiz! 🤭");
             } else if(yontem === 2) {
                 alert("⚡ IŞINLANMA CİHAZI AŞIRI YÜKLENDİ!\n\nŞorlooopp! Cihaz başarıyla çalıştırıldı yakışıklım. Şimdilik ekrandan ışınlanıyorum ama kalbimin çoktan Mersin'e ulaştığına yemin edebilirim ama kanıtlayamam!");
             } else if(yontem === 3) {
@@ -801,6 +817,7 @@
 
         function startHearts() {
             const container = document.getElementById('heart-container');
+            if(!container) return;
             setInterval(() => {
                 const heart = document.createElement('i');
                 heart.className = 'fa-solid fa-heart heart';
@@ -823,7 +840,8 @@
             const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('counter').innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
+            const counterEl = document.getElementById('counter');
+            if(counterEl) counterEl.innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
         }
 
         window.onload = function() {
