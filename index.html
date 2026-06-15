@@ -6,49 +6,13 @@
     <title>Büşra ❤️ Muhammet</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-        }
-
-        body {
-            background-color: #121417; 
-            color: #e4e6eb; 
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        #heart-container {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none; z-index: 1;
-        }
-
-        .heart {
-            position: absolute; color: #c1a073; opacity: 0.15;
-            animation: floatUp 7s linear infinite; bottom: -50px;
-        }
-
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.2; }
-            90% { opacity: 0.2; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
-        }
-
-        .main-card {
-            max-width: 800px; width: 100%; background: #1b1e23;
-            border: 1px solid #2d323b; border-radius: 24px; padding: 35px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-            margin-top: 20px; position: relative; z-index: 2;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; }
+        body { background-color: #121417; color: #e4e6eb; padding: 20px; display: flex; flex-direction: column; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        #heart-container { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 1; }
+        .heart { position: absolute; color: #c1a073; opacity: 0.15; animation: floatUp 7s linear infinite; bottom: -50px; }
+        @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.2; } 90% { opacity: 0.2; } 100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
+        
+        .main-card { max-width: 800px; width: 100%; background: #1b1e23; border: 1px solid #2d323b; border-radius: 24px; padding: 35px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); margin-top: 20px; position: relative; z-index: 2; }
         .header { text-align: center; margin-bottom: 35px; }
         .header h1 { font-size: 2.2rem; color: #c1a073; letter-spacing: 1px; } 
         .header p { font-size: 1.05rem; margin-top: 12px; color: #9aa0a6; font-style: italic; }
@@ -67,6 +31,12 @@
         .song-details h4 { font-size: 1.1rem; color: #e4e6eb; }
         .song-details p { font-size: 0.9rem; color: #9aa0a6; font-weight: bold; }
 
+        /* YENİ: GECE YARISI KAPSÜLÜ */
+        .night-capsule { background: #121417; border: 1px solid #2d323b; padding: 25px; border-radius: 16px; margin-bottom: 35px; text-align: center; position: relative; overflow: hidden; }
+        .night-capsule-icon { font-size: 2rem; color: #c1a073; margin-bottom: 10px; }
+        #capsuleLock { color: #9aa0a6; font-size: 0.95rem; line-height: 1.5; }
+        #capsuleContent { display: none; color: #e4e6eb; font-size: 1rem; line-height: 1.6; font-style: italic; border-top: 1px solid #2d323b; padding-top: 15px; margin-top: 15px; }
+
         /* RUH HALİNE ÖZEL ODAMIZ */
         .mood-section { background: #1f2329; border: 1px solid #2d323b; padding: 25px; border-radius: 16px; margin-bottom: 35px; text-align: center; }
         .mood-section h3 { color: #c1a073 !important; }
@@ -74,7 +44,6 @@
         .mood-btn { padding: 12px 24px; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; color: #e4e6eb; font-size: 1rem; transition: all 0.2s ease; border: 1px solid #3a3f47; }
         .mood-btn-sad { background: #252930; }
         .mood-btn-happy { background: #c1a073; color: #121417; border-color: #c1a073; }
-        
         .mood-result-panel { display: none; margin-top: 20px; padding: 20px; background: #121417; border: 1px solid #2d323b; border-radius: 16px; }
         .mood-img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
         .mood-img-sad { border: 3px solid #b05b5b; }
@@ -82,11 +51,11 @@
         .mood-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
         .mood-text { font-size: 0.95rem; color: #9aa0a6; line-height: 1.5; text-align: left; }
 
-        /* OYUNLAR AKORDEON YAPISI */
+        /* AKORDEON YAPISI (OYUNLAR, MAĞAZA, GÖREV, LAB) */
         .game-cat { border: 1px solid #2d323b; border-radius: 16px; margin-bottom: 15px; overflow: hidden; background: #1b1e23; }
         .game-cat-header { background: #252930; color: #e4e6eb; padding: 18px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-size: 1.1rem; }
         .game-cat-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; background: #121417; color: #e4e6eb; }
-        .game-cat.open .game-cat-content { max-height: 1500px; }
+        .game-cat.open .game-cat-content { max-height: 2000px; }
 
         /* GİZLİ OPERASYON STİLLERİ */
         .cyber-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
@@ -96,8 +65,7 @@
         .cyber-input { background: #1b1e23; border: 1px solid #c1a073; color: #e4e6eb; padding: 12px; border-radius: 8px; text-align: center; font-size: 1rem; width: 80%; margin-bottom: 12px; }
         .cyber-btn { background: #c1a073; border: none; color: #121417; font-weight: bold; padding: 12px; border-radius: 8px; cursor: pointer; width: 80%; }
         .cyber-fb { margin-top: 10px; font-size: 0.85rem; min-height: 20px; font-weight: bold; }
-        .cyber-fb.success { color: #7b9c7a; } 
-        .cyber-fb.error { color: #b05b5b; } 
+        .cyber-fb.success { color: #7b9c7a; } .cyber-fb.error { color: #b05b5b; }
         .final-card { text-align: left; background: rgba(123, 156, 122, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid #7b9c7a; font-size: 0.85rem; line-height: 1.5; color: #e4e6eb; }
 
         /* MULTIPLAYER / GRIND OYUNU STİLLERİ */
@@ -107,6 +75,25 @@
         #marathonCanvas { width: 100%; height: 100%; display: block; touch-action: none; }
         .marathon-dashboard { background: #1f2329; border: 1px solid #2d323b; width: 100%; padding: 15px; border-radius: 12px; margin-bottom: 10px; text-align: left; }
         .marathon-meta { display: flex; justify-content: space-between; font-size: 0.9rem; margin-top: 8px; color: #9aa0a6; border-top: 1px solid #2d323b; padding-top: 8px; }
+
+        /* YENİ: PUAN MAĞAZASI */
+        .store-panel { padding: 20px; }
+        .store-item { background: #1f2329; border: 1px solid #2d323b; border-radius: 12px; padding: 15px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .store-info h4 { color: #e4e6eb; font-size: 1rem; margin-bottom: 4px; }
+        .store-info p { color: #9aa0a6; font-size: 0.8rem; line-height: 1.4; max-width: 200px; }
+        .store-price { background: #252930; color: #c1a073; padding: 8px 12px; border-radius: 8px; font-weight: bold; font-size: 0.85rem; border: 1px solid #3a3f47; cursor: pointer; transition: 0.2s; }
+        .store-price:hover { background: #c1a073; color: #121417; }
+
+        /* YENİ: GÖREV PANOSU */
+        .quest-board { padding: 20px; }
+        .quest-item { background: rgba(193, 160, 115, 0.05); border-left: 3px solid #c1a073; padding: 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0; }
+        .quest-item h4 { font-size: 0.95rem; color: #c1a073; margin-bottom: 5px; }
+        .quest-item p { font-size: 0.85rem; color: #9aa0a6; }
+
+        /* YENİ: KİMYA LABORATUVARI */
+        .lab-panel { padding: 20px; text-align: center; }
+        .lab-select { background: #252930; color: #e4e6eb; border: 1px solid #3a3f47; padding: 10px; border-radius: 8px; width: 100%; margin-bottom: 15px; outline: none; font-size: 0.95rem; }
+        .lab-result { display: none; margin-top: 15px; padding: 15px; background: #1f2329; border-radius: 10px; border-left: 4px solid #c1a073; font-size: 0.9rem; text-align: left; line-height: 1.5; }
 
         /* İTİRAFLARIM Bölümü */
         .confession-section { margin-bottom: 35px; }
@@ -178,6 +165,19 @@
             </div>
         </div>
 
+        <!-- 🌙 GECE YARISI KAPSÜLÜ -->
+        <div class="night-capsule" id="nightCapsule">
+            <div class="night-capsule-icon"><i class="fas fa-moon"></i></div>
+            <h3 style="font-size: 1.1rem; color: #e4e6eb; margin-bottom: 5px;">Gece Yarısı Kapsülü</h3>
+            <div id="capsuleLock">
+                Erişim Engellendi.<br><br>Bu oda sadece gece yarısından sonra, özlem ve düşünceler birbirine karıştığında açılır yakışıklım. <b>23:00 ile 05:00</b> arası tekrar gel.
+            </div>
+            <div id="capsuleContent">
+                Şu an saat epey geç oldu. Biliyorum bazen bu 348 kilometre gözünde çok büyüyor, bazen de yorgunluktan sadece susup kalmak istiyorsun. Ben sadece şunu bilmeni istedim: Başını yastığa koyduğunda aklından geçen o düşüncelerin tam ortasında ben varım. İyi geceler sevgilim, sabah her şey çok daha güzel olacak. 🖤
+            </div>
+        </div>
+
+        <!-- RUH HALİNE ÖZEL ODAMIZ -->
         <div class="mood-section">
             <h3 style="font-size: 1.2rem;"><i class="fas fa-heartbeat"></i> Ruh Haline Özel Odamız</h3>
             <p style="font-size: 0.85rem; margin-top: 5px; color: #9aa0a6;">Şu an nasıl hissediyorsun sevgilim? Seç, odamız ona göre şekillensin:</p>
@@ -193,6 +193,7 @@
             </div>
         </div>
 
+        <!-- OYUN 1: GİZLİ OPERASYON TURNUVASI -->
         <div class="game-cat">
             <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
                 <span>🎯 Siber Görev: Lobi Operasyonu</span> 
@@ -200,41 +201,35 @@
             </div>
             <div class="game-cat-content">
                 <div class="cyber-panel">
-                    
                     <div class="quest-stage active" id="stg1">
                         <p style="font-size:0.85rem; color:#9aa0a6;">Güvenli senkronizasyon için aşağıdaki panele <u>3 Saniye Basılı Tutun:</u></p>
                         <div class="touch-pad" id="syncPad">PARMAK İZİ<br>TARA</div>
                         <div class="cyber-fb" id="cfb1"></div>
                     </div>
-
                     <div class="quest-stage" id="stg2">
                         <p style="font-size:0.85rem; color:#9aa0a6;">Resmi olarak sevgililik hayatımızın başladığı ve ilk kez telefonda beraber uyuduğumuz o büyük milat tarihi?</p>
                         <input type="text" class="cyber-input" id="cInp2" placeholder="GG.AA.YYYY" maxlength="10">
                         <button class="cyber-btn" onclick="chkStg2()">VERİYİ DOĞRULA</button>
                         <div class="cyber-fb" id="cfb2"></div>
                     </div>
-
                     <div class="quest-stage" id="stg3">
                         <p style="font-size:0.85rem; color:#9aa0a6;">Dünyanın en şanslı kadını olmamı sağlayan, benim (Büşra'nın) doğum tarihim?</p>
                         <input type="text" class="cyber-input" id="cInp3" placeholder="GG.AA.YYYY" maxlength="10">
                         <button class="cyber-btn" onclick="chkStg3()">KİMLİK DOĞRULA</button>
                         <div class="cyber-fb" id="cfb3"></div>
                     </div>
-
                     <div class="quest-stage" id="stg4">
                         <p style="font-size:0.85rem; color:#9aa0a6;">Bana o huzurlu, güzel sesinle uzaklardan ilk kez masal okuyup beni uyuttuğun o gece?</p>
                         <input type="text" class="cyber-input" id="cInp4" placeholder="GG.AA.YYYY" maxlength="10">
                         <button class="cyber-btn" onclick="chkStg4()">SENKRONİZE ET</button>
                         <div class="cyber-fb" id="cfb4"></div>
                     </div>
-
                     <div class="quest-stage" id="stg5">
                         <p style="font-size:0.85rem; color:#9aa0a6;">Mutfakta ilk ortak adımımız! Sana heyecanla ilk kez özel bir yemek tarifi verdiğim o gün?</p>
                         <input type="text" class="cyber-input" id="cInp5" placeholder="GG.AA.YYYY" maxlength="10">
                         <button class="cyber-btn" onclick="chkStg5()">KİLİDİ ÇÖZ</button>
                         <div class="cyber-fb" id="cfb5"></div>
                     </div>
-
                     <div class="quest-stage" id="stgFinal">
                         <div class="final-card">
                             <b style="color:#7b9c7a;">⚡ OPERASYON BAŞARILI: BAĞLANTI TAMAM ⚡</b><br><br>
@@ -245,22 +240,22 @@
             </div>
         </div>
 
+        <!-- OYUN 2: 72 SAATLİK HARDCORE REFLEKS MARATONU -->
         <div class="game-cat">
             <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open'); initMarathon();">
-                <span>🏆 72 Saatlik Büyük İddia Maratonu (Kaçış Arenası)</span> 
+                <span>🏆 72 Saatlik Büyük İddia Maratonu</span> 
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="game-cat-content">
                 <div class="marathon-panel">
-                    
                     <div class="marathon-dashboard">
                         <b style="color: #c1a073; font-size: 1rem;"><i class="fas fa-gavel"></i> Mutlak İtaat İddiası Kuralları:</b>
                         <p style="font-size: 0.85rem; color: #e4e6eb; margin-top: 5px; line-height: 1.4;">
-                            Hedef tam <b>50.000 Kariyer Puanı</b>! Parmağını basılı tutup kaydırarak aşağıdaki parlayan yıldızı kontrol et. Yukarıdan düşen kırmızı engellerden kaç! Her hayatta kaldığın saniye puan kazanırsın. Ortaya çıkan altın kalpleri yakalamak ekstra <b>+150 Puan</b> verir. Çarptığın an elenirsin!
+                            Hedef tam <b>50.000 Kariyer Puanı</b>! Parmağını basılı tutup kaydırarak yıldızı kontrol et, düşen engellerden kaç. Topladığın puanları aşağıdaki "Puan Mağazası"nda harcayabilirsin. Çarptığın an elenirsin!
                         </p>
                         <div class="marathon-meta">
-                            <div>Mersin Kariyer Skoru (M.): <span id="mBest" style="color: #c1a073; font-weight:bold;">0</span> / 50.000</div>
-                            <div>Konya Kariyer Skoru (B.): <span id="bBest" style="color: #7b9c7a; font-weight:bold;">0</span> / 50.000</div>
+                            <div>Mersin Kariyer Skoru: <span id="mBest" style="color: #c1a073; font-weight:bold;">0</span></div>
+                            <div>Konya Kariyer Skoru: <span id="bBest" style="color: #7b9c7a; font-weight:bold;">0</span></div>
                         </div>
                     </div>
 
@@ -276,13 +271,111 @@
                         <div style="font-size:1.1rem; font-weight:bold; color:#e4e6eb; background:#121417; padding:4px 15px; border-radius:20px; display:inline-block;">
                             Bu Tur Toplanan: <span id="marathonCurrentScore" style="color:#c1a073;">0</span>
                         </div>
-                        
                         <div class="marathon-canvas-container">
                             <canvas id="marathonCanvas" width="340" height="420"></canvas>
                         </div>
                         <button class="mood-btn" style="margin-top:10px; background:#b05b5b; font-size:0.85rem;" onclick="exitMarathonGame()">Kaydet ve Lobiye Dön</button>
                     </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- YENİ: PUAN MAĞAZASI (GRIND MARKET) -->
+        <div class="game-cat">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>🛍️ Puan Mağazası (Grind Market)</span> 
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="game-cat-content">
+                <div class="store-panel">
+                    <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 15px;">Maraton oyununda kastığın Kariyer Puanlarıyla benden bu ödülleri talep edebilirsin yakışıklım.</p>
+                    
+                    <div class="store-item">
+                        <div class="store-info">
+                            <h4>Bronz Kapsül</h4>
+                            <p>Sorgusuz Sualsiz Trip Affetme Hakkı.</p>
+                        </div>
+                        <div class="store-price" onclick="checkStore(5000, 'Bronz Kapsül')">5.000 Puan</div>
+                    </div>
+
+                    <div class="store-item">
+                        <div class="store-info">
+                            <h4>Gümüş Kapsül</h4>
+                            <p>1 Akşamlık Kesintisiz Oyun İzni. Seninle beraber veya sana karışmadan istediğin oyunu oynama sözü.</p>
+                        </div>
+                        <div class="store-price" onclick="checkStore(10000, 'Gümüş Kapsül')">10.000 Puan</div>
+                    </div>
+
+                    <div class="store-item">
+                        <div class="store-info">
+                            <h4>Altın Kapsül</h4>
+                            <p>Büşra Şefin Menüsü: Yan yana geldiğimizde senin seçeceğin/canının çektiği herhangi bir yemeği ellerimle hazırlama sözü.</p>
+                        </div>
+                        <div class="store-price" onclick="checkStore(25000, 'Altın Kapsül')">25.000 Puan</div>
+                    </div>
+
+                    <div class="store-item">
+                        <div class="store-info">
+                            <h4 style="color:#c1a073;">Elmas Kapsül</h4>
+                            <p>1 Günlük Mutlak İtaat! Tüm kontrol sende.</p>
+                        </div>
+                        <div class="store-price" onclick="checkStore(50000, 'Elmas Kapsül')" style="background:#c1a073; color:#121417;">50.000 Puan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- YENİ: GÖREV PANOSU -->
+        <div class="game-cat">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>📋 Rutin Kırıcı Görev Panosu</span> 
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="game-cat-content">
+                <div class="quest-board">
+                    <div class="quest-item">
+                        <h4>📌 Günlük Görev (+500 Puan)</h4>
+                        <p>Bugün Büşra masanın başında KPSS testleriyle boğuşurken, onu aniden arayıp veya tatlı bir ses kaydı atıp motive et.</p>
+                    </div>
+                    <div class="quest-item">
+                        <h4>📌 Haftalık Görev (+1500 Puan)</h4>
+                        <p>Birlikte hiç kavga etmeden, triplenmeden art arda 3 gün geçir.</p>
+                    </div>
+                    <div class="quest-item">
+                        <h4>🔥 Destansı Görev (+5000 Puan)</h4>
+                        <p>Mersin-Konya hattı için bir sonraki buluşmanın planını netleştir ve o bileti al.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- YENİ: AŞKIN KİMYA LABORATUVARI -->
+        <div class="game-cat">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>🧪 Büşra Hoca'nın Kimya Laboratuvarı</span> 
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="game-cat-content">
+                <div class="lab-panel">
+                    <p style="font-size: 0.85rem; color: #9aa0a6; margin-bottom: 15px;">Fen Bilimleri Öğretmeni sevgilinden sana özel bir deney masası. İki durumu birleştir, sonuçlarını gör!</p>
+                    
+                    <select id="chem1" class="lab-select">
+                        <option value="bunalmis">Büşra KPSS'den Bunalmış</option>
+                        <option value="ozlemis">Büşra Çok Özlemiş</option>
+                        <option value="mesafe">Mesafe (348 KM)</option>
+                    </select>
+
+                    <i class="fas fa-plus" style="color: #c1a073; font-size: 1.5rem; margin-bottom: 15px;"></i>
+
+                    <select id="chem2" class="lab-select">
+                        <option value="oyun">Muhammet Telefonda Maça Dalmış</option>
+                        <option value="guzelim">Muhammet 'Güzelim' Demiş</option>
+                        <option value="sarki">Birlikte Cem Adrian Dinleniyor</option>
+                    </select>
+
+                    <button class="mood-btn mood-btn-happy" style="width: 100%; margin-top: 10px;" onclick="mixChemicals()">TEPKİMEYİ BAŞLAT</button>
+                    
+                    <div id="labResult" class="lab-result"></div>
                 </div>
             </div>
         </div>
@@ -414,6 +507,53 @@
     </div>
 
     <script>
+        // --- 🌙 GECE KAPSÜLÜ KONTROLÜ ---
+        function checkNightCapsule() {
+            const hour = new Date().getHours();
+            const capsuleContent = document.getElementById("capsuleContent");
+            const capsuleLock = document.getElementById("capsuleLock");
+            // Gece 23:00 ile sabah 05:00 arası açılır
+            if(hour >= 23 || hour < 5) {
+                capsuleLock.style.display = "none";
+                capsuleContent.style.display = "block";
+            } else {
+                capsuleLock.style.display = "block";
+                capsuleContent.style.display = "none";
+            }
+        }
+
+        // --- 🛍️ MAĞAZA VE 🧪 KİMYA LAB FONKSİYONLARI ---
+        function checkStore(cost, itemName) {
+            alert(`"${itemName}" ödülünü benden talep etmek için oyunda en az ${cost.toLocaleString()} Kariyer Puanına sahip olman gerekiyor.\n\nEğer bu puana ulaştıysan hemen ekran görüntüsünü at ve hakkını iste yakışıklım!`);
+        }
+
+        function mixChemicals() {
+            const val1 = document.getElementById("chem1").value;
+            const val2 = document.getElementById("chem2").value;
+            const res = document.getElementById("labResult");
+            res.style.display = "block";
+
+            if (val1 === "bunalmis" && val2 === "oyun") {
+                res.innerHTML = "<b>KIRMIZI ALARM! 💥</b> Tepkime çok tehlikeli! Acilen o telefonu elinden bırakıp, oyunu kapatıp Konya'ya bir moral telefonu açmalısın.";
+                res.style.borderLeftColor = "#b05b5b";
+            } else if (val1 === "bunalmis" && val2 === "guzelim") {
+                res.innerHTML = "<b>İYİLEŞME BAŞLADI! 🌸</b> Stres seviyesi düştü, kalpler yumuşadı. Büşra hocanın yüzünde tatlı bir tebessüm oluştu.";
+                res.style.borderLeftColor = "#7b9c7a";
+            } else if (val1 === "ozlemis" && val2 === "guzelim") {
+                res.innerHTML = "<b>KUSURSUZ TEPKİME! ✨</b> Formül mükemmel çalıştı. Tam bir serotonin patlaması, aradaki mesafeler buharlaştı!";
+                res.style.borderLeftColor = "#c1a073";
+            } else if (val1 === "ozlemis" && val2 === "oyun") {
+                res.innerHTML = "<b>RİSKLİ BÖLGE! ⚠️</b> Durum tehlikeli yerlere gidiyor. Çabuk oyunu bitirip tüm odak noktanı ona çevirmelisin.";
+                res.style.borderLeftColor = "#b05b5b";
+            } else if (val1 === "mesafe" && val2 === "sarki") {
+                res.innerHTML = "<b>AĞIR MELANKOLİ ÇÖKELTİSİ. 🌧️</b> Kalpteki sızı oranı arttı. Çözüm: En yakın zamanda yan yana gelip sımsıkı sarılmak.";
+                res.style.borderLeftColor = "#c1a073";
+            } else {
+                res.innerHTML = "<b>DENGELİ TEPKİME. 🔋</b> Her şey yolunda, aşk seviyesi stabil ilerliyor.";
+                res.style.borderLeftColor = "#e4e6eb";
+            }
+        }
+
         // --- İKİ NOKTALI (..jpeg) MOD VERİ TABANI ---
         const sadData = [
             { img: "uzgun1..jpeg", title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔", text: "Uzakta olmak bazen sadece elini tutamadığın için zor gelir ama kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al ve her ne olduysa geçeceğini bil. Kafanı topladığında ben dinlemek için hep buradayım, ne zaman istersen. 🖤" },
@@ -493,7 +633,6 @@
         const mCanvas = document.getElementById("marathonCanvas");
         const mCtx = mCanvas ? mCanvas.getContext("2d") : null;
 
-        // Oyun Birimleri
         let playerObj = { x: 170, y: 350, r: 8 };
         let obstacles = [];
         let scoreHearts = [];
@@ -537,7 +676,6 @@
             survivalTickTimer = 0;
         }
 
-        // Dokunma ve Sürükleme Kontrolleri (Hassas Gamer Joystick Mantığı)
         if(mCanvas) {
             mCanvas.addEventListener("touchmove", handleControl, {passive: false});
             mCanvas.addEventListener("touchstart", handleControl, {passive: false});
@@ -550,12 +688,8 @@
             const rect = mCanvas.getBoundingClientRect();
             const clientX = e.touches ? e.touches[0].clientX : e.clientX;
             const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-            
-            // Konumu canvas koordinat sistemine eşitle
             let targetX = (clientX - rect.left) * (mCanvas.width / rect.width);
             let targetY = (clientY - rect.top) * (mCanvas.height / rect.height);
-
-            // Sınır kontrolleri
             if(targetX >= 0 && targetX <= mCanvas.width) playerObj.x = targetX;
             if(targetY >= 0 && targetY <= mCanvas.height) playerObj.y = targetY;
         }
@@ -579,106 +713,53 @@
             if(!marathonActive) return;
 
             mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height);
-
-            // 1. Arka Plan Gamer Izgarası Çizimi
             mCtx.strokeStyle = "#1a1d24"; mCtx.lineWidth = 1;
             for(let i=0; i<mCanvas.width; i+=25) { mCtx.beginPath(); mCtx.moveTo(i, 0); mCtx.lineTo(i, mCanvas.height); mCtx.stroke(); }
             for(let j=0; j<mCanvas.height; j+=25) { mCtx.beginPath(); mCtx.moveTo(0, j); mCtx.lineTo(mCanvas.width, j); mCtx.stroke(); }
 
-            // 2. Zaman Bazlı Puan Artışı (Zorluk çarpanına göre artar)
             survivalTickTimer++;
             if(survivalTickTimer % 10 === 0) {
                 currentRunScore += 5;
                 document.getElementById("marathonCurrentScore").innerText = currentRunScore;
             }
 
-            // 3. ENGEL (OBSTACLE) YÖNETİMİ
             obstacleSpawnTimer++;
-            // Skor yükseldikçe engeller daha sık gelir
             let spawnRate = Math.max(12, 35 - Math.floor(currentRunScore / 250));
             if(obstacleSpawnTimer >= spawnRate) {
                 obstacleSpawnTimer = 0;
-                obstacles.push({
-                    x: Math.random() * mCanvas.width,
-                    y: -20,
-                    r: Math.random() * (16 - 6) + 6,
-                    speed: (Math.random() * (4 - 2) + 2) + (currentRunScore / 600),
-                    vx: (Math.random() - 0.5) * (currentRunScore / 500)
-                });
+                obstacles.push({ x: Math.random() * mCanvas.width, y: -20, r: Math.random() * (16 - 6) + 6, speed: (Math.random() * (4 - 2) + 2) + (currentRunScore / 600), vx: (Math.random() - 0.5) * (currentRunScore / 500) });
             }
 
-            // Engelleri Güncelle ve Çiz
             for(let i = obstacles.length - 1; i >= 0; i--) {
                 let obs = obstacles[i];
-                obs.y += obs.speed;
-                obs.x += obs.vx;
-
-                // Ekrandan çıkanları temizle
-                if(obs.y > mCanvas.height + 20) {
-                    obstacles.splice(i, 1);
-                    continue;
-                }
-
-                // Çizim
-                mCtx.fillStyle = "#b05b5b";
-                mCtx.beginPath();
-                mCtx.arc(obs.x, obs.y, obs.r, 0, Math.PI * 2);
-                mCtx.fill();
-
-                // Çarpışma Kontrolü (Hitbox algılama)
+                obs.y += obs.speed; obs.x += obs.vx;
+                if(obs.y > mCanvas.height + 20) { obstacles.splice(i, 1); continue; }
+                mCtx.fillStyle = "#b05b5b"; mCtx.beginPath(); mCtx.arc(obs.x, obs.y, obs.r, 0, Math.PI * 2); mCtx.fill();
                 let dist = Math.hypot(playerObj.x - obs.x, playerObj.y - obs.y);
-                if(dist < playerObj.r + obs.r) {
-                    handleGameOver();
-                    return;
-                }
+                if(dist < playerObj.r + obs.r) { handleGameOver(); return; }
             }
 
-            // 4. ALTIN KALP (COLLECTIBLE) YÖNETİMİ
             heartSpawnTimer++;
             if(heartSpawnTimer >= 80) {
                 heartSpawnTimer = 0;
-                scoreHearts.push({
-                    x: Math.random() * (mCanvas.width - 20) + 10,
-                    y: -10,
-                    r: 12,
-                    speed: 2 + (currentRunScore / 1000)
-                });
+                scoreHearts.push({ x: Math.random() * (mCanvas.width - 20) + 10, y: -10, r: 12, speed: 2 + (currentRunScore / 1000) });
             }
 
-            // Kalpleri Güncelle ve Çiz
             for(let j = scoreHearts.length - 1; j >= 0; j--) {
                 let hrt = scoreHearts[j];
                 hrt.y += hrt.speed;
-
-                if(hrt.y > mCanvas.height + 10) {
-                    scoreHearts.splice(j, 1);
-                    continue;
-                }
-
-                // Çiz
+                if(hrt.y > mCanvas.height + 10) { scoreHearts.splice(j, 1); continue; }
                 drawHeartShape(hrt.x, hrt.y, hrt.r, "#c1a073");
-
-                // Toplama Kontrolü
                 let distToHeart = Math.hypot(playerObj.x - hrt.x, playerObj.y - hrt.y);
-                if(distToHeart < playerObj.r + hrt.r + 5) {
-                    currentRunScore += 150; // Büyük bonus!
-                    document.getElementById("marathonCurrentScore").innerText = currentRunScore;
-                    scoreHearts.splice(j, 1);
-                }
+                if(distToHeart < playerObj.r + hrt.r + 5) { currentRunScore += 150; document.getElementById("marathonCurrentScore").innerText = currentRunScore; scoreHearts.splice(j, 1); }
             }
 
-            // 5. OYUNCU GEMİSİNİ/YILDIZINI ÇİZ
             mCtx.save();
             mCtx.shadowBlur = 15; mCtx.shadowColor = "#c1a073";
             mCtx.fillStyle = "#e4e6eb";
-            mCtx.beginPath();
-            mCtx.arc(playerObj.x, playerObj.y, playerObj.r, 0, Math.PI * 2);
-            mCtx.fill();
-            // İç çekirdek parıltısı
+            mCtx.beginPath(); mCtx.arc(playerObj.x, playerObj.y, playerObj.r, 0, Math.PI * 2); mCtx.fill();
             mCtx.fillStyle = "#c1a073";
-            mCtx.beginPath();
-            mCtx.arc(playerObj.x, playerObj.y, playerObj.r / 2, 0, Math.PI * 2);
-            mCtx.fill();
+            mCtx.beginPath(); mCtx.arc(playerObj.x, playerObj.y, playerObj.r / 2, 0, Math.PI * 2); mCtx.fill();
             mCtx.restore();
 
             gameLoopId = requestAnimationFrame(marathonGameLoop);
@@ -687,14 +768,12 @@
         function handleGameOver() {
             marathonActive = false;
             cancelAnimationFrame(gameLoopId);
-            
             careerScore += currentRunScore;
             localStorage.setItem("marathon_career_" + marathonPlayer, careerScore);
             document.getElementById("marathonTotalScore").innerText = careerScore.toLocaleString();
 
             alert("💥 ENGELE ÇARPTIN! ELENDİN! 💥\n\nBu tur topladığın puan: " + currentRunScore + "\nToplam Kariyer Puanına eklendi.");
 
-            // KAZANMA EŞİĞİ KONTROLÜ
             if(careerScore >= 50000) {
                 alert("🏆 MARATONUN MUTLAK GALİBİ: " + marathonPlayer.toUpperCase() + "! 🏆\n\nTebrikler! 50.000 Kariyer Puanı barajını ilk sen yıktın! Kaybeden taraf söz verdiği gibi 1 GÜN boyunca kazananın her istediğini koşulsuz şartsız yapacaktır! Ekran görüntüsünü hemen sevgiline at! 😍");
             }
@@ -713,7 +792,6 @@
 
         // --- SENİN ORİJİNAL FONKSİYONLARIN (DOKUNULMADI) ---
         function toggle(el) { el.classList.toggle('open'); }
-
         function toggleCevap(btn) {
             const panel = btn.nextElementSibling;
             panel.classList.toggle('open');
@@ -726,9 +804,7 @@
             }
         }
 
-        function affet() {
-            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍");
-        }
+        function affet() { alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍"); }
 
         function simuleEt(yontem) {
             if(yontem === 1) alert("🚇 KONYA METROSU MERSİN'E UZATILDI!\n\nBelediye ekiplerimiz aşkımız için seferber oldu sevgilim. Konya-Mersin arası hat döşendi, ilk durak doğrudan senin kalbin! Seferler kesintisiz ve ücretsiz! 🤭");
@@ -769,6 +845,7 @@
             setInterval(updateCounter, 1000);
             updateCounter();
             initMarathon();
+            checkNightCapsule(); // Gece Kapsülü Kontrolü
         };
     </script>
 </body>
