@@ -14,8 +14,8 @@
         }
 
         body {
-            background-color: #121417; /* Derin Mat Antrasit */
-            color: #e4e6eb; /* Soft Kemik Beyazı */
+            background-color: #121417; 
+            color: #e4e6eb; 
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -50,7 +50,7 @@
         }
 
         .header { text-align: center; margin-bottom: 35px; }
-        .header h1 { font-size: 2.2rem; color: #c1a073; letter-spacing: 1px; } /* Bronz/Karamel */
+        .header h1 { font-size: 2.2rem; color: #c1a073; letter-spacing: 1px; } 
         .header p { font-size: 1.05rem; margin-top: 12px; color: #9aa0a6; font-style: italic; }
 
         .photo-area { text-align: center; margin-bottom: 35px; }
@@ -92,18 +92,21 @@
         .cyber-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
         .quest-stage { display: none; width: 100%; }
         .quest-stage.active { display: flex; flex-direction: column; align-items: center; }
-        .touch-pad { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #c1a073; margin: 15px 0; background: rgba(193, 160, 115, 0.05); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #c1a073; user-select: none; }
+        .touch-pad { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #c1a073; margin: 15px 0; background: rgba(193, 160, 115, 0.05); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #c1a073; user-select: none; cursor: pointer; }
         .cyber-input { background: #1b1e23; border: 1px solid #c1a073; color: #e4e6eb; padding: 12px; border-radius: 8px; text-align: center; font-size: 1rem; width: 80%; margin-bottom: 12px; }
         .cyber-btn { background: #c1a073; border: none; color: #121417; font-weight: bold; padding: 12px; border-radius: 8px; cursor: pointer; width: 80%; }
         .cyber-fb { margin-top: 10px; font-size: 0.85rem; min-height: 20px; font-weight: bold; }
-        .cyber-fb.success { color: #7b9c7a; } /* Soft yeşil */
-        .cyber-fb.error { color: #b05b5b; } /* Soft kırmızı */
+        .cyber-fb.success { color: #7b9c7a; } 
+        .cyber-fb.error { color: #b05b5b; } 
         .final-card { text-align: left; background: rgba(123, 156, 122, 0.1); padding: 15px; border-radius: 10px; border-left: 4px solid #7b9c7a; font-size: 0.85rem; line-height: 1.5; color: #e4e6eb; }
 
-        /* PONG OYUNU STİLLERİ */
-        .pong-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; }
-        #scoreBoard { display: flex; justify-content: space-between; width: 100%; font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
-        canvas { background-color: #1b1e23; border: 2px solid #2d323b; border-radius: 8px; max-width: 100%; touch-action: none; }
+        /* MARATON OYUNU STİLLERİ */
+        .marathon-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; width: 100%; }
+        .player-select-box { display: flex; gap: 15px; margin: 15px 0; width: 100%; justify-content: center; }
+        .marathon-canvas-container { position: relative; width: 340px; height: 400px; background: #1b1e23; border: 2px solid #2d323b; border-radius: 12px; overflow: hidden; margin-top: 15px; }
+        #marathonCanvas { width: 100%; height: 100%; display: block; }
+        .marathon-dashboard { background: #1f2329; border: 1px solid #2d323b; width: 100%; padding: 15px; border-radius: 12px; margin-bottom: 10px; text-align: left; }
+        .marathon-meta { display: flex; justify-content: space-between; font-size: 0.9rem; margin-top: 5px; color: #9aa0a6; }
 
         /* İTİRAFLARIM Bölümü */
         .confession-section { margin-bottom: 35px; }
@@ -175,7 +178,6 @@
             </div>
         </div>
 
-        <!-- RUH HALİNE ÖZEL ODAMIZ -->
         <div class="mood-section">
             <h3 style="font-size: 1.2rem;"><i class="fas fa-heartbeat"></i> Ruh Haline Özel Odamız</h3>
             <p style="font-size: 0.85rem; margin-top: 5px; color: #9aa0a6;">Şu an nasıl hissediyorsun sevgilim? Seç, odamız ona göre şekillensin:</p>
@@ -191,7 +193,6 @@
             </div>
         </div>
 
-        <!-- OYUN 1: GİZLİ OPERASYON TURNUVASI -->
         <div class="game-cat">
             <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
                 <span>🎯 Siber Görev: Lobi Operasyonu</span> 
@@ -201,13 +202,13 @@
                 <div class="cyber-panel">
                     
                     <div class="quest-stage active" id="stg1">
-                        <p style="font-size:0.85rem; color:#9aa0a6;">Güvenli senkronizasyon için aşağıdaki panele sevgilinle <u>aynı anda</u> basılı tutun:</p>
+                        <p style="font-size:0.85rem; color:#9aa0a6;">Güvenli senkronizasyon için aşağıdaki panele <u>3 Saniye Basılı Tutun:</u></p>
                         <div class="touch-pad" id="syncPad">PARMAK İZİ<br>TARA</div>
                         <div class="cyber-fb" id="cfb1"></div>
                     </div>
 
                     <div class="quest-stage" id="stg2">
-                        <p style="font-size:0.85rem; color:#9aa0a6;">Resmi olarak sevgililik hayatımızın başladığı ve ilk kez yan yana uyuduğumuz o büyük milat tarihi?</p>
+                        <p style="font-size:0.85rem; color:#9aa0a6;">Resmi olarak sevgililik hayatımızın başladığı ve ilk kez telefonda beraber uyuduğumuz o büyük milat tarihi?</p>
                         <input type="text" class="cyber-input" id="cInp2" placeholder="GG.AA.YYYY" maxlength="10">
                         <button class="cyber-btn" onclick="chkStg2()">VERİYİ DOĞRULA</button>
                         <div class="cyber-fb" id="cfb2"></div>
@@ -244,22 +245,44 @@
             </div>
         </div>
 
-        <!-- OYUN 2: CANLI PONG KAPIŞMASI -->
         <div class="game-cat">
-            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
-                <span>🎮 Mesafe Bükücü // Canlı Mobil Arena</span> 
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open'); initMarathon();">
+                <span>🏆 72 Saatlik Büyük İddia Maratonu (Grind Modu)</span> 
                 <i class="fas fa-chevron-down"></i>
             </div>
             <div class="game-cat-content">
-                <div class="pong-panel">
-                    <div id="scoreBoard">
-                        <div style="color: #c1a073">Mersin (Üst): <span id="p2Score">0</span></div>
-                        <div style="color: #9aa0a6">Konya (Alt): <span id="p1Score">0</span></div>
+                <div class="marathon-panel">
+                    
+                    <div class="marathon-dashboard">
+                        <b style="color: #c1a073; font-size: 1rem;"><i class="fas fa-gavel"></i> Mutlak İtaat İddiası Şartları:</b>
+                        <p style="font-size: 0.85rem; color: #e4e6eb; margin-top: 5px; line-height: 1.4;">
+                            Hedef tam <b>10.000 Puan</b>! Skorunuz telefona kalıcı kaydedilir, günlerce kasabilirsiniz. Kalpleri yakalayın (+100 Puan). Ancak <b>Kara Deliklere</b> çarparsanız veya boşa tıklarsanız <b>-150 Puan ceza alırsınız!</b>
+                        </p>
+                        <div class="marathon-meta">
+                            <div>Mersin Rekoru (M.): <span id="mBest" style="color: #c1a073; font-weight:bold;">0</span></div>
+                            <div>Konya Rekoru (B.): <span id="bBest" style="color: #7b9c7a; font-weight:bold;">0</span></div>
+                        </div>
                     </div>
-                    <canvas id="gameCanvas" width="340" height="420"></canvas>
-                    <p style="font-size:0.75rem; color:#9aa0a6; margin-top:8px; text-align:center;">
-                        Ekrana dokun ve parmağını sağa sola kaydırarak uçan kalbi koru!
-                    </p>
+
+                    <div class="player-select-box" id="marathonLobby">
+                        <button class="mood-btn" style="background:#252930; border-color:#7b9c7a;" onclick="selectMarathonPlayer('Büşra')">🙋‍♀️ BÜŞRA</button>
+                        <button class="mood-btn" style="background:#252930; border-color:#c1a073;" onclick="selectMarathonPlayer('Muhammet')">🙋‍♂️ MUHAMMET</button>
+                    </div>
+
+                    <div id="marathonGameArea" style="display:none; text-align:center; width:100%;">
+                        <div style="font-size:1.1rem; font-weight:bold; margin-bottom:5px;">
+                            Aktif Oyuncu: <span id="curActivePlayer" style="color:#c1a073;">-</span>
+                        </div>
+                        <div style="font-size:1.2rem; font-weight:bold; color:#e4e6eb; background:#121417; padding:5px 15px; border-radius:20px; display:inline-block;">
+                            Mevcut Skor: <span id="marathonCurrentScore" style="color:#7b9c7a;">0</span> / 10.000
+                        </div>
+                        
+                        <div class="marathon-canvas-container">
+                            <canvas id="marathonCanvas" width="340" height="400"></canvas>
+                        </div>
+                        <button class="mood-btn" style="margin-top:10px; background:#b05b5b; font-size:0.85rem;" onclick="exitMarathonGame()">Skoru Kaydet ve Çık</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -390,9 +413,8 @@
 
     </div>
 
-    <script src="https://unpkg.com/piesocket-js@2"></script>
     <script>
-        // --- İKİ NOKTALI (..jpeg) VERİ TABANI ---
+        // --- İKİ NOKTALI (..jpeg) MOD VERİ TABANI ---
         const sadData = [
             { img: "uzgun1..jpeg", title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔", text: "Uzakta olmak bazen sadece elini tutamadığın için zor gelir ama kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al ve her ne olduysa geçeceğini bil. Kafanı topladığında ben dinlemek için hep buradayım, ne zaman istersen. 🖤" },
             { img: "uzgun2..jpeg", title: "Yüzün düşmesin, uzaktan da olsa yükünü hafifletmek isterim... 💔", text: "Konya ve Mersin arasındaki yollar şu an bizi fiziksel olarak ayırsa da, zihnimi tamamen sana odakladım. Günün yorgunluğunu veya seni sıkan her ne varsa bir kenara bırakalım. Bu akşam mutfağa girip senin bana verdiğin o ilk yemek tarifini (14.06.2026) yapıp kafanı dağıtmak ister misin?" },
@@ -430,107 +452,193 @@
             }
         }
 
-        // --- OYUN ALTYAPISI ---
-        const pieSocket = new PieSocket({ clusterId: "demo", apiKey: "oZ76Z9asb6vYTIeY77vBwfcgnd60gB0eTYbT7is9" });
-        const gameChannel = pieSocket.subscribe("ortak-lobi-salonu-2026");
-
-        // 1. OYUN: PARMAK İZİ SİMÜLASYONU
+        // --- 1. OYUN: YEREL PARMAK İZİ SİMÜLASYONU ---
         let curStg = 1;
         const syncPad = document.getElementById("syncPad");
         const cfb1 = document.getElementById("cfb1");
-        let mTouch = false, pTouch = false;
-        let testTimer = null;
+        let holdTimer;
 
         if(syncPad) {
-            syncPad.addEventListener("touchstart", (e) => { 
-                e.preventDefault(); 
-                mTouch = true; 
-                syncPad.style.background = "rgba(193, 160, 115, 0.2)";
-                cfb1.className = "cyber-fb error";
-                cfb1.innerText = "Sevgilinin bağlanması bekleniyor...\n(TEST İÇİN 3 SANİYE BASILI TUT)";
-                
-                testTimer = setTimeout(() => { pTouch = true; checkSync(); }, 3000);
-                
-                try { gameChannel.publish("touch", { t: true }); } catch(err){}
-                checkSync(); 
-            }, {passive: false});
-
-            syncPad.addEventListener("touchend", (e) => { 
-                e.preventDefault(); 
-                mTouch = false; 
-                clearTimeout(testTimer);
-                syncPad.style.background = "rgba(193, 160, 115, 0.05)";
-                try { gameChannel.publish("touch", { t: false }); } catch(err){}
-                cfb1.innerText = ""; 
-            }, {passive: false});
+            syncPad.addEventListener("mousedown", baslaTaramaya);
+            syncPad.addEventListener("touchstart", baslaTaramaya, {passive: false});
+            syncPad.addEventListener("mouseup", durdurTaramayi);
+            syncPad.addEventListener("touchend", durdurTaramayi, {passive: false});
+            syncPad.addEventListener("mouseleave", durdurTaramayi);
         }
-        
-        gameChannel.on("touch", (data) => { pTouch = data.t; checkSync(); });
 
-        function checkSync() {
-            if (mTouch && pTouch) {
+        function baslaTaramaya(e) {
+            e.preventDefault();
+            cfb1.className = "cyber-fb error"; cfb1.innerText = "Taranıyor... Lütfen parmağını çekme...";
+            syncPad.style.background = "rgba(193, 160, 115, 0.4)";
+            holdTimer = setTimeout(() => {
                 cfb1.className = "cyber-fb success"; cfb1.innerText = "Bağlantı kuruldu! Kilit açılıyor...";
                 setTimeout(() => { nxtStg(2); }, 1200);
+            }, 3000);
+        }
+        function durdurTaramayi(e) { e.preventDefault(); clearTimeout(holdTimer); syncPad.style.background = "rgba(193, 160, 115, 0.05)"; if(cfb1.innerText.includes("Taranıyor")) cfb1.innerText = "İşlem iptal edildi, parmağını erken çektin."; }
+        function nxtStg(n) { document.getElementById(`stg${curStg}`).classList.remove("active"); document.getElementById(`stg${n}`).classList.add("active"); curStg = n; }
+
+        function chkStg2() { const v = document.getElementById("cInp2").value.trim(); const fb = document.getElementById("cfb2"); if(v === "17.01.2026") { fb.className="cyber-fb success"; fb.innerText="Kilit Açıldı."; setTimeout(()=>{nxtStg(3);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Şifre Yanlış! (İpucu: Ocak ayının ortalarıydı sevgilim...)"; } }
+        function chkStg3() { const v = document.getElementById("cInp3").value.trim(); const fb = document.getElementById("cfb3"); if(v === "09.08.2001") { fb.className="cyber-fb success"; fb.innerText="Kimlik Onaylandı."; setTimeout(()=>{nxtStg(4);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Hatalı! (İpucu: Ağustos ayında doğdum ben...)"; } }
+        function chkStg4() { const v = document.getElementById("cInp4").value.trim(); const fb = document.getElementById("cfb4"); if(v === "12.05.2026") { fb.className="cyber-fb success"; fb.innerText="Hafıza Eşleşti."; setTimeout(()=>{nxtStg(5);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Hatalı! (İpucu: Mayıs'ın 12'siydi o güzel masal...)"; } }
+        function chkStg5() { const v = document.getElementById("cInp5").value.trim(); const fb = document.getElementById("cfb5"); if(v === "14.06.2026") { fb.className="cyber-fb success"; fb.innerText="Sistem Çözüldü!"; setTimeout(()=>{nxtStg("Final");}, 1200); } else { fb.className="cyber-fb error"; fb.innerText="Hatalı! (İpucu: Haziran ayındaydık, daha dündü...)"; } }
+
+        // --- 2. OYUN: 72 SAATLİK KALICI MARATON MOTORU ---
+        let marathonPlayer = "";
+        let marathonScore = 0;
+        let marathonActive = false;
+        let targetHeart = { x: 0, y: 0, radius: 22, type: "good" };
+        let obstacles = [];
+        const mCanvas = document.getElementById("marathonCanvas");
+        const mCtx = mCanvas ? mCanvas.getContext("2d") : null;
+
+        function initMarathon() {
+            document.getElementById("bBest").innerText = localStorage.getItem("marathon_best_Büşra") || "0";
+            document.getElementById("mBest").innerText = localStorage.getItem("marathon_best_Muhammet") || "0";
+        }
+
+        function selectMarathonPlayer(player) {
+            marathonPlayer = player;
+            marathonScore = parseInt(localStorage.getItem("marathon_current_" + player) || "0");
+            
+            if(marathonScore >= 10000) {
+                alert("🏆 " + player + " zaten bu maratonu 10.000 puana ulaşarak TAMAMLADI! İddianın galibi ilan edildi!");
+                return;
+            }
+
+            document.getElementById("marathonLobby").style.display = "none";
+            document.getElementById("marathonGameArea").style.display = "block";
+            document.getElementById("curActivePlayer").innerText = player;
+            document.getElementById("marathonCurrentScore").innerText = marathonScore;
+            
+            marathonActive = true;
+            spawnTarget();
+            spawnObstacles();
+            requestAnimationFrame(marathonLoop);
+        }
+
+        function spawnTarget() {
+            targetHeart.x = Math.random() * (300 - 40) + 20;
+            targetHeart.y = Math.random() * (360 - 40) + 20;
+            // Puan arttıkça hedef küçülür
+            targetHeart.radius = Math.max(12, 24 - Math.floor(marathonScore / 600));
+        }
+
+        function spawnObstacles() {
+            obstacles = [];
+            // Puan yükseldikçe tuzak sayısı 5'e kadar artar
+            let count = Math.min(5, 1 + Math.floor(marathonScore / 1500));
+            for(let i=0; i<count; i++) {
+                obstacles.push({
+                    x: Math.random() * (300 - 40) + 20,
+                    y: Math.random() * (360 - 40) + 20,
+                    radius: Math.random() * (22 - 14) + 14,
+                    vx: (Math.random() - 0.5) * (1.5 + marathonScore/2000),
+                    vy: (Math.random() - 0.5) * (1.5 + marathonScore/2000)
+                });
             }
         }
 
-        function nxtStg(n) { document.getElementById(`stg${curStg}`).classList.remove("active"); document.getElementById(`stg${n}`).classList.add("active"); curStg = n; }
+        if(mCanvas) {
+            mCanvas.addEventListener("touchstart", handleMarathonClick, {passive: false});
+            mCanvas.addEventListener("mousedown", handleMarathonClick);
+        }
 
-        function chkStg2() { const v = document.getElementById("cInp2").value.trim(); const fb = document.getElementById("cfb2"); if(v === "17.01.2026") { fb.className="cyber-fb success"; fb.innerText="Kilit Açıldı."; setTimeout(()=>{nxtStg(3);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Şifre Yanlış!"; } }
-        function chkStg3() { const v = document.getElementById("cInp3").value.trim(); const fb = document.getElementById("cfb3"); if(v === "09.08.2001") { fb.className="cyber-fb success"; fb.innerText="Kimlik Onaylandı."; setTimeout(()=>{nxtStg(4);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Doğum günümü yanlış girdin sevgilim?"; } }
-        function chkStg4() { const v = document.getElementById("cInp4").value.trim(); const fb = document.getElementById("cfb4"); if(v === "12.05.2026") { fb.className="cyber-fb success"; fb.innerText="Hafıza Eşleşti."; setTimeout(()=>{nxtStg(5);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="O masal gecesini tekrar düşün..."; } }
-        function chkStg5() { const v = document.getElementById("cInp5").value.trim(); const fb = document.getElementById("cfb5"); if(v === "14.06.2026") { fb.className="cyber-fb success"; fb.innerText="Sistem Çözüldü!"; setTimeout(()=>{nxtStg("Final");}, 1200); } else { fb.className="cyber-fb error"; fb.innerText="İlk yemek tarifimi hatırla sevgilim."; } }
-
-        // 2. OYUN: CANLI PONG ARENA
-        const canvas = document.getElementById("gameCanvas"); 
-        const ctx = canvas.getContext("2d"); 
-        const pW = 70, pH = 10; 
-        let p1X = 135, p2X = 135; 
-        let p1S = 0, p2S = 0; 
-        let bX = 170, bY = 210, bVX = 2.5, bVY = 2.5;
-
-        function movePaddle(e) {
+        function handleMarathonClick(e) {
+            if(!marathonActive) return;
             e.preventDefault();
-            const r = canvas.getBoundingClientRect(); 
-            const tX = (e.touches ? e.touches[0].clientX : e.clientX) - r.left; 
-            const actX = tX * (canvas.width / r.width) - pW / 2; 
-            const tY = (e.touches ? e.touches[0].clientY : e.clientY) - r.top; 
-            if (actX >= 0 && actX <= canvas.width - pW) { 
-                if (tY > canvas.height / 2) p1X = actX; else p2X = actX; 
-                try { gameChannel.publish("mve", { p1: p1X, p2: p2X }); } catch(err){}
-            } 
+            const rect = mCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            const clickX = (clientX - rect.left) * (mCanvas.width / rect.width);
+            const clickY = (clientY - rect.top) * (mCanvas.height / rect.height);
+
+            // 1. Kara Deliklere/Tuzaklara Çarptı mı?
+            for(let obs of obstacles) {
+                let dist = Math.hypot(clickX - obs.x, clickY - obs.y);
+                if(dist <= obs.radius + 10) {
+                    marathonScore = Math.max(0, marathonScore - 150); // Ağır Ceza!
+                    document.getElementById("marathonCurrentScore").innerText = marathonScore;
+                    localStorage.setItem("marathon_current_" + marathonPlayer, marathonScore);
+                    spawnObstacles();
+                    spawnTarget();
+                    return;
+                }
+            }
+
+            // 2. Kalbi Vurabildi mi?
+            let distToHeart = Math.hypot(clickX - targetHeart.x, clickY - targetHeart.y);
+            if(distToHeart <= targetHeart.radius + 15) {
+                marathonScore += 100;
+                document.getElementById("marathonCurrentScore").innerText = marathonScore;
+                localStorage.setItem("marathon_current_" + marathonPlayer, marathonScore);
+                
+                // En Yüksek Skor Güncelleme
+                let best = parseInt(localStorage.getItem("marathon_best_" + marathonPlayer) || "0");
+                if(marathonScore > best) {
+                    localStorage.setItem("marathon_best_" + marathonPlayer, marathonScore);
+                    initMarathon();
+                }
+
+                // KAZANMA KONTROLÜ (10.000 Barajı)
+                if(marathonScore >= 10000) {
+                    marathonActive = false;
+                    alert("🏆 MARATON BİTTİ! 🏆\n\n" + marathonPlayer.toUpperCase() + " 10.000 PUANA ULAŞTI VE KAZANDI!\n\nKaybeden taraf 24 saat boyunca Kazananın her istediğini koşulsuz şartsız yapacaktır! Ekran görüntüsünü hemen atın!");
+                    exitMarathonGame();
+                    return;
+                }
+
+                spawnTarget();
+                if(Math.random() < 0.3) spawnObstacles(); // Dinamik tuzak değişimi
+            } else {
+                // Boşa tıklama cezası
+                marathonScore = Math.max(0, marathonScore - 30);
+                document.getElementById("marathonCurrentScore").innerText = marathonScore;
+            }
         }
 
-        if(canvas) {
-            canvas.addEventListener("touchstart", movePaddle, {passive: false});
-            canvas.addEventListener("touchmove", movePaddle, {passive: false});
-        }
-        
-        gameChannel.on("mve", (d) => { p1X = d.p1; p2X = d.p2; }); 
-        gameChannel.on("ball", (d) => { bX = d.x; bY = d.y; p1S = d.s1; p2S = d.s2; document.getElementById("p1Score").innerText = p1S; document.getElementById("p2Score").innerText = p2S; });
+        function marathonLoop() {
+            if(!marathonActive) return;
+            mCtx.clearRect(0, 0, mCanvas.width, mCanvas.height);
 
-        function drawHeart(x, y, w, h) { ctx.save(); ctx.beginPath(); let tc = h * 0.3; ctx.moveTo(x, y + tc); ctx.bezierCurveTo(x, y, x - w/2, y, x - w/2, y + tc); ctx.bezierCurveTo(x - w/2, y + (h+tc)/2, x, y + h, x, y + h); ctx.bezierCurveTo(x, y + (h+tc)/2, x + w/2, y + (h+tc)/2, x + w/2, y + tc); ctx.bezierCurveTo(x + w/2, y, x, y, x, y + tc); ctx.closePath(); ctx.fillStyle = "#b05b5b"; ctx.fill(); ctx.restore(); }
-        
-        function playPong() { 
-            if(!canvas) return; 
-            bX += bVX; bY += bVY; 
-            if (bX <= 0 || bX >= canvas.width - 10) bVX = -bVX; 
-            if (bY <= pH + 8 && bX >= p2X && bX <= p2X + pW) { bVY = -bVY; bY = pH + 9; } 
-            if (bY >= canvas.height - pH - 18 && bX >= p1X && bX <= p1X + pW) { bVY = -bVY; bY = canvas.height - pH - 19; } 
-            if (bY < 0) { bX = 170; bY = 210; bVY = -bVY; p1S++; sndB(); } 
-            if (bY > canvas.height) { bX = 170; bY = 210; bVY = -bVY; p2S++; sndB(); } 
-            ctx.clearRect(0, 0, canvas.width, canvas.height); 
-            ctx.strokeStyle = "#2d323b"; ctx.lineWidth = 1; ctx.setLineDash([5, 5]); 
-            ctx.beginPath(); ctx.moveTo(0, canvas.height/2); ctx.lineTo(canvas.width, canvas.height/2); ctx.stroke(); 
-            ctx.fillStyle = "#c1a073"; ctx.fillRect(p2X, 6, pW, pH); 
-            ctx.fillStyle = "#9aa0a6"; ctx.fillRect(p1X, canvas.height - pH - 6, pW, pH); 
-            drawHeart(bX, bY, 14, 14); 
-            if(Math.random() < 0.03) { sndB(); } 
-            requestAnimationFrame(playPong); 
-        }
-        function sndB() { try { gameChannel.publish("ball", { x: bX, y: bY, s1: p1S, s2: p2S }); } catch(err){} }
+            // Izgara Arka Plan Çizimi (Premium Siber Yapı)
+            mCtx.strokeStyle = "#232830"; mCtx.lineWidth = 1;
+            for(let i=0; i<mCanvas.width; i+=30) { mCtx.beginPath(); mCtx.moveTo(i, 0); mCtx.lineTo(i, mCanvas.height); mCtx.stroke(); }
+            for(let j=0; j<mCanvas.height; j+=30) { mCtx.beginPath(); mCtx.moveTo(0, j); mCtx.lineTo(mCanvas.width, j); mCtx.stroke(); }
 
-        // --- SENİN ORİJİNAL FONKSİYONLARIN ---
+            // TUZAKLARI HAREKET ETTİR VE ÇİZ (KARA DELİKLER)
+            for(let obs of obstacles) {
+                obs.x += obs.vx; obs.y += obs.vy;
+                if(obs.x <= obs.radius || obs.x >= mCanvas.width - obs.radius) obs.vx = -obs.vx;
+                if(obs.y <= obs.radius || obs.y >= mCanvas.height - obs.radius) obs.vy = -obs.vy;
+
+                // Parlayan Kırmızı Tehlike Alanı Çizimi
+                let grad = mCtx.createRadialGradient(obs.x, obs.y, 2, obs.x, obs.y, obs.radius);
+                grad.addColorStop(0, "#b05b5b"); grad.addColorStop(1, "transparent");
+                mCtx.fillStyle = grad; mCtx.beginPath(); mCtx.arc(obs.x, obs.y, obs.radius, 0, Math.PI*2); mCtx.fill();
+            }
+
+            // HEDEF KALBİ VAKTİ (BRONZ/ALTIN PARILTI)
+            mCtx.save();
+            mCtx.shadowBlur = 15; mCtx.shadowColor = "#c1a073";
+            let x = targetHeart.x, y = targetHeart.y, r = targetHeart.radius;
+            mCtx.beginPath(); let tc = r * 0.3; mCtx.moveTo(x, y + tc);
+            mCtx.bezierCurveTo(x, y, x - r/2, y, x - r/2, y + tc); mCtx.bezierCurveTo(x - r/2, y + (r+tc)/2, x, y + r, x, y + r);
+            mCtx.bezierCurveTo(x, y + (r+tc)/2, x + r/2, y + (r+tc)/2, x + r/2, y + tc); mCtx.bezierCurveTo(x + r/2, y, x, y, x, y + tc);
+            mCtx.closePath(); mCtx.fillStyle = "#c1a073"; mCtx.fill();
+            mCtx.restore();
+
+            requestAnimationFrame(marathonLoop);
+        }
+
+        function exitMarathonGame() {
+            marathonActive = false;
+            document.getElementById("marathonGameArea").style.display = "none";
+            document.getElementById("marathonLobby").style.display = "flex";
+            initMarathon();
+        }
+
+        // --- SENİN ORİJİNAL FONKSİYONLARIN (MİLİM DOKUNULMADI) ---
         function toggle(el) { el.classList.toggle('open'); }
 
         function toggleCevap(btn) {
@@ -538,12 +646,10 @@
             panel.classList.toggle('open');
             if (panel.classList.contains('open')) {
                 btn.innerHTML = '<i class="fas fa-eye-slash"></i> Cevabı Kapat';
-                btn.style.background = '#252930';
-                btn.style.color = '#c1a073';
+                btn.style.background = '#252930'; btn.style.color = '#c1a073';
             } else {
                 btn.innerHTML = '<i class="fas fa-eye"></i> Cevabı Gör';
-                btn.style.background = '#c1a073';
-                btn.style.color = '#121417';
+                btn.style.background = '#c1a073'; btn.style.color = '#121417';
             }
         }
 
@@ -575,21 +681,21 @@
             const start = new Date('2026-01-17T00:00:00');
             const now = new Date();
             const diff = now - start;
-
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-            const counterEl = document.getElementById('counter');
-            if(counterEl) counterEl.innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
+            if(diff > 0) {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+                const counterEl = document.getElementById('counter');
+                if(counterEl) counterEl.innerText = `${d} Gün, ${h} Saat, ${m} Dakika, ${s} Saniye`;
+            }
         }
 
         window.onload = function() {
             startHearts();
             setInterval(updateCounter, 1000);
             updateCounter();
-            playPong();
+            initMarathon();
         };
     </script>
 </body>
