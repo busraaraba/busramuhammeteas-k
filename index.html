@@ -48,7 +48,7 @@
             0% { transform: translateY(0) rotate(0deg); opacity: 0; }
             10% { opacity: 0.6; }
             90% { opacity: 0.6; }
-            10% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
         .main-card {
@@ -168,7 +168,8 @@
             font-weight: bold;
         }
 
-        /* --- YENİ EKLENEN: MOD BAZLI DİNAMİK ALAN --- */
+        /* --- SADECE SENİN DEDİKLERİNİN EKLENDİĞİ YENİ ALANLAR --- */
+        /* RUH HALİNE ÖZEL ODAMIZ */
         .mood-section {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
@@ -223,12 +224,52 @@
         .mood-img-happy { border: 3px solid #3b82f6; }
         .mood-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; }
         .mood-text { font-size: 0.95rem; color: #475569; line-height: 1.5; text-align: left; }
-        
-        @keyframes fadeInMood {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        /* OYUNLAR AKORDEON YAPISI */
+        .game-cat {
+            border: 1px solid #cbd5e1;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            background: white;
         }
-        /* ------------------------------------------- */
+        .game-cat-header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            padding: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .game-cat-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #0a0a0c;
+            color: #fff;
+        }
+        .game-cat.open .game-cat-content { max-height: 2000px; }
+
+        /* GİZLİ OPERASYON STİLLERİ */
+        .cyber-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; text-align: center; font-family: 'Courier New', Courier, monospace; }
+        .quest-stage { display: none; width: 100%; animation: fadeInMood 0.4s ease-in-out forwards; }
+        .quest-stage.active { display: flex; flex-direction: column; align-items: center; }
+        .touch-pad { width: 110px; height: 110px; border-radius: 50%; border: 3px solid #00f2fe; margin: 15px 0; background: radial-gradient(circle, rgba(0,242,254,0.2) 0%, transparent 70%); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: #00f2fe; }
+        .cyber-input { background: #141418; border: 1px solid #4facfe; color: #fff; padding: 10px; border-radius: 8px; font-family: inherit; text-align: center; font-size: 1rem; width: 80%; margin-bottom: 12px; outline: none; }
+        .cyber-btn { background: linear-gradient(45deg, #4facfe, #00f2fe); border: none; color: #000; font-weight: bold; padding: 10px 20px; border-radius: 8px; font-family: inherit; cursor: pointer; width: 80%; }
+        .cyber-fb { margin-top: 10px; font-size: 0.85rem; min-height: 20px; }
+        .cyber-fb.success { color: #00ff87; }
+        .cyber-fb.error { color: #ff0055; }
+        .final-card { text-align: left; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; border-left: 4px solid #00ff87; font-size: 0.85rem; line-height: 1.5; font-family: sans-serif; }
+
+        /* PONG OYUNU STİLLERİ */
+        .pong-panel { padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        #scoreBoard { display: flex; justify-content: space-between; width: 100%; font-size: 1rem; font-weight: bold; margin-bottom: 10px; }
+        canvas { background-color: #1e1e1e; border: 2px solid #333; border-radius: 8px; max-width: 100%; touch-action: none; }
+        /* ------------------------------------------------------------- */
 
         /* İTİRAFLARIM Bölümü */
         .confession-section {
@@ -398,6 +439,7 @@
 
         .action-btn:hover { background: #059669; transform: translateY(-1px); }
 
+        @keyframes fadeInMood { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
@@ -426,7 +468,7 @@
         <div class="distance-box">
             <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9;">📍 Özlem Mesafe Sayacı 📍</p>
             <div style="font-size: 1.4rem; font-weight: bold; margin-top: 5px;">Konya ↔️ Mersin: 348 KM</div>
-            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #cbd5e1;">*Otobüsle 5 saat, seni düşünürken saliseler kadar yakın sevgilim.*</p>
+            <p style="font-size: 0.85rem; font-style: italic; margin-top: 5px; color: #cbd5e1;">*Otobüsle 5 saat, seni চিন্তা করার সময় saliseler kadar yakın sevgilim.*</p>
         </div>
 
         <div class="music-reminder">
@@ -437,7 +479,7 @@
             </div>
         </div>
 
-        <!-- --- YENİ EKLENEN: MOD BAZLI DİNAMİK ODAMIZ --- -->
+        <!-- RUH HALİNE ÖZEL ODAMIZ -->
         <div class="mood-section">
             <h3 style="font-size: 1.2rem; color: #1e293b;"><i class="fas fa-heartbeat"></i> Ruh Haline Özel Odamız</h3>
             <p style="font-size: 0.85rem; margin-top: 5px; color: #64748b;">Şu an nasıl hissediyorsun sevgilim? Seç, odamız ona göre şekillensin:</p>
@@ -452,7 +494,80 @@
                 <div class="mood-text" id="moodText"></div>
             </div>
         </div>
-        <!-- -------------------------------------------- -->
+
+        <!-- OYUNLAR VE LOBİ MENÜLERİ -->
+        <div class="game-cat" id="gameAccord">
+            <div class="game-cat-header" onclick="this.parentElement.classList.toggle('open')">
+                <span>🎮 Beraber Oynayacağımız Oyunlar (Canlı Lobi)</span> 
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="game-cat-content">
+                
+                <!-- GİZLİ OPERASYON TURNUVASI -->
+                <div class="cyber-panel">
+                    <h3 style="color:#00f2fe; font-size:1.1rem; margin-bottom:15px; border-bottom:1px dashed #333; width:100%; padding-bottom:5px;">
+                        🎯 Siber Görev: Lobi Operasyonu
+                    </h3>
+                    
+                    <div class="quest-stage active" id="stg1">
+                        <p style="font-size:0.85rem; color:#ccc;">Güvenli senkronizasyon için aşağıdaki panele sevgilinle <u>aynı anda</u> basılı tutun:</p>
+                        <div class="touch-pad" id="syncPad">PARMAK İZİ TARA</div>
+                        <div class="cyber-fb" id="cfb1"></div>
+                    </div>
+
+                    <div class="quest-stage" id="stg2">
+                        <p style="font-size:0.85rem; color:#ccc;">Resmi olarak sevgililik hayatımızın başladığı ve ilk kez yan yana uyuduğumuz o büyük milat tarihi?</p>
+                        <input type="text" class="cyber-input" id="cInp2" placeholder="GG.AA.YYYY" maxlength="10">
+                        <button class="cyber-btn" onclick="chkStg2()">VERİYİ DOĞRULA</button>
+                        <div class="cyber-fb" id="cfb2"></div>
+                    </div>
+
+                    <div class="quest-stage" id="stg3">
+                        <p style="font-size:0.85rem; color:#ccc;">Dünyanın en şanslı kadını olmamı sağlayan, benim (Büşra'nın) doğum tarihim?</p>
+                        <input type="text" class="cyber-input" id="cInp3" placeholder="GG.AA.YYYY" maxlength="10">
+                        <button class="cyber-btn" onclick="chkStg3()">KİMLİK DOĞRULA</button>
+                        <div class="cyber-fb" id="cfb3"></div>
+                    </div>
+
+                    <div class="quest-stage" id="stg4">
+                        <p style="font-size:0.85rem; color:#ccc;">Bana o huzurlu, güzel sesinle uzaklardan ilk kez masal okuyup beni uyuttuğun o gece?</p>
+                        <input type="text" class="cyber-input" id="cInp4" placeholder="GG.AA.YYYY" maxlength="10">
+                        <button class="cyber-btn" onclick="chkStg4()">SENKRONİZE ET</button>
+                        <div class="cyber-fb" id="cfb4"></div>
+                    </div>
+
+                    <div class="quest-stage" id="stg5">
+                        <p style="font-size:0.85rem; color:#ccc;">Mutfakta ilk ortak adımımız! Sana heyecanla ilk kez özel bir yemek tarifi verdiğim o gün?</p>
+                        <input type="text" class="cyber-input" id="cInp5" placeholder="GG.AA.YYYY" maxlength="10">
+                        <button class="cyber-btn" onclick="chkStg5()">KİLİDİ ÇÖZ</button>
+                        <div class="cyber-fb" id="cfb5"></div>
+                    </div>
+
+                    <div class="quest-stage" id="stgFinal">
+                        <div class="final-card">
+                            <b style="color:#00ff87;">⚡ OPERASYON BAŞARILI: BAĞLANTI TAMAM ⚡</b><br><br>
+                            Bütün kilitleri geçip hafızamızı doğruladığına göre mesafeler resmi olarak sıfırlanmıştır sevgilim. 17.01.2026'dan beri hayatıma kattığın o masal geceleri, verdiğim tarifler ve tüm güzellikler için iyi ki varsın. Seni çok seviyorum! 🤍
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CANLI MOBIL PONG KAPIŞMASI -->
+                <div class="pong-panel">
+                    <h3 style="color:#1dd1a1; font-size:1.1rem; margin-bottom:10px; border-bottom:1px dashed #333; width:100%; padding-bottom:5px;">
+                        🎮 Mesafe Bükücü // Canlı Mobil Arena
+                    </h3>
+                    <div id="scoreBoard">
+                        <div style="color: #1dd1a1">Mersin (Üst): <span id="p2Score">0</span></div>
+                        <div style="color: #3b82f6">Konya (Alt): <span id="p1Score">0</span></div>
+                    </div>
+                    <canvas id="gameCanvas" width="340" height="420"></canvas>
+                    <p style="font-size:0.75rem; color:#aaa; margin-top:8px; text-align:center;">
+                        Parmağını ekranın altında/üstünde sağa sola kaydırarak uçan kalbi koru! Kaçıran Mersin'e hamburger borçlanır! 🤭
+                    </p>
+                </div>
+
+            </div>
+        </div>
 
         <h3 style="margin-bottom: 20px; font-size: 1.3rem; text-align: center; color: #1e293b;"><i class="fas fa-envelope-open-text"></i> İTİRAFLARIM</h3>
         <div class="confession-section">
@@ -581,51 +696,19 @@
     </div>
 
     <script>
-        // --- YENİ EKLENEN: DİNAMİK VERİ TABANI ---
+        // --- J覆盖: MOD VERİ TABANI ---
         const sadData = [
-            {
-                img: "uzgun1.jpg", 
-                title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔",
-                text: "Uzakta olmak bazen sadece elini tutamadığın için zor gelir ama kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al ve her ne olduysa geçeceğini bil. Kafanı topladığında ben dinlemek için hep buradayım, ne zaman istersen. 🖤"
-            },
-            {
-                img: "uzgun2.jpg",
-                title: "Yüzün düşmesin, uzaktan da olsa yükünü hafifletmek isterim... 💔",
-                text: "Konya ve Mersin arasındaki yollar şu an bizi fiziksel olarak ayırsa da, zihnimi tamamen sana odakladım. Günün yorgunluğunu veya seni sıkan her ne varsa bir kenara bırakalım. Bu akşam mutfağa girip senin bana verdiğin o ilk yemek tarifini (14.06.2026) yapıp kafanı dağıtmak ister misin, yoksa sadece sessizce telefonda kalmamı mı istersen?"
-            },
-            {
-                img: "uzgun3.jpg",
-                title: "Bazen sadece durup dinlenmek gerekir sevgilim...",
-                text: "Hayat bazen üst üste gelir, çok normal. Bilgisayarı, işi, gücü birkaç saatliğine kapat yakışıklım. Kendine güzel bir kahve yap. Eğer istersen, bu sefer ben senin yanında olurum, kafanı dağıtacak sakin bir şeyler izleriz. Sen yeter ki iyi ol."
-            },
-            {
-                img: "uzgun4.jpg",
-                title: "Bana huzur verdiğin o geceyi düşün...",
-                text: "Hani 12.05.2026 gecesi bana o güzel sesinle masal okuyup beni uzaklardan uyutmuştun ya... İşte o gecenin huzuru hâlâ içimde. Şimdi rolleri değişme sırası bende. Eğer moralini düzeltecekse, bu gece ben senin zihnini sakinleştirecek şeyler anlatırım sana. Yalnız değilsin, buradayım."
-            }
+            { img: "uzgun1.jpeg", title: "Sen iyi değilsen, benim de burada bir yanım eksik sevgilim... 😔", text: "Uzakta olmak bazen sadece elini tutamadığın için zor gelir ama kalbim anlık olarak Mersin'deki o yorgunluğunu, can sıkıntını hissediyor. Şimdi derin bir nefes al ve her ne olduysa geçeceğini bil. Kafanı topladığında ben dinlemek için hep buradayım, ne zaman istersen. 🖤" },
+            { img: "uzgun2.jpeg", title: "Yüzün düşmesin, uzaktan da olsa yükünü hafifletmek isterim... 💔", text: "Konya ve Mersin arasındaki yollar şu an bizi fiziksel olarak ayırsa da, zihnimi tamamen sana odakladım. Günün yorgunluğunu veya seni sıkan her ne varsa bir kenara bırakalım. Bu akşam mutfağa girip senin bana verdiğin o ilk yemek tarifini (14.06.2026) yapıp kafanı dağıtmak ister misin?" },
+            { img: "uzgun3.jpeg", title: "Bazen sadece durup dinlenmek gerekir sevgilim...", text: "Hayat bazen üst üste gelir, çok normal. Bilgisayarı, işi, gücü birkaç saatliğine kapat yakışıklım. Kendine güzel bir kahve yap. Eğer istersen, bu sefer ben senin yanında olurum, kafanı dağıtacak sakin bir şeyler izleriz. Sen yeter ki iyi ol." },
+            { img: "uzgun4.jpeg", title: "Bana huzur verdiğin o geceyi düşün...", text: "Hani 12.05.2026 gecesi bana o güzel sesinle masal okuyup beni uzaklardan uyutmuştun ya... İşte o gecenin huzuru hâlâ içimde. Şimdi rolleri değişme sırası bende. Eğer moralini düzeltecekse, bu gece ben senin zihnini sakinleştirecek şeyler anlatırım sana." }
         ];
 
         const happyData = [
-            {
-                img: "mutlu1.jpg",
-                title: "Senin keyfinin yerinde olması burayı da aydınlatıyor! 🚀",
-                text: "Gününün güzel geçmesine çok sevindim sevgilim. Bu güzel enerjiyi daha da yukarı taşımak için akşam güzel bir film seçelim mi, yoksa kulaklıkları takıp bizim o her zaman dinlediğimiz playliste mi gömülelim?"
-            },
-            {
-                img: "mutlu2.jpg",
-                title: "Gülüşün tüm mesafeleri anlamsız kılıyor sevgilim. 😁",
-                text: "Mersin'den buraya kadar enerjinin ulaştığını hissedebiliyorum. Madem bugün modumuz yüksek, belki de bir sonraki buluşma biletimizin tarihini netleştirme vaktimiz gelmiştir? 😉"
-            },
-            {
-                img: "mutlu3.jpg",
-                title: "İyi ki hayatımdasın be sevgilim... 🖤",
-                text: "17.01.2026'da resmi olarak yan yana ilk kez uyuduğumuz o günden beri, hayatıma kattığın her güzel an için teşekkür ederim. Keyfinin yerinde olması benim için en büyük mutluluk. Bugünün tadını çıkar."
-            },
-            {
-                img: "mutlu4.jpg",
-                title: "Bu güzel modu bir filmle taçlandıralım mı? 🎯",
-                text: "Enerjin harika! Akşam bilgisayar veya telefon başına geçtiğimizde aşağıdan şık bir film kategorisi seç de hemen mısırları hazırlayayım. Hazır mısın yakışıklım?"
-            }
+            { img: "mutlu1.jpeg", title: "Senin keyfinin yerinde olması burayı da aydınlatıyor! 🚀", text: "Gününün güzel geçmesine çok sevindim sevgilim. Bu güzel enerjiyi daha da yukarı taşımak için akşam güzel bir film seçelim mi, yoksa kulaklıkları takıp bizim o her zaman dinlediğimiz playliste mi gömülelim?" },
+            { img: "mutlu2.jpeg", title: "Gülüşün tüm mesafeleri anlamsız kılıyor sevgilim. 😁", text: "Mersin'den buraya kadar enerjinin ulaştığını hissedebiliyorum. Madem bugün modumuz yüksek, belki de bir sonraki buluşma biletimizin tarihini netleştirme vaktimiz gelmiştir? 😉" },
+            { img: "mutlu3.jpeg", title: "İyi ki hayatımdasın be sevgilim... 🖤", text: "17.01.2026'da resmi olarak yan yana ilk kez uyuduğumuz o günden beri, hayatıma kattığın her güzel an için teşekkür ederim. Keyfinin yerinde olması benim için en büyük mutluluk." },
+            { img: "mutlu4.jpeg", title: "Bu güzel modu bir filmle taçlandıralım mı? 🎯", text: "Enerjin harika! Akşam bilgisayar veya telefon başına geçtiğimizde aşağıdan şık bir film kategorisi seç de hemen mısırları hazırlayayım." }
         ];
 
         function gosterMod(mode) {
@@ -633,8 +716,6 @@
             const img = document.getElementById("moodImage");
             const title = document.getElementById("moodTitle");
             const text = document.getElementById("moodText");
-            
-            // 0 ile 3 arası rastgele seçim
             const randomIndex = Math.floor(Math.random() * 4);
             panel.style.display = "block";
 
@@ -642,20 +723,54 @@
                 const veri = sadData[randomIndex];
                 img.src = veri.img;
                 img.className = "mood-img mood-img-sad";
-                title.innerText = veri.title;
-                title.style.color = "#475569";
+                title.innerText = veri.title; title.style.color = "#475569";
                 text.innerText = veri.text;
             } else {
                 const veri = happyData[randomIndex];
                 img.src = veri.img;
                 img.className = "mood-img mood-img-happy";
-                title.innerText = veri.title;
-                title.style.color = "#3b82f6";
+                title.innerText = veri.title; title.style.color = "#3b82f6";
                 text.innerText = veri.text;
             }
         }
-        // --------------------------------------------
 
+        // --- CANLI BAĞLANTI & OYUN MOTORLARI ---
+        const pieSocket = new PieSocket({ clusterId: "demo", apiKey: "oZ76Z9asb6vYTIeY77vBwfcgnd60gB0eTYbT7is9" });
+        const gameChannel = pieSocket.subscribe("ortak-lobi-salonu-2026");
+
+        let curStg = 1;
+        const syncPad = document.getElementById("syncPad");
+        const cfb1 = document.getElementById("cfb1");
+        let mTouch = false, pTouch = false;
+
+        syncPad.addEventListener("touchstart", (e) => { e.preventDefault(); mTouch = true; gameChannel.publish("touch", { t: true }); checkSync(); });
+        syncPad.addEventListener("touchend", () => { mTouch = false; gameChannel.publish("touch", { t: false }); cfb1.innerText = ""; });
+        gameChannel.on("touch", (data) => { pTouch = data.t; checkSync(); });
+
+        function checkSync() {
+            if (mTouch && pTouch) {
+                cfb1.className = "cyber-fb success"; cfb1.innerText = "Bağlantı kuruldu! Turnuva açılıyor...";
+                setTimeout(() => { nxtStg(2); }, 1200);
+            } else if (mTouch) { cfb1.className = "cyber-fb error"; cfb1.innerText = "Sevgilinin de basması bekleniyor..."; }
+        }
+
+        function nxtStg(n) { document.getElementById(`stg${curStg}`).classList.remove("active"); document.getElementById(`stg${n}`).classList.add("active"); curStg = n; }
+
+        function chkStg2() { const v = document.getElementById("cInp2").value.trim(); const fb = document.getElementById("cfb2"); if(v === "17.01.2026") { fb.className="cyber-fb success"; fb.innerText="Kilit Açıldı."; setTimeout(()=>{nxtStg(3);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Şifre Yanlış!"; } }
+        function chkStg3() { const v = document.getElementById("cInp3").value.trim(); const fb = document.getElementById("cfb3"); if(v === "09.08.2001") { fb.className="cyber-fb success"; fb.innerText="Kimlik Onaylandı."; setTimeout(()=>{nxtStg(4);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="Doğum günümü yanlış girdin sevgilim?"; } }
+        function chkStg4() { const v = document.getElementById("cInp4").value.trim(); const fb = document.getElementById("cfb4"); if(v === "12.05.2026") { fb.className="cyber-fb success"; fb.innerText="Hafıza Eşleşti."; setTimeout(()=>{nxtStg(5);}, 1000); } else { fb.className="cyber-fb error"; fb.innerText="O masal gecesini tekrar düşün..."; } }
+        function chkStg5() { const v = document.getElementById("cInp5").value.trim(); const fb = document.getElementById("cfb5"); if(v === "14.06.2026") { fb.className="cyber-fb success"; fb.innerText="Sistem Çözüldü!"; setTimeout(()=>{nxtStg("Final");}, 1200); } else { fb.className="cyber-fb error"; fb.innerText="İlk yemek tarifimi hatırla sevgilim."; } }
+
+        // PONG AYARLARI
+        const canvas = document.getElementById("gameCanvas"); const ctx = canvas.getContext("2d"); const pW = 70, pH = 10; let p1X = 135, p2X = 135; let p1S = 0, p2S = 0; let bX = 170, bY = 210, bVX = 2.5, bVY = 2.5;
+        canvas.addEventListener("touchmove", (e) => { e.preventDefault(); const r = canvas.getBoundingClientRect(); const tX = e.touches[0].clientX - r.left; const actX = tX * (canvas.width / r.width) - pW / 2; const tY = (e.touches[0].clientY - r.top) * (canvas.height / r.height); if (actX >= 0 && actX <= canvas.width - pW) { if (tY > canvas.height / 2) p1X = actX; else p2X = actX; gameChannel.publish("mve", { p1: p1X, p2: p2X }); } });
+        gameChannel.on("mve", (d) => { p1X = d.p1; p2X = d.mve ? d.p2 : d.p2; }); gameChannel.on("ball", (d) => { bX = d.x; bY = d.y; p1S = d.s1; p2S = d.s2; document.getElementById("p1Score").innerText = p1S; document.getElementById("p2Score").innerText = p2S; });
+
+        function drawHeart(x, y, w, h) { ctx.save(); ctx.beginPath(); let tc = h * 0.3; ctx.moveTo(x, y + tc); ctx.bezierCurveTo(x, y, x - w/2, y, x - w/2, y + tc); ctx.bezierCurveTo(x - w/2, y + (h+tc)/2, x, y + h, x, y + h); ctx.bezierCurveTo(x, y + (h+tc)/2, x + w/2, y + (h+tc)/2, x + w/2, y + tc); ctx.bezierCurveTo(x + w/2, y, x, y, x, y + tc); ctx.closePath(); ctx.fillStyle = "#ff4757"; ctx.fill(); ctx.restore(); }
+        function playPong() { bX += bVX; bY += bVY; if (bX <= 0 || bX >= canvas.width - 10) bVX = -bVX; if (bY <= pH + 8 && bX >= p2X && bX <= p2X + pW) { bVY = -bVY; bY = pH + 9; } if (bY >= canvas.height - pH - 18 && bX >= p1X && bX <= p1X + pW) { bVY = -bVY; bY = canvas.height - pH - 19; } if (bY < 0) { bX = 170; bY = 210; bVY = -bVY; p1S++; sndB(); } if (bY > canvas.height) { bX = 170; bY = 210; bVY = -bVY; p2S++; sndB(); } ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.strokeStyle = "#333"; ctx.lineWidth = 1; ctx.setLineDash([5, 5]); ctx.beginPath(); ctx.moveTo(0, canvas.height/2); ctx.lineTo(canvas.width, canvas.height/2); ctx.stroke(); ctx.fillStyle = "#1dd1a1"; ctx.fillRect(p2X, 6, pW, pH); ctx.fillStyle = "#3b82f6"; ctx.fillRect(p1X, canvas.height - pH - 6, pW, pH); drawHeart(bX, bY, 14, 14); if(Math.random() < 0.03) { sndB(); } requestAnimationFrame(playPong); }
+        function sndB() { gameChannel.publish("ball", { x: bX, y: bY, s1: p1S, s2: p2S }); }
+
+        // SENİN ORİJİNAL FONKSİYONLARIN (DOKUNULMADI)
         function toggle(el) { el.classList.toggle('open'); }
 
         function toggleCevap(btn) {
@@ -671,7 +786,7 @@
         }
 
         function affet() {
-            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at ve filmimizi seçelim sevgilim! 😍");
+            alert("Harika! Muhammet resmi olarak 'Mersin'in En Anlayışlı Sevgilisi' seçildi. Şimdi hemen Konya'ya bir mesaj at and filmimizi seçelim sevgilim! 😍");
         }
 
         function simuleEt(yontem) {
@@ -715,6 +830,7 @@
             startHearts();
             setInterval(updateCounter, 1000);
             updateCounter();
+            playPong();
         };
     </script>
 </body>
